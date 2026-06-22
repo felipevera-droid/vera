@@ -1,1 +1,829 @@
-{"santiago": {"Sciences": [{"title": "Unit 1 – Energy in the Biosphere (Criterion A Practice)", "questions": [{"type": "mc", "q": "Which of the following BEST describes an ecosystem?", "options": ["A group of animals living together in the same place", "A system where living organisms interact only with each other", "A community of living organisms interacting with each other and with their non-living environment", "A collection of only animals that do not rely on their surroundings"], "answer": "A community of living organisms interacting with each other and with their non-living environment", "hint": "An ecosystem includes BOTH biotic (living) AND abiotic (non-living) factors working together."}, {"type": "mc", "q": "Which of the following is an example of an ABIOTIC factor in an ecosystem?", "options": ["Grass", "A rabbit", "Sunlight", "Fungi"], "answer": "Sunlight", "hint": "Abiotic means NON-living. Think about which option is not a living organism."}, {"type": "mc", "q": "During photosynthesis, what raw materials do plants use?", "options": ["Glucose, water, and oxygen", "Sunlight, water, and carbon dioxide", "Oxygen, glucose, and carbon dioxide", "Sunlight, glucose, and nitrogen"], "answer": "Sunlight, water, and carbon dioxide", "hint": "Remember the equation: 6CO2 + 6H2O + light energy = C6H12O6 + 6O2"}, {"type": "mc", "q": "Which trophic level is responsible for entering energy from the Sun into the ecosystem?", "options": ["Primary consumers", "Decomposers", "Producers", "Tertiary consumers"], "answer": "Producers", "hint": "Which organisms can make their own food using sunlight through photosynthesis?"}, {"type": "mc", "q": "A grasshopper eats grass. A frog eats the grasshopper. What trophic level does the FROG occupy?", "options": ["Producer (Trophic Level 1)", "Primary Consumer (Trophic Level 2)", "Secondary Consumer (Trophic Level 3)", "Decomposer"], "answer": "Secondary Consumer (Trophic Level 3)", "hint": "The frog eats an animal (grasshopper) that eats plants. Count the levels: grass - grasshopper - frog."}, {"type": "mc", "q": "In a trophic pyramid of energy, approximately what percentage of energy is transferred from one level to the next?", "options": ["100%", "50%", "10%", "1%"], "answer": "10%", "hint": "Most energy is lost through respiration, heat, movement, and waste at each level."}, {"type": "open", "q": "Outline the difference between biotic and abiotic factors in an ecosystem. Give TWO examples of each and explain how they interact with each other.", "answer": "Biotic factors are living components of an ecosystem, such as plants, animals, fungi, and bacteria. Abiotic factors are non-living components, such as sunlight, water, temperature, and soil. They interact because living organisms depend on non-living factors to survive: for example, plants (biotic) need sunlight and water (abiotic) to perform photosynthesis, and animals (biotic) need water (abiotic) to drink and air (abiotic) to breathe. If abiotic factors change (e.g. less water), biotic factors are affected (plants die, animals lose food).", "hint": "Think about what 'living' vs 'non-living' means, and how they depend on each other."}, {"type": "open", "q": "Outline the importance of producers (photosynthetic organisms) in an ecosystem. Include the photosynthesis equation and explain their role in the food chain.", "answer": "Producers (plants, algae, some bacteria) are essential because they convert solar energy into chemical energy (glucose) through photosynthesis: 6CO2 + 6H2O + light energy = C6H12O6 + 6O2. They form the BASE of all food chains and food webs, providing food and energy for all consumers. Without producers, no energy from the Sun could enter the ecosystem. They also release oxygen needed for respiration and remove carbon dioxide from the atmosphere, helping maintain environmental balance and supporting biodiversity.", "hint": "Think about where ALL energy in a food chain originally comes from, and what would happen without plants."}, {"type": "open", "q": "Deforestation is destroying bird habitats. Suggest what would happen to the food chain if the bird population decreases significantly. Then suggest TWO solutions to protect birds.", "answer": "If bird populations decrease: (1) Insects that birds eat would increase in number (population explosion), potentially becoming pests. (2) Predators that eat birds (like snakes or hawks) would lose a food source and their populations would also decline. (3) Plants that depend on birds for seed dispersal or pollination would be affected. The entire food web would become unbalanced. Solutions: (1) Create protected natural reserves where deforestation is prohibited. (2) Plant new trees and restore habitats to give birds places to nest.", "hint": "Think step by step: what eats birds? What do birds eat? What happens when one link in the chain is removed?"}, {"type": "open", "q": "Interpret the following biomass pyramid data: Producers = 10,000 g/m2, Primary Consumers = 1,000 g/m2, Secondary Consumers = 100 g/m2, Tertiary Consumers = 10 g/m2. Describe the general trend, include the data to support it, and explain WHY producers are the most important level.", "answer": "This is an upright biomass pyramid (terrestrial). The general trend shows that biomass DECREASES as you move up each trophic level. Producers have the most biomass at 10,000 g/m2, which is 10 times more than primary consumers (1,000 g/m2), 100 times more than secondary consumers (100 g/m2), and 1,000 times more than tertiary consumers (10 g/m2). Only about 10% of biomass is transferred to the next level because energy is lost through respiration, heat, movement, incomplete digestion, and excretion. Producers are the most important level because they are the foundation - they capture solar energy through photosynthesis and make it available to the entire ecosystem. Without them, no other trophic level could exist.", "hint": "Compare the numbers between each level. What is the ratio? Why does this happen? Think about energy loss."}]}, {"title": "Unit 1 – Energy in the Biosphere (Practice Test 2)", "questions": [{"type": "mc", "q": "Which of the following is a TERRESTRIAL ecosystem?", "options": ["A coral reef", "A freshwater pond", "A desert", "The open ocean"], "answer": "A desert", "hint": "Terrestrial means land-based. Which of these ecosystems is found on land, not in water?"}, {"type": "mc", "q": "What are the TWO main products of photosynthesis?", "options": ["Carbon dioxide and water", "Glucose and oxygen", "Sunlight and carbon dioxide", "Water and nitrogen"], "answer": "Glucose and oxygen", "hint": "Look at the RIGHT side of the photosynthesis equation: 6CO2 + 6H2O + light = C6H12O6 + 6O2"}, {"type": "mc", "q": "Fungi and bacteria that break down dead organisms and return nutrients to the soil are called:", "options": ["Producers", "Primary consumers", "Tertiary consumers", "Decomposers"], "answer": "Decomposers", "hint": "Which type of organism recycles nutrients from dead matter back into the ecosystem?"}, {"type": "mc", "q": "What is the correct ORDER of organization from smallest to largest in biology?", "options": ["Organism to Population to Community to Ecosystem to Biosphere", "Ecosystem to Community to Population to Organism to Biosphere", "Biosphere to Ecosystem to Community to Population to Organism", "Population to Organism to Community to Biosphere to Ecosystem"], "answer": "Organism to Population to Community to Ecosystem to Biosphere", "hint": "Start with a single living thing, then a group of the same species, then different species together..."}, {"type": "mc", "q": "An eagle eats a snake that eats a frog that eats insects that eat grass. What is the eagle in this food chain?", "options": ["Primary consumer", "Secondary consumer", "Tertiary consumer", "Quaternary consumer (apex predator)"], "answer": "Quaternary consumer (apex predator)", "hint": "Count the levels: grass(1) to insect(2) to frog(3) to snake(4) to eagle(?). The eagle is at the top."}, {"type": "mc", "q": "What is the main difference between a food CHAIN and a food WEB?", "options": ["A food chain only includes producers, a food web includes consumers", "A food chain shows a single path of energy flow, a food web shows multiple interconnected paths", "A food web only exists in aquatic ecosystems", "A food chain is more accurate than a food web"], "answer": "A food chain shows a single path of energy flow, a food web shows multiple interconnected paths", "hint": "Think about the word web - it has many connections, not just one straight line."}, {"type": "open", "q": "Outline why photosynthetic organisms are considered autotrophs. Explain the difference between autotrophs and heterotrophs, giving TWO examples of each.", "answer": "Photosynthetic organisms are called autotrophs because they can produce their own food (chemical energy) using sunlight, water, and carbon dioxide through photosynthesis. Auto means self and troph means food, so autotrophs are self-feeders. Examples of autotrophs: plants and algae. Heterotrophs cannot make their own food and must consume other organisms to obtain energy. Hetero means other, so heterotrophs feed on others. Examples of heterotrophs: rabbits (herbivores that eat plants) and lions (carnivores that eat other animals). The key difference is that autotrophs produce energy from sunlight, while heterotrophs must eat other organisms.", "hint": "Break down the words: auto = self, hetero = other, troph = food/nutrition."}, {"type": "open", "q": "A food chain in a forest ecosystem is: Oak tree to Caterpillar to Robin to Hawk. State the trophic level of EACH organism and outline what would happen to the ecosystem if a disease killed most of the caterpillars.", "answer": "Oak tree = Producer (Trophic Level 1, autotroph). Caterpillar = Primary Consumer (Trophic Level 2, herbivore). Robin = Secondary Consumer (Trophic Level 3, carnivore). Hawk = Tertiary Consumer (Trophic Level 4, apex predator). If a disease killed most caterpillars: (1) Oak trees would grow more because fewer caterpillars are eating their leaves. (2) Robins would lose their main food source, so their population would decrease. (3) Hawks that eat robins would also be affected because fewer robins means less food for them. (4) The entire food chain would become unbalanced, showing how removing one link affects all others.", "hint": "Label each organism first, then think step by step: what happens ABOVE and BELOW the caterpillar in the chain?"}, {"type": "open", "q": "Explain why energy DECREASES as you move up the trophic pyramid. If producers capture 10,000 kJ of energy, calculate how much energy reaches the tertiary consumers. Use the 10% rule.", "answer": "Energy decreases at each trophic level because organisms use most of the energy they consume for their own life processes: cellular respiration, incomplete digestion, and excretion. Only about 10% of the energy at each level is passed to the next. Calculation: Producers = 10,000 kJ. Primary Consumers = 10,000 x 10% = 1,000 kJ. Secondary Consumers = 1,000 x 10% = 100 kJ. Tertiary Consumers = 100 x 10% = 10 kJ. So tertiary consumers receive only 10 kJ out of the original 10,000 kJ - that is only 0.1% of the original energy. This explains why food chains rarely have more than 4-5 levels.", "hint": "At each level, multiply by 0.10 (10%). Do this three times starting from 10,000 kJ."}, {"type": "open", "q": "Scientists discover that a lake ecosystem is losing its algae population due to pollution. Interpret how this would affect the entire aquatic food web. Include effects on at least THREE different trophic levels and suggest TWO actions humans could take to help restore the ecosystem.", "answer": "Algae are the main producers in aquatic ecosystems. If algae disappear: (1) PRODUCERS level: Less photosynthesis means less oxygen in the water and less chemical energy entering the food web. (2) PRIMARY CONSUMERS: Zooplankton and small fish that eat algae would lose their food source. (3) SECONDARY CONSUMERS: Larger fish that eat zooplankton would also decrease. (4) TERTIARY CONSUMERS: Top predators would be affected as the food web collapses from the bottom up. Actions: (1) Reduce pollution by banning chemical dumping into the lake. (2) Create water treatment systems to filter pollutants before water enters the lake.", "hint": "Start from the bottom (algae = producers) and work your way UP the food web. Think about oxygen too!"}]}, {"title": "Format A – Energy in the Biosphere (Prueba Real Format)", "questions": [{"type": "mc", "q": "PART 1 | [1-2] SELECT: Which of the following BEST describes the role of PRODUCERS in an ecosystem?", "options": ["A. They consume other organisms to obtain energy.", "B. They capture solar energy and convert it into chemical energy through photosynthesis.", "C. They break down dead matter and return nutrients to the soil.", "D. They feed on primary consumers and control population size."], "answer": "B. They capture solar energy and convert it into chemical energy through photosynthesis.", "hint": "Producers are AUTOTROPHS — they make their own food. What process do they use?"}, {"type": "open", "q": "PART 1 | [3-4] RECALL: Classify each of the following as RENEWABLE or NON-RENEWABLE resource. Write R (Renewable) or NR (Non-Renewable) next to each one:\n1. Solar panels\n2. Natural gas\n3. Hydroelectric dam\n4. Coal\n5. Wind turbines", "answer": "1. Solar panels → R (Renewable) — sunlight is inexhaustible.\n2. Natural gas → NR (Non-Renewable) — fossil fuel, takes millions of years to form.\n3. Hydroelectric dam → R (Renewable) — uses the continuous flow of water.\n4. Coal → NR (Non-Renewable) — fossil fuel, finite supply.\n5. Wind turbines → R (Renewable) — wind is a natural and continuous energy source.", "hint": "Renewable = can be replenished naturally and quickly. Non-renewable = took millions of years to form and will run out."}, {"type": "open", "q": "PART 1 | [5-6] STATE: State the energy transformation in each of the following situations:\n\nA) A solar panel on a roof\nFrom _________ into _________\n\nB) A bicycle in motion\nFrom _________ into _________\n\nC) A burning candle\nFrom _________ into _________\n\nD) A ringing telephone\nFrom _________ into _________", "answer": "A) Solar panel: From SOLAR (light) energy into ELECTRICAL energy.\nB) Bicycle: From CHEMICAL energy (food/muscles) into KINETIC (mechanical) energy.\nC) Burning candle: From CHEMICAL energy into LIGHT energy and HEAT energy.\nD) Ringing telephone: From ELECTRICAL energy into SOUND energy.", "hint": "Ask yourself: what TYPE of energy goes IN to make this work, and what TYPE comes OUT as the result?"}, {"type": "open", "q": "PART 1 | [7-8] OUTLINE: Outline how ABIOTIC and BIOTIC factors are related in an ecosystem. Explain why it is important for them to remain in BALANCE. Give at least TWO specific examples of relationships between them.", "answer": "Abiotic factors are non-living components (sunlight, water, soil, temperature, air). Biotic factors are living components (plants, animals, fungi, bacteria). They are deeply interconnected: living organisms DEPEND on non-living factors to survive, grow, and reproduce.\n\nEXAMPLE 1: Plants (biotic) need sunlight and water (abiotic) to perform photosynthesis. Without sunlight, plants cannot produce glucose and die, which removes the food source for all consumers above them.\n\nEXAMPLE 2: Fish (biotic) need dissolved oxygen and clean water (abiotic) to breathe. If water is polluted (abiotic factor disrupted), fish populations collapse, affecting the entire aquatic food web.\n\nIMPORTANCE OF BALANCE: If abiotic factors change significantly (e.g. drought reduces water, pollution reduces soil quality), biotic factors are forced to adapt or die. Fewer producers means less food for consumers. Loss of one biotic species can cause imbalance in the food web (e.g. if bees disappear, plants cannot pollinate and the entire food chain is disrupted). A balanced ecosystem maintains stable populations and energy flow. Imbalance leads to ecosystem collapse and loss of biodiversity.", "hint": "Start with the definition of both, then show HOW they need each other. Use specific examples (plants need sunlight, fish need oxygen)."}, {"type": "mc", "q": "PART 2 | [1-2] SELECT: Study this food chain: Algae → Shrimp → Small Fish → Tuna → Shark. Which organism enters ENERGY into this aquatic food chain?", "options": ["A. Shark", "B. Tuna", "C. Algae", "D. Shrimp"], "answer": "C. Algae", "hint": "Energy enters the food chain through the PRODUCER — the organism that can photosynthesize."}, {"type": "open", "q": "PART 2 | [3-4] SUGGEST: Climate change is causing sea ice in the Arctic to melt rapidly, reducing habitat for seals. As a result, seal populations have been declining. Suggest what would happen to the food chain if seal populations decrease significantly. Suggest ONE solution that could help protect seals. [Food chain: Algae → Zooplankton → Fish → Seal → Polar Bear]", "answer": "IF SEALS DECLINE:\n- Fish populations (primary consumers of seals) would increase because fewer seals are eating them. Fish may then overeat zooplankton, causing zooplankton to decline.\n- Polar bears (which eat seals) would lose their main food source. Polar bear populations would decrease and they might starve or be forced to find alternative food sources on land, increasing human-wildlife conflict.\n- The entire food chain becomes unbalanced because a key middle link (seals) has been weakened.\n\nSOLUTION: Reduce greenhouse gas emissions by switching to renewable energy sources to slow the melting of Arctic sea ice and protect the habitat seals need to survive and breed.", "hint": "What eats seals? What do seals eat? Follow the chain UP and DOWN from seals."}, {"type": "open", "q": "PART 2 | [5-6] SUGGEST: Read the following situation:\n\nScientists have recorded a massive decline in BEE populations globally. Studies show that bees have declined by 46% over the past decade. Human activities such as pesticide use, habitat destruction, monoculture farming, and climate change have contributed to this crisis. Since bees are critical pollinators, their decline is affecting plant reproduction worldwide.\n\nIn regards to this information: Suggest how the decline in bee populations might affect the ecosystem. State which trophic levels would be affected and how.", "answer": "EFFECTS OF BEE DECLINE ON TROPHIC LEVELS:\n\n1. PRODUCERS (plants): Without bees pollinating flowers, many plants cannot reproduce. Fewer seeds and fruits are produced. Plant populations decline, reducing the base of the food chain.\n\n2. PRIMARY CONSUMERS (herbivores — rabbits, deer, caterpillars): As plants decline, herbivores lose food sources. Their populations also decline due to food scarcity.\n\n3. SECONDARY and TERTIARY CONSUMERS (carnivores and apex predators): With fewer herbivores, predators that eat them (foxes, birds of prey) also face food shortages. Their populations shrink too.\n\n4. DECOMPOSERS: Less dead plant matter to decompose, reducing nutrient cycling in soil, making it less fertile and further harming producer recovery.\n\n5. HUMANS: We are also affected — over 70% of food crops depend on bee pollination (fruits, vegetables, nuts). Less pollination means reduced food production globally.\n\nCONCLUSION: Bee decline creates a cascading effect starting at producers and traveling up ALL trophic levels, disrupting the entire food web.", "hint": "Bees pollinate plants. Plants are producers. What happens to EVERYTHING ABOVE producers if there are fewer plants?"}, {"type": "open", "q": "PART 2 | [7-8] OUTLINE + SUGGEST: Outline the factors that might have produced the massive bee decline described above. Then suggest TWO concrete solutions to help reverse the problem of bee decline affecting the ecosystem.", "answer": "FACTORS CAUSING BEE DECLINE:\n1. PESTICIDE USE: Neonicotinoid pesticides used in agriculture attack the nervous system of bees, impairing their navigation, memory, and reproduction. Bees cannot find their way back to the hive.\n2. HABITAT DESTRUCTION: Urban expansion and deforestation eliminate wildflowers and natural habitats where bees nest and feed. Less habitat means smaller bee populations.\n3. MONOCULTURE FARMING: Large farms that grow only ONE type of crop provide insufficient variety of pollen and nectar for bees throughout the year. Bees need diverse flowers.\n4. CLIMATE CHANGE: Rising temperatures alter the timing of flower blooming, so flowers and bees become out of sync (bees emerge but flowers haven't bloomed yet, or vice versa).\n5. DISEASE AND PARASITES: The Varroa mite is a parasite that infects honey bee colonies, weakening and killing them.\n\nTWO SOLUTIONS:\n1. BAN OR RESTRICT neonicotinoid pesticides and promote organic farming that avoids harmful chemicals. This directly addresses the main cause of bee nervous system damage.\n2. CREATE BEE-FRIENDLY HABITATS by planting wildflower corridors between farms, in cities, and in parks. Diverse flowering plants provide nutrition for bees year-round and give them safe nesting sites.", "hint": "Think about what humans do that harms bees: chemicals, land use, climate, disease. Then think: how can each of those be reversed?"}, {"type": "open", "q": "PART 3 | [1-2] STATE: An energy pyramid shows the following data:\n- Producers: 100,000 kJ\n- Primary Consumers: 10,000 kJ\n- Secondary Consumers: 1,000 kJ\n- Tertiary Consumers: 100 kJ\n\na) State the TYPE of pyramid presented.", "answer": "This is an UPRIGHT ENERGY PYRAMID (also called a pyramid of energy or trophic pyramid). It is upright because energy decreases at each level from bottom to top, which is the typical pattern in terrestrial food chains.", "hint": "Is the base wider or narrower than the top? That tells you if it is upright or inverted."}, {"type": "open", "q": "PART 3 | [3-4] STATE: Using the energy pyramid data (Producers: 100,000 kJ / Primary Consumers: 10,000 kJ / Secondary Consumers: 1,000 kJ / Tertiary Consumers: 100 kJ):\n\nb) State which level has the MOST energy. State why you think this is so, using data from the pyramid to support your answer.", "answer": "The PRODUCERS level has the most energy with 100,000 kJ. This is because producers are the first trophic level and they capture energy directly from the Sun through photosynthesis. They have not lost energy by eating other organisms. All other levels receive their energy by eating the level below — and each time energy is transferred, approximately 90% is lost to heat, respiration, and waste. That is why producers (100,000 kJ) have 10 times more energy than primary consumers (10,000 kJ), 100 times more than secondary consumers (1,000 kJ), and 1,000 times more than tertiary consumers (100 kJ).", "hint": "Use the actual numbers to compare. How many times MORE energy do producers have compared to primary consumers?"}, {"type": "open", "q": "PART 3 | [5-6] INTERPRET: Using the same energy pyramid (Producers: 100,000 kJ / Primary Consumers: 10,000 kJ / Secondary Consumers: 1,000 kJ / Tertiary Consumers: 100 kJ):\n\nc) Interpret the information in the pyramid. What happens to the amount of energy as you go up each trophic level? Use the DATA from the pyramid to support your interpretation.", "answer": "As you move UP the trophic levels, the amount of energy DECREASES by approximately 90% at each level (or 10% is transferred). \n\nUsing data: Producers have 100,000 kJ → Primary Consumers have 10,000 kJ (10% of 100,000) → Secondary Consumers have 1,000 kJ (10% of 10,000) → Tertiary Consumers have only 100 kJ (10% of 1,000).\n\nThis means that from Producers to Tertiary Consumers, energy has decreased by 99.9% — from 100,000 kJ to just 100 kJ. The general trend is a consistent 10-fold decrease at each trophic level, which explains why the pyramid is widest at the base and narrowest at the top.", "hint": "Divide each level by the one below it. What fraction is always transferred? Express the trend using the actual numbers."}, {"type": "open", "q": "PART 3 | [7-8] INTERPRET (Full Analysis): Using the same energy pyramid, write a COMPLETE interpretation that includes:\n□ Title of the graph\n□ General trend (relate energy between different trophic levels)\n□ Data to support your general trend\n□ Conclusion: What is the importance of PRODUCERS in the ecosystem?", "answer": "TITLE: Upright Energy Pyramid of a Terrestrial Ecosystem — showing energy (kJ) at each trophic level.\n\nGENERAL TREND: The general trend shows that energy DECREASES significantly as you move from lower to higher trophic levels. Each level contains only about 10% of the energy of the level below it, following the 10% rule of energy transfer.\n\nDATA TO SUPPORT TREND: Producers contain 100,000 kJ of energy. Primary consumers contain 10,000 kJ — which is 10 times LESS than producers. Secondary consumers contain 1,000 kJ — 10 times less than primary consumers and 100 times less than producers. Tertiary consumers contain only 100 kJ — 1,000 times less than the energy found in producers. This confirms a consistent 90% energy loss at each trophic level.\n\nCONCLUSION — IMPORTANCE OF PRODUCERS: Producers are the FOUNDATION and the most important level in any ecosystem because: (1) They are the ONLY level that captures energy from the Sun and converts it into chemical energy (glucose) through photosynthesis. Without producers, no energy from the Sun could enter the food web. (2) They support ALL other trophic levels — without producers, primary consumers would starve, causing secondary and tertiary consumers to collapse in a cascading effect. (3) They contain the MOST energy (100,000 kJ), making them the engine that drives the entire ecosystem. (4) They also produce oxygen through photosynthesis, which is essential for the respiration of all organisms. In summary: no producers = no food chain = no ecosystem.", "hint": "Structure your answer in 4 clear parts: title → trend → data → conclusion. The conclusion must explain WHY producers matter, not just what they are."}]}, {"title": "Format B – Energy in the Biosphere (Prueba Real Format)", "questions": [{"type": "mc", "q": "PART 1 | [1-2] SELECT: Which sentence BEST describes a FOOD WEB?", "options": ["A. A food web is a single straight line showing who eats whom in an ecosystem.", "B. A food web is a network of interconnected food chains that shows the complex feeding relationships in an ecosystem.", "C. A food web only includes producers and primary consumers.", "D. A food web shows only the energy flow between predators."], "answer": "B. A food web is a network of interconnected food chains that shows the complex feeding relationships in an ecosystem.", "hint": "Think of the word 'web' — it has many connections, not just one line."}, {"type": "open", "q": "PART 1 | [3-4] RECALL: Classify each of the following as BIOTIC or ABIOTIC factor. Write B (Biotic) or A (Abiotic) next to each one:\n1. Water in a river\n2. A deer in a forest\n3. Soil minerals\n4. A fern plant\n5. The temperature of the air", "answer": "1. Water in a river → A (Abiotic) — water is a non-living substance.\n2. A deer in a forest → B (Biotic) — a deer is a living animal.\n3. Soil minerals → A (Abiotic) — minerals are non-living chemical compounds.\n4. A fern plant → B (Biotic) — a fern is a living organism.\n5. The temperature of the air → A (Abiotic) — temperature is a physical condition of the environment.", "hint": "Ask yourself: is it ALIVE? Biotic = living. Abiotic = non-living."}, {"type": "open", "q": "PART 1 | [5-6] STATE: State the energy transformation in each of the following:\n\nA) A battery-powered fan\nFrom _________ into _________\n\nB) A person running\nFrom _________ into _________\n\nC) A hydroelectric dam\nFrom _________ into _________\n\nD) A plant performing photosynthesis\nFrom _________ into _________", "answer": "A) Battery-powered fan: From CHEMICAL (electrical) energy into KINETIC (mechanical/movement) energy.\nB) A person running: From CHEMICAL energy (from food) into KINETIC energy and HEAT energy.\nC) Hydroelectric dam: From POTENTIAL (gravitational) energy of water into ELECTRICAL energy.\nD) Plant photosynthesis: From SOLAR (light) energy into CHEMICAL energy (stored in glucose).", "hint": "Photosynthesis is unique — it captures LIGHT energy and stores it as CHEMICAL energy in glucose."}, {"type": "open", "q": "PART 1 | [7-8] OUTLINE: Outline the LEVELS OF BIOLOGICAL ORGANIZATION from smallest to largest. For each level, give a brief description and ONE example from a coral reef ecosystem.", "answer": "Levels of biological organization from smallest to largest:\n\n1. CELL: The basic unit of life. Example: a single coral polyp cell.\n2. TISSUE: A group of similar cells working together. Example: the tissue lining a coral's digestive system.\n3. ORGAN: A group of tissues performing a specific function. Example: a coral polyp's stomach.\n4. ORGAN SYSTEM: Organs working together. Example: the digestive system of a fish.\n5. ORGANISM: A complete living being. Example: one clownfish.\n6. POPULATION: All individuals of the same species in an area. Example: all clownfish in one section of the reef.\n7. COMMUNITY: All different species living together in an area. Example: all fish, corals, algae, and invertebrates in the reef.\n8. ECOSYSTEM: The community PLUS its non-living environment. Example: the coral reef including water, sunlight, temperature, and all living things.\n9. BIOSPHERE: ALL ecosystems on Earth combined — the entire zone of life on our planet.", "hint": "Start with the CELL (smallest) and build up to the BIOSPHERE (largest). The key is that each level CONTAINS the one below it."}, {"type": "mc", "q": "PART 2 | [1-2] SELECT: Study this food chain: Grass → Rabbit → Fox → Eagle. Which of the following CORRECTLY identifies the trophic levels?\n", "options": ["A. Grass = Primary Consumer, Rabbit = Producer, Fox = Secondary Consumer, Eagle = Tertiary Consumer", "B. Grass = Producer, Rabbit = Primary Consumer, Fox = Secondary Consumer, Eagle = Tertiary Consumer", "C. Grass = Decomposer, Rabbit = Primary Consumer, Fox = Producer, Eagle = Apex Predator", "D. Grass = Producer, Rabbit = Secondary Consumer, Fox = Primary Consumer, Eagle = Tertiary Consumer"], "answer": "B. Grass = Producer, Rabbit = Primary Consumer, Fox = Secondary Consumer, Eagle = Tertiary Consumer", "hint": "Producers make their own food. Consumers eat in order: primary eats producer, secondary eats primary, tertiary eats secondary."}, {"type": "open", "q": "PART 2 | [3-4] SUGGEST: Overfishing has dramatically reduced the population of sardines in the Pacific Ocean. Sardines are eaten by tuna, sea lions, and seabirds. Suggest what would happen to the food web if sardine populations continue to decline. Suggest ONE solution to help restore sardine populations.", "answer": "IF SARDINES DECLINE:\n- TUNA: Would lose a major food source. Tuna populations would decrease as they struggle to find food. Tuna might be forced to eat other prey, putting pressure on other species.\n- SEA LIONS: Would have less food. Sea lions might starve or move to new areas searching for food. Pup survival rates would drop.\n- SEABIRDS (pelicans, gannets): Would have fewer fish to catch. Breeding success would decline because adults cannot bring enough food for chicks. Seabird populations would fall.\n- CASCADE EFFECTS: With fewer seabirds and sea lions, the predators that eat THEM (larger sharks) would also face food shortages.\n\nSOLUTION: Implement strict fishing quotas that limit the amount of sardines that can be caught each year. This allows sardine populations to recover and stabilizes the entire food web above them.", "hint": "Sardines are in the MIDDLE of the food chain. What do sardines eat? What eats sardines? Both sides are affected."}, {"type": "open", "q": "PART 2 | [5-6] SUGGEST: Read the following situation:\n\nIn Brazil, large areas of the Amazon rainforest are being cleared for cattle ranching and soybean farming. Scientists report that 17% of the Amazon has been deforested in the last 50 years, and deforestation is accelerating. The Amazon contains 10% of all species on Earth and generates its own rainfall through a process called 'flying rivers' — water vapor from trees that creates rain across South America.\n\nSuggest how deforestation of the Amazon affects the ecosystem at different trophic levels. Which organisms are most at risk?", "answer": "EFFECTS BY TROPHIC LEVEL:\n\n1. PRODUCERS: Millions of tree and plant species are destroyed. Photosynthesis rates in the region drop dramatically. Less carbon is absorbed and less oxygen is produced. Soil erodes without tree roots holding it in place.\n\n2. PRIMARY CONSUMERS (herbivores): Hundreds of insect, mammal (tapirs, monkeys, deer), and bird species that eat leaves, fruits, and seeds lose their food and habitat. Many species face extinction.\n\n3. SECONDARY CONSUMERS (omnivores and carnivores): Jaguars, ocelots, eagles, and large snakes lose prey. Their territory is fragmented and they cannot hunt effectively. Population sizes shrink dramatically.\n\n4. TERTIARY CONSUMERS/APEX PREDATORS: Jaguars and harpy eagles at the top of the Amazon food web are most vulnerable because they need LARGE territories and LARGE prey populations. They are the first to show population collapse.\n\n5. ABIOTIC EFFECTS → ADDITIONAL HARM: Without trees creating 'flying rivers,' rainfall decreases across the continent. Rivers shrink. Soil becomes dry and infertile. The entire Amazon ecosystem destabilizes, reducing species at ALL trophic levels.\n\nMOST AT RISK: Specialist species (animals that eat only ONE type of food or live in ONE specific habitat) are most vulnerable because they cannot adapt when their food source disappears.", "hint": "Start at the bottom (trees = producers) and work up. Also consider what happens to the ABIOTIC factors (rain, soil) when trees disappear."}, {"type": "open", "q": "PART 2 | [7-8] OUTLINE + SUGGEST: Outline the FACTORS that are causing Amazon deforestation described above. Then suggest TWO specific and realistic solutions to stop deforestation and protect the Amazon ecosystem.", "answer": "FACTORS CAUSING AMAZON DEFORESTATION:\n1. CATTLE RANCHING: The Amazon is burned to create pastures for beef cattle that is then exported globally. This is the single largest driver of deforestation.\n2. SOYBEAN FARMING: Vast areas are cleared to grow soybeans, mainly to feed livestock in Europe and Asia. Demand for cheap meat globally drives this.\n3. LOGGING: Both legal and illegal logging removes valuable timber (mahogany, cedar) for furniture and construction. Roads built by loggers then open remote areas to further destruction.\n4. MINING: Gold, iron ore, and other minerals are extracted from the Amazon, destroying large areas and contaminating rivers with toxic mercury.\n5. WEAK ENFORCEMENT: Corruption and insufficient government resources mean environmental laws protecting the Amazon are often not enforced.\n6. GLOBAL DEMAND: Consumer demand in rich countries for cheap beef, soy-fed chicken and pork, and timber products drives the economic incentive for deforestation.\n\nTWO SOLUTIONS:\n1. ECONOMIC INCENTIVES FOR CONSERVATION: Pay indigenous communities and landowners directly to protect the forest through international carbon credit programs. If the forest has greater economic value STANDING than cleared, deforestation stops. Brazil's REDD+ program is an example of this approach.\n2. SUSTAINABLE SUPPLY CHAINS: Major supermarkets and food companies in Europe and the USA commit to buying only beef and soy certified as 'deforestation-free.' If global buyers refuse products from deforested land, the economic driver for clearing the Amazon disappears.", "hint": "Think about WHY people cut down trees (money, farming, mining) and then think about how to make it economically or legally impossible or less attractive."}, {"type": "open", "q": "PART 3 | [1-2] STATE: The following data represents the NUMBER OF ORGANISMS at each trophic level in a grassland ecosystem:\n- Grass plants: 500,000\n- Grasshoppers: 50,000\n- Frogs: 5,000\n- Snakes: 500\n- Hawks: 50\n\na) State the TYPE of pyramid this data represents.", "answer": "This data represents an UPRIGHT PYRAMID OF NUMBERS (also called a numbers pyramid). It is upright because the number of organisms decreases at each trophic level from bottom to top — there are far more grass plants (500,000) than hawks (50).", "hint": "Is the number going UP or DOWN as you go from producers to apex predators? Does the shape widen at the base?"}, {"type": "open", "q": "PART 3 | [3-4] STATE: Using the pyramid of numbers (Grass: 500,000 / Grasshoppers: 50,000 / Frogs: 5,000 / Snakes: 500 / Hawks: 50):\n\nb) State which trophic level has the MOST organisms. State why using data from the pyramid to support your answer.", "answer": "The GRASS (producers) level has the most organisms with 500,000 individual plants. This is because producers form the BASE of the food chain and must be abundant enough to support all the consumers above them. Grass has 10 times more individuals than grasshoppers (50,000), 100 times more than frogs (5,000), 1,000 times more than snakes (500), and 10,000 times more than hawks (50). The large number of producers is necessary because most of the energy is lost at each trophic level — you need many plants to support the energy needs of all the consumers.", "hint": "Which level has the biggest number? Use the actual numbers to compare: 500,000 vs 50 — how many times bigger is it?"}, {"type": "open", "q": "PART 3 | [5-6] INTERPRET: Using the pyramid of numbers (Grass: 500,000 / Grasshoppers: 50,000 / Frogs: 5,000 / Snakes: 500 / Hawks: 50):\n\nc) Interpret the information. What happens to the NUMBER OF ORGANISMS as the trophic level increases? Use data from the pyramid.", "answer": "As you move UP the trophic levels, the NUMBER OF ORGANISMS decreases by a factor of 10 at each level.\n\nUsing data: Grass = 500,000 → Grasshoppers = 50,000 (10 times less) → Frogs = 5,000 (10 times less) → Snakes = 500 (10 times less) → Hawks = 50 (10 times less).\n\nThe general trend is that each successive trophic level has approximately ONE-TENTH the number of organisms of the level below it. This consistent 10-fold decrease occurs because each organism at a higher level needs to eat MANY organisms from the level below to obtain enough energy. For example, one hawk needs to eat many snakes throughout its lifetime to survive, so hawks are rare while their prey (snakes) are more abundant.", "hint": "Divide each number by the one below it. What consistent ratio do you get? State the TREND, then use the numbers to prove it."}, {"type": "open", "q": "PART 3 | [7-8] INTERPRET (Full Analysis): Using the pyramid of numbers, write a COMPLETE interpretation including:\n□ Title of the graph\n□ General trend (relate the number of organisms between trophic levels)\n□ Data to support the general trend\n□ Conclusion: What is the importance of the PRODUCERS in this ecosystem?", "answer": "TITLE: Upright Pyramid of Numbers of a Grassland Ecosystem — showing the number of individual organisms at each trophic level.\n\nGENERAL TREND: The number of organisms DECREASES consistently as you move from lower to higher trophic levels. Each trophic level contains approximately 10 times FEWER individual organisms than the level below it. The pyramid is widest at the base (producers) and narrowest at the apex (tertiary consumers), indicating an upright pyramid of numbers.\n\nDATA TO SUPPORT TREND: Grass plants = 500,000 individuals. Grasshoppers (Primary Consumers) = 50,000 — 10 times fewer than grass. Frogs (Secondary Consumers) = 5,000 — 100 times fewer than grass. Snakes (Tertiary Consumers) = 500 — 1,000 times fewer than grass. Hawks (Apex Predators) = 50 — 10,000 times fewer than grass. This confirms a consistent 10-fold decrease at each successive trophic level.\n\nCONCLUSION — IMPORTANCE OF PRODUCERS: Grass plants (producers) are the MOST IMPORTANT level in this grassland ecosystem for three key reasons: (1) They are the FOUNDATION — the 500,000 grass plants capture solar energy and convert it into chemical energy that feeds the entire food chain. Without them, no consumer could survive. (2) They provide HABITAT and SHELTER — the grassland vegetation provides nesting areas, hiding places, and breeding grounds for grasshoppers, frogs, and other animals. (3) They STABILIZE the ecosystem — grass roots prevent soil erosion, maintain water retention in soil, and regulate local microclimate, making the grassland habitable for all other species. Remove the grass and the entire pyramid — all 55,550 animals — would collapse.", "hint": "Four parts: title → trend (what DIRECTION do numbers go?) → data (use actual numbers) → conclusion (WHY do producers matter so much?)."}]}, {"title": "Format C – Energy in the Biosphere (Prueba Real Format)", "questions": [{"type": "mc", "q": "PART 1 | [1-2] SELECT: Which of the following BEST describes what happens to energy as it flows through a food chain?", "options": ["A. Energy increases at each trophic level because organisms gain energy when they eat.", "B. Energy remains constant throughout all trophic levels.", "C. Energy decreases at each trophic level because most energy is lost to heat and respiration.", "D. Energy is highest at the tertiary consumer level because they eat the most."], "answer": "C. Energy decreases at each trophic level because most energy is lost to heat and respiration.", "hint": "Remember the 10% rule. Where does the other 90% of energy go at each level?"}, {"type": "open", "q": "PART 1 | [3-4] RECALL: Classify each organism as AUTOTROPH or HETEROTROPH. Write AU (Autotroph) or HE (Heterotroph) next to each one:\n1. A sunflower\n2. A lion\n3. A mushroom\n4. Seaweed (algae)\n5. A human being", "answer": "1. A sunflower → AU (Autotroph) — it produces its own food through photosynthesis.\n2. A lion → HE (Heterotroph) — it must eat other animals to get energy.\n3. A mushroom → HE (Heterotroph) — fungi absorb nutrients from dead or living organisms (they are decomposers).\n4. Seaweed (algae) → AU (Autotroph) — algae photosynthesize like plants.\n5. A human being → HE (Heterotroph) — humans must eat food (plants or animals) to obtain energy.", "hint": "Autotroph = makes its own food (usually through photosynthesis). Heterotroph = must EAT other organisms to get energy."}, {"type": "open", "q": "PART 1 | [5-6] STATE: State the energy transformation in each situation:\n\nA) A green plant in sunlight\nFrom _________ into _________\n\nB) An electric kettle boiling water\nFrom _________ into _________\n\nC) A car engine running\nFrom _________ into _________\n\nD) A glow-worm (bioluminescent insect) emitting light\nFrom _________ into _________", "answer": "A) Green plant: From SOLAR (light) energy into CHEMICAL energy (glucose through photosynthesis).\nB) Electric kettle: From ELECTRICAL energy into THERMAL (heat) energy.\nC) Car engine: From CHEMICAL energy (fuel/petrol) into KINETIC (mechanical) energy and HEAT energy.\nD) Glow-worm: From CHEMICAL energy into LIGHT energy (bioluminescence is a chemical reaction that produces light).", "hint": "For the glow-worm, the insect uses a chemical reaction in its body — what type of energy does a chemical reaction store?"}, {"type": "open", "q": "PART 1 | [7-8] OUTLINE: Outline the concept of TROPHIC LEVELS in an ecosystem. Explain the role of DECOMPOSERS and why they are essential to nutrient cycling. Give examples of organisms at each trophic level.", "answer": "TROPHIC LEVELS are the different feeding positions in a food chain or food web. Each level represents a step in the flow of energy through the ecosystem.\n\nLEVEL 1 — PRODUCERS (autotrophs): Plants, algae, and photosynthetic bacteria. Example: grass in a meadow. They convert solar energy into chemical energy.\n\nLEVEL 2 — PRIMARY CONSUMERS (herbivores): Organisms that eat producers. Example: rabbits, caterpillars, cows. They are the first link of consumers.\n\nLEVEL 3 — SECONDARY CONSUMERS (carnivores/omnivores): Organisms that eat primary consumers. Example: foxes, frogs, small predatory fish.\n\nLEVEL 4 — TERTIARY CONSUMERS (apex predators): Organisms at the top that eat secondary consumers. Example: eagles, sharks, lions.\n\nDECOMPOSERS — a special category: Fungi and bacteria that break down DEAD organisms at ALL trophic levels, releasing nutrients back into the soil and water.\n\nIMPORTANCE OF DECOMPOSERS: Without decomposers, dead organic matter would accumulate indefinitely. Decomposers break down proteins, fats, and carbohydrates in dead tissue and release nitrogen, phosphorus, and carbon back into the soil. These nutrients are then absorbed by producers to grow. Decomposers COMPLETE the cycle — they ensure that energy and matter keep flowing through the ecosystem. Without them, soil would become infertile, producers would run out of nutrients, and the entire food web would collapse.", "hint": "Decomposers are like nature's recycling service. What would happen if nothing ever broke down? Nutrients would be locked inside dead bodies forever."}, {"type": "mc", "q": "PART 2 | [1-2] SELECT: In the following food chain: Phytoplankton → Zooplankton → Herring → Tuna → Killer Whale. If the killer whale population increases dramatically, which population would MOST LIKELY decrease FIRST?", "options": ["A. Phytoplankton", "B. Zooplankton", "C. Tuna", "D. Herring"], "answer": "C. Tuna", "hint": "Killer whales eat tuna directly. The organism that is eaten MOST DIRECTLY by the growing predator will decrease FIRST."}, {"type": "open", "q": "PART 2 | [3-4] SUGGEST: In parts of Africa, lion populations have decreased by 43% over the past 20 years due to habitat loss and hunting. Lions are apex predators that control the population of zebras and wildebeest. Suggest what would happen to the savanna ecosystem if lion populations continue to decline. Suggest ONE solution to protect lions.", "answer": "IF LION POPULATIONS DECLINE:\n- ZEBRAS and WILDEBEEST (primary consumers): Without lions hunting them, their populations would grow without control. This is called a 'trophic cascade.' Large herds would overgraze the savanna grasslands.\n- GRASS and VEGETATION (producers): Overgrazing by zebras and wildebeest would destroy large areas of grass, reducing the base of the food chain. The savanna would begin to turn into bare land (desertification).\n- OTHER PREDATORS: Hyenas and wild dogs that compete with lions might also grow in number, further pressuring prey populations.\n- ENTIRE ECOSYSTEM: The savanna would become unstable — too many herbivores, not enough grass, leading to widespread starvation of herbivores and collapse of the ecosystem.\n\nSOLUTION: Establish and expand WILDLIFE RESERVES where lions are legally protected from hunting and their habitat is preserved. Strong anti-poaching enforcement and community-based conservation programs that give local communities economic benefits from tourism will reduce the incentive to kill lions.", "hint": "When apex predators disappear, their prey grows unchecked. What does unlimited prey do to the food source below them (producers)?"}, {"type": "open", "q": "PART 2 | [5-6] SUGGEST: Read the following situation:\n\nAcross the globe, 50% of all wetland ecosystems (marshes, swamps, mangroves) have been lost in the last 100 years due to drainage for agriculture, urban development, and pollution. Wetlands filter water, store carbon, host enormous biodiversity, and act as nurseries for fish. Scientists warn that continued wetland loss could have cascading effects on food security for millions of people.\n\nSuggest how wetland destruction affects the ecosystem at different trophic levels. Which trophic levels would be most severely affected?", "answer": "EFFECTS BY TROPHIC LEVEL:\n\n1. PRODUCERS: Wetland plants (reeds, mangroves, water lilies, algae) are destroyed. Less photosynthesis occurs. Carbon that was stored in wetland soil is released into the atmosphere as CO₂. The base of the wetland food chain disappears.\n\n2. PRIMARY CONSUMERS: Insects, small crustaceans, tadpoles, and fish larvae that feed on wetland plants and algae lose their nursery and food. Many juvenile fish species that grow in wetlands before moving to the ocean are eliminated before they can reproduce. Fish populations in nearby seas drop dramatically.\n\n3. SECONDARY and TERTIARY CONSUMERS: Wading birds (herons, egrets, storks), otters, and larger fish that hunt in wetlands lose their hunting grounds and food sources. These predators decline rapidly.\n\n4. HUMANS: Wetlands filter toxins from water, making it safe to drink. Without wetlands, water quality deteriorates, affecting human health. Reduced fish populations threaten food security for millions who depend on fish as their primary protein. Coastal flooding increases without mangroves to absorb storm energy.\n\nMOST SEVERELY AFFECTED: All trophic levels are affected, but PRIMARY CONSUMERS are hit hardest first because wetlands are nurseries — removing them prevents young fish and invertebrates from surviving to adulthood, collapsing populations even before they can reproduce.", "hint": "Wetlands are nurseries — many species GROW UP there before living elsewhere. What happens if the nursery disappears?"}, {"type": "open", "q": "PART 2 | [7-8] OUTLINE + SUGGEST: Outline the FACTORS causing global wetland loss described above. Then suggest TWO effective solutions to stop wetland destruction and restore affected wetland ecosystems.", "answer": "FACTORS CAUSING WETLAND LOSS:\n1. DRAINAGE FOR AGRICULTURE: Wetlands are drained and converted into flat agricultural land for growing crops or raising livestock. This is the largest single cause globally.\n2. URBAN DEVELOPMENT: Cities, roads, and housing developments are built on wetland areas. Wetlands are seen as 'wasteland' to be filled and built upon.\n3. WATER POLLUTION: Industrial and agricultural chemicals (pesticides, fertilizers, heavy metals) contaminate wetland water, making it toxic for plants and animals. The ecosystem becomes uninhabitable.\n4. WATER DIVERSION: Rivers and streams that feed wetlands are diverted for irrigation, leaving wetlands without enough water to function.\n5. CLIMATE CHANGE: Changing rainfall patterns cause wetlands to dry out in regions experiencing drought. Rising sea levels can flood and salinize coastal freshwater wetlands.\n6. INVASIVE SPECIES: Non-native plants can take over wetlands, outcompeting native species and reducing biodiversity.\n\nTWO SOLUTIONS:\n1. LEGAL PROTECTION AND RESTORATION: Governments must pass and enforce laws that classify wetlands as protected ecosystems. The Ramsar Convention (international treaty) already protects many wetlands globally. Restoration programs should actively replant native wetland vegetation and reintroduce native species to degraded areas. Funding for wetland restoration should come from carbon credit programs that pay countries for the carbon stored in wetland soil.\n2. PAYMENT FOR ECOSYSTEM SERVICES: Instead of draining wetlands for agriculture, farmers and communities near wetlands are paid for the services that intact wetlands provide (water filtration, flood protection, carbon storage, fisheries support). This creates an economic incentive to KEEP wetlands intact rather than destroy them, making conservation economically competitive with agriculture.", "hint": "Agriculture + cities = physical destruction. Pollution + climate = slow degradation. Solutions must address both the PHYSICAL and ECONOMIC causes."}, {"type": "open", "q": "PART 3 | [1-2] STATE: The following FOOD WEB exists in an ocean ecosystem:\n- Phytoplankton → Zooplankton → Herring → Tuna\n- Phytoplankton → Zooplankton → Squid → Tuna\n- Phytoplankton → Zooplankton → Squid → Sperm Whale\n- Tuna → Shark\n- Sperm Whale → (no predator)\n\na) State whether this is a FOOD CHAIN or a FOOD WEB and explain why.", "answer": "This is a FOOD WEB (not a simple food chain) because it shows MULTIPLE interconnected pathways of energy flow. For example, zooplankton can be eaten by herring OR squid; tuna can eat herring OR squid; and tuna is eaten by sharks. There is no single straight line of energy flow — instead, organisms are connected through multiple alternative routes. This makes it a web of feeding relationships rather than a single chain.", "hint": "A food chain is one straight line. A food web has multiple interconnected paths. Count the pathways — does this have more than one?"}, {"type": "open", "q": "PART 3 | [3-4] STATE: Using the ocean food web above:\n\nb) State which organism is the APEX PREDATOR. State why, using information from the food web to support your answer.", "answer": "The SPERM WHALE is the apex predator in this food web. This is because no other organism in the food web is shown eating the sperm whale — it has no predators. It is at the highest trophic level, eating squid which in turn eat zooplankton that eat phytoplankton. The shark is also an apex predator in its part of the web (it eats tuna but nothing eats sharks here). However, the sperm whale occupies a longer food chain (Phytoplankton → Zooplankton → Squid → Sperm Whale = 4 levels) making it the organism furthest from the producer level.", "hint": "The apex predator has NO arrows pointing away from it — nothing eats it. Scan the food web for who has no predator."}, {"type": "open", "q": "PART 3 | [5-6] INTERPRET: Using the ocean food web:\n\nc) Interpret what would happen to the food web if ZOOPLANKTON populations declined by 80% due to ocean acidification. Use information from the food web to support your interpretation.", "answer": "If zooplankton declined by 80%, the consequences would cascade through the ENTIRE food web because zooplankton are primary consumers that connect phytoplankton (producers) to ALL higher trophic levels:\n\n- HERRING: Would immediately lose 80% of their main food source. Herring populations would crash rapidly.\n- SQUID: Similarly, squid eat zooplankton and would decline significantly. With less squid, both tuna and sperm whale food supplies shrink.\n- TUNA: Lose both major food sources (herring and squid). Tuna populations would collapse.\n- SHARK: With far fewer tuna to eat, sharks would starve. Shark populations would decline.\n- SPERM WHALE: With far fewer squid available, sperm whale populations would also decline.\n- PHYTOPLANKTON: Without zooplankton to eat them, phytoplankton might initially increase (bloom), but this could create oxygen-depleted dead zones as they die and decompose.\n\nCONCLUSION: The decline of zooplankton — a single key species — would cause a TOTAL COLLAPSE of the ocean food web from primary consumers upward, demonstrating how food webs are highly vulnerable when a central link is removed.", "hint": "Zooplankton is the ONLY bridge between phytoplankton and ALL other organisms in this web. What happens when you remove the bridge?"}, {"type": "open", "q": "PART 3 | [7-8] INTERPRET (Full Analysis): Using the ocean food web, write a COMPLETE interpretation including:\n□ Title of the food web\n□ General trend: How does energy and biodiversity change as you move from producers to apex predators?\n□ Data/examples from the food web to support your trend\n□ Conclusion: Why is it important to protect organisms at the BASE of marine food webs (like phytoplankton and zooplankton)?", "answer": "TITLE: Marine Food Web of an Open Ocean Ecosystem — showing feeding relationships and energy flow from phytoplankton to apex predators.\n\nGENERAL TREND: As you move from PRODUCERS upward toward APEX PREDATORS, two clear trends occur simultaneously: (1) ENERGY DECREASES — each level receives approximately 10% of the energy from the level below, so the energy available to sperm whales and sharks is tiny compared to what phytoplankton capture from the sun. (2) NUMBER OF PATHWAYS CONVERGES — multiple different feeding routes at lower levels (herring, squid, zooplankton all provide energy upward) narrow to fewer pathways at higher levels (only tuna and sperm whale feed the shark and sperm whale levels).\n\nEVIDENCE FROM FOOD WEB: Phytoplankton supports the ENTIRE web — it is eaten by zooplankton which is the gateway to herring, squid, tuna, sperm whale, and shark. Multiple pathways exist at the middle level (zooplankton → herring OR squid), which makes the mid-level more resilient. However, tuna can only be eaten by sharks, showing convergence at the top.\n\nCONCLUSION — IMPORTANCE OF PROTECTING PHYTOPLANKTON AND ZOOPLANKTON: Phytoplankton and zooplankton are the FOUNDATION of the entire marine food web: (1) Phytoplankton produce 50% of ALL the oxygen on Earth through photosynthesis — more than all land plants combined. Without them, animal life on Earth would be impossible. (2) Zooplankton are the ONLY transfer point between phytoplankton and ALL other marine life. If zooplankton disappear, every organism in this food web — from herring to sperm whale — loses its food supply. (3) Their small size is deceptive — they are not small in importance. Losing phytoplankton or zooplankton would be a catastrophic, irreversible loss for the entire ocean ecosystem and for human civilization that depends on fish as a food source. Therefore, protecting ocean chemistry (reducing acidification and warming) to maintain phytoplankton and zooplankton populations is one of the most critical environmental priorities humans face.", "hint": "Four parts: title → two simultaneous trends (energy decreasing, pathways converging) → evidence (use the organisms' names) → why the BASE matters for ALL life on Earth."}]}]}, "benjamin": {}}
+{
+  "santiago": {
+    "Sciences": [
+      {
+        "title": "Unit 1 – Energy in the Biosphere (Criterion A Practice)",
+        "questions": [
+          {
+            "type": "mc",
+            "q": "Which of the following BEST describes an ecosystem?",
+            "options": [
+              "A group of animals living together in the same place",
+              "A system where living organisms interact only with each other",
+              "A community of living organisms interacting with each other and with their non-living environment",
+              "A collection of only animals that do not rely on their surroundings"
+            ],
+            "answer": "A community of living organisms interacting with each other and with their non-living environment",
+            "hint": "An ecosystem includes BOTH biotic (living) AND abiotic (non-living) factors working together."
+          },
+          {
+            "type": "mc",
+            "q": "Which of the following is an example of an ABIOTIC factor in an ecosystem?",
+            "options": [
+              "Grass",
+              "A rabbit",
+              "Sunlight",
+              "Fungi"
+            ],
+            "answer": "Sunlight",
+            "hint": "Abiotic means NON-living. Think about which option is not a living organism."
+          },
+          {
+            "type": "mc",
+            "q": "During photosynthesis, what raw materials do plants use?",
+            "options": [
+              "Glucose, water, and oxygen",
+              "Sunlight, water, and carbon dioxide",
+              "Oxygen, glucose, and carbon dioxide",
+              "Sunlight, glucose, and nitrogen"
+            ],
+            "answer": "Sunlight, water, and carbon dioxide",
+            "hint": "Remember the equation: 6CO2 + 6H2O + light energy = C6H12O6 + 6O2"
+          },
+          {
+            "type": "mc",
+            "q": "Which trophic level is responsible for entering energy from the Sun into the ecosystem?",
+            "options": [
+              "Primary consumers",
+              "Decomposers",
+              "Producers",
+              "Tertiary consumers"
+            ],
+            "answer": "Producers",
+            "hint": "Which organisms can make their own food using sunlight through photosynthesis?"
+          },
+          {
+            "type": "mc",
+            "q": "A grasshopper eats grass. A frog eats the grasshopper. What trophic level does the FROG occupy?",
+            "options": [
+              "Producer (Trophic Level 1)",
+              "Primary Consumer (Trophic Level 2)",
+              "Secondary Consumer (Trophic Level 3)",
+              "Decomposer"
+            ],
+            "answer": "Secondary Consumer (Trophic Level 3)",
+            "hint": "The frog eats an animal (grasshopper) that eats plants. Count the levels: grass - grasshopper - frog."
+          },
+          {
+            "type": "mc",
+            "q": "In a trophic pyramid of energy, approximately what percentage of energy is transferred from one level to the next?",
+            "options": [
+              "100%",
+              "50%",
+              "10%",
+              "1%"
+            ],
+            "answer": "10%",
+            "hint": "Most energy is lost through respiration, heat, movement, and waste at each level."
+          },
+          {
+            "type": "open",
+            "q": "Outline the difference between biotic and abiotic factors in an ecosystem. Give TWO examples of each and explain how they interact with each other.",
+            "answer": "Biotic factors are living components of an ecosystem, such as plants, animals, fungi, and bacteria. Abiotic factors are non-living components, such as sunlight, water, temperature, and soil. They interact because living organisms depend on non-living factors to survive: for example, plants (biotic) need sunlight and water (abiotic) to perform photosynthesis, and animals (biotic) need water (abiotic) to drink and air (abiotic) to breathe. If abiotic factors change (e.g. less water), biotic factors are affected (plants die, animals lose food).",
+            "hint": "Think about what 'living' vs 'non-living' means, and how they depend on each other."
+          },
+          {
+            "type": "open",
+            "q": "Outline the importance of producers (photosynthetic organisms) in an ecosystem. Include the photosynthesis equation and explain their role in the food chain.",
+            "answer": "Producers (plants, algae, some bacteria) are essential because they convert solar energy into chemical energy (glucose) through photosynthesis: 6CO2 + 6H2O + light energy = C6H12O6 + 6O2. They form the BASE of all food chains and food webs, providing food and energy for all consumers. Without producers, no energy from the Sun could enter the ecosystem. They also release oxygen needed for respiration and remove carbon dioxide from the atmosphere, helping maintain environmental balance and supporting biodiversity.",
+            "hint": "Think about where ALL energy in a food chain originally comes from, and what would happen without plants."
+          },
+          {
+            "type": "open",
+            "q": "Deforestation is destroying bird habitats. Suggest what would happen to the food chain if the bird population decreases significantly. Then suggest TWO solutions to protect birds.",
+            "answer": "If bird populations decrease: (1) Insects that birds eat would increase in number (population explosion), potentially becoming pests. (2) Predators that eat birds (like snakes or hawks) would lose a food source and their populations would also decline. (3) Plants that depend on birds for seed dispersal or pollination would be affected. The entire food web would become unbalanced. Solutions: (1) Create protected natural reserves where deforestation is prohibited. (2) Plant new trees and restore habitats to give birds places to nest.",
+            "hint": "Think step by step: what eats birds? What do birds eat? What happens when one link in the chain is removed?"
+          },
+          {
+            "type": "open",
+            "q": "Interpret the following biomass pyramid data: Producers = 10,000 g/m2, Primary Consumers = 1,000 g/m2, Secondary Consumers = 100 g/m2, Tertiary Consumers = 10 g/m2. Describe the general trend, include the data to support it, and explain WHY producers are the most important level.",
+            "answer": "This is an upright biomass pyramid (terrestrial). The general trend shows that biomass DECREASES as you move up each trophic level. Producers have the most biomass at 10,000 g/m2, which is 10 times more than primary consumers (1,000 g/m2), 100 times more than secondary consumers (100 g/m2), and 1,000 times more than tertiary consumers (10 g/m2). Only about 10% of biomass is transferred to the next level because energy is lost through respiration, heat, movement, incomplete digestion, and excretion. Producers are the most important level because they are the foundation - they capture solar energy through photosynthesis and make it available to the entire ecosystem. Without them, no other trophic level could exist.",
+            "hint": "Compare the numbers between each level. What is the ratio? Why does this happen? Think about energy loss."
+          }
+        ]
+      },
+      {
+        "title": "Unit 1 – Energy in the Biosphere (Practice Test 2)",
+        "questions": [
+          {
+            "type": "mc",
+            "q": "Which of the following is a TERRESTRIAL ecosystem?",
+            "options": [
+              "A coral reef",
+              "A freshwater pond",
+              "A desert",
+              "The open ocean"
+            ],
+            "answer": "A desert",
+            "hint": "Terrestrial means land-based. Which of these ecosystems is found on land, not in water?"
+          },
+          {
+            "type": "mc",
+            "q": "What are the TWO main products of photosynthesis?",
+            "options": [
+              "Carbon dioxide and water",
+              "Glucose and oxygen",
+              "Sunlight and carbon dioxide",
+              "Water and nitrogen"
+            ],
+            "answer": "Glucose and oxygen",
+            "hint": "Look at the RIGHT side of the photosynthesis equation: 6CO2 + 6H2O + light = C6H12O6 + 6O2"
+          },
+          {
+            "type": "mc",
+            "q": "Fungi and bacteria that break down dead organisms and return nutrients to the soil are called:",
+            "options": [
+              "Producers",
+              "Primary consumers",
+              "Tertiary consumers",
+              "Decomposers"
+            ],
+            "answer": "Decomposers",
+            "hint": "Which type of organism recycles nutrients from dead matter back into the ecosystem?"
+          },
+          {
+            "type": "mc",
+            "q": "What is the correct ORDER of organization from smallest to largest in biology?",
+            "options": [
+              "Organism to Population to Community to Ecosystem to Biosphere",
+              "Ecosystem to Community to Population to Organism to Biosphere",
+              "Biosphere to Ecosystem to Community to Population to Organism",
+              "Population to Organism to Community to Biosphere to Ecosystem"
+            ],
+            "answer": "Organism to Population to Community to Ecosystem to Biosphere",
+            "hint": "Start with a single living thing, then a group of the same species, then different species together..."
+          },
+          {
+            "type": "mc",
+            "q": "An eagle eats a snake that eats a frog that eats insects that eat grass. What is the eagle in this food chain?",
+            "options": [
+              "Primary consumer",
+              "Secondary consumer",
+              "Tertiary consumer",
+              "Quaternary consumer (apex predator)"
+            ],
+            "answer": "Quaternary consumer (apex predator)",
+            "hint": "Count the levels: grass(1) to insect(2) to frog(3) to snake(4) to eagle(?). The eagle is at the top."
+          },
+          {
+            "type": "mc",
+            "q": "What is the main difference between a food CHAIN and a food WEB?",
+            "options": [
+              "A food chain only includes producers, a food web includes consumers",
+              "A food chain shows a single path of energy flow, a food web shows multiple interconnected paths",
+              "A food web only exists in aquatic ecosystems",
+              "A food chain is more accurate than a food web"
+            ],
+            "answer": "A food chain shows a single path of energy flow, a food web shows multiple interconnected paths",
+            "hint": "Think about the word web - it has many connections, not just one straight line."
+          },
+          {
+            "type": "open",
+            "q": "Outline why photosynthetic organisms are considered autotrophs. Explain the difference between autotrophs and heterotrophs, giving TWO examples of each.",
+            "answer": "Photosynthetic organisms are called autotrophs because they can produce their own food (chemical energy) using sunlight, water, and carbon dioxide through photosynthesis. Auto means self and troph means food, so autotrophs are self-feeders. Examples of autotrophs: plants and algae. Heterotrophs cannot make their own food and must consume other organisms to obtain energy. Hetero means other, so heterotrophs feed on others. Examples of heterotrophs: rabbits (herbivores that eat plants) and lions (carnivores that eat other animals). The key difference is that autotrophs produce energy from sunlight, while heterotrophs must eat other organisms.",
+            "hint": "Break down the words: auto = self, hetero = other, troph = food/nutrition."
+          },
+          {
+            "type": "open",
+            "q": "A food chain in a forest ecosystem is: Oak tree to Caterpillar to Robin to Hawk. State the trophic level of EACH organism and outline what would happen to the ecosystem if a disease killed most of the caterpillars.",
+            "answer": "Oak tree = Producer (Trophic Level 1, autotroph). Caterpillar = Primary Consumer (Trophic Level 2, herbivore). Robin = Secondary Consumer (Trophic Level 3, carnivore). Hawk = Tertiary Consumer (Trophic Level 4, apex predator). If a disease killed most caterpillars: (1) Oak trees would grow more because fewer caterpillars are eating their leaves. (2) Robins would lose their main food source, so their population would decrease. (3) Hawks that eat robins would also be affected because fewer robins means less food for them. (4) The entire food chain would become unbalanced, showing how removing one link affects all others.",
+            "hint": "Label each organism first, then think step by step: what happens ABOVE and BELOW the caterpillar in the chain?"
+          },
+          {
+            "type": "open",
+            "q": "Explain why energy DECREASES as you move up the trophic pyramid. If producers capture 10,000 kJ of energy, calculate how much energy reaches the tertiary consumers. Use the 10% rule.",
+            "answer": "Energy decreases at each trophic level because organisms use most of the energy they consume for their own life processes: cellular respiration, incomplete digestion, and excretion. Only about 10% of the energy at each level is passed to the next. Calculation: Producers = 10,000 kJ. Primary Consumers = 10,000 x 10% = 1,000 kJ. Secondary Consumers = 1,000 x 10% = 100 kJ. Tertiary Consumers = 100 x 10% = 10 kJ. So tertiary consumers receive only 10 kJ out of the original 10,000 kJ - that is only 0.1% of the original energy. This explains why food chains rarely have more than 4-5 levels.",
+            "hint": "At each level, multiply by 0.10 (10%). Do this three times starting from 10,000 kJ."
+          },
+          {
+            "type": "open",
+            "q": "Scientists discover that a lake ecosystem is losing its algae population due to pollution. Interpret how this would affect the entire aquatic food web. Include effects on at least THREE different trophic levels and suggest TWO actions humans could take to help restore the ecosystem.",
+            "answer": "Algae are the main producers in aquatic ecosystems. If algae disappear: (1) PRODUCERS level: Less photosynthesis means less oxygen in the water and less chemical energy entering the food web. (2) PRIMARY CONSUMERS: Zooplankton and small fish that eat algae would lose their food source. (3) SECONDARY CONSUMERS: Larger fish that eat zooplankton would also decrease. (4) TERTIARY CONSUMERS: Top predators would be affected as the food web collapses from the bottom up. Actions: (1) Reduce pollution by banning chemical dumping into the lake. (2) Create water treatment systems to filter pollutants before water enters the lake.",
+            "hint": "Start from the bottom (algae = producers) and work your way UP the food web. Think about oxygen too!"
+          }
+        ]
+      },
+      {
+        "title": "Format A – Energy in the Biosphere (Prueba Real Format)",
+        "questions": [
+          {
+            "type": "mc",
+            "q": "PART 1 | [1-2] SELECT: Which of the following BEST describes the role of PRODUCERS in an ecosystem?",
+            "options": [
+              "A. They consume other organisms to obtain energy.",
+              "B. They capture solar energy and convert it into chemical energy through photosynthesis.",
+              "C. They break down dead matter and return nutrients to the soil.",
+              "D. They feed on primary consumers and control population size."
+            ],
+            "answer": "B. They capture solar energy and convert it into chemical energy through photosynthesis.",
+            "hint": "Producers are AUTOTROPHS — they make their own food. What process do they use?"
+          },
+          {
+            "type": "open",
+            "q": "PART 1 | [3-4] RECALL: Classify each of the following as RENEWABLE or NON-RENEWABLE resource. Write R (Renewable) or NR (Non-Renewable) next to each one:\n1. Solar panels\n2. Natural gas\n3. Hydroelectric dam\n4. Coal\n5. Wind turbines",
+            "answer": "1. Solar panels → R (Renewable) — sunlight is inexhaustible.\n2. Natural gas → NR (Non-Renewable) — fossil fuel, takes millions of years to form.\n3. Hydroelectric dam → R (Renewable) — uses the continuous flow of water.\n4. Coal → NR (Non-Renewable) — fossil fuel, finite supply.\n5. Wind turbines → R (Renewable) — wind is a natural and continuous energy source.",
+            "hint": "Renewable = can be replenished naturally and quickly. Non-renewable = took millions of years to form and will run out."
+          },
+          {
+            "type": "open",
+            "q": "PART 1 | [5-6] STATE: State the energy transformation in each of the following situations:\n\nA) A solar panel on a roof\nFrom _________ into _________\n\nB) A bicycle in motion\nFrom _________ into _________\n\nC) A burning candle\nFrom _________ into _________\n\nD) A ringing telephone\nFrom _________ into _________",
+            "answer": "A) Solar panel: From SOLAR (light) energy into ELECTRICAL energy.\nB) Bicycle: From CHEMICAL energy (food/muscles) into KINETIC (mechanical) energy.\nC) Burning candle: From CHEMICAL energy into LIGHT energy and HEAT energy.\nD) Ringing telephone: From ELECTRICAL energy into SOUND energy.",
+            "hint": "Ask yourself: what TYPE of energy goes IN to make this work, and what TYPE comes OUT as the result?"
+          },
+          {
+            "type": "open",
+            "q": "PART 1 | [7-8] OUTLINE: Outline how ABIOTIC and BIOTIC factors are related in an ecosystem. Explain why it is important for them to remain in BALANCE. Give at least TWO specific examples of relationships between them.",
+            "answer": "Abiotic factors are non-living components (sunlight, water, soil, temperature, air). Biotic factors are living components (plants, animals, fungi, bacteria). They are deeply interconnected: living organisms DEPEND on non-living factors to survive, grow, and reproduce.\n\nEXAMPLE 1: Plants (biotic) need sunlight and water (abiotic) to perform photosynthesis. Without sunlight, plants cannot produce glucose and die, which removes the food source for all consumers above them.\n\nEXAMPLE 2: Fish (biotic) need dissolved oxygen and clean water (abiotic) to breathe. If water is polluted (abiotic factor disrupted), fish populations collapse, affecting the entire aquatic food web.\n\nIMPORTANCE OF BALANCE: If abiotic factors change significantly (e.g. drought reduces water, pollution reduces soil quality), biotic factors are forced to adapt or die. Fewer producers means less food for consumers. Loss of one biotic species can cause imbalance in the food web (e.g. if bees disappear, plants cannot pollinate and the entire food chain is disrupted). A balanced ecosystem maintains stable populations and energy flow. Imbalance leads to ecosystem collapse and loss of biodiversity.",
+            "hint": "Start with the definition of both, then show HOW they need each other. Use specific examples (plants need sunlight, fish need oxygen)."
+          },
+          {
+            "type": "mc",
+            "q": "PART 2 | [1-2] SELECT: Study this food chain: Algae → Shrimp → Small Fish → Tuna → Shark. Which organism enters ENERGY into this aquatic food chain?",
+            "options": [
+              "A. Shark",
+              "B. Tuna",
+              "C. Algae",
+              "D. Shrimp"
+            ],
+            "answer": "C. Algae",
+            "hint": "Energy enters the food chain through the PRODUCER — the organism that can photosynthesize."
+          },
+          {
+            "type": "open",
+            "q": "PART 2 | [3-4] SUGGEST: Climate change is causing sea ice in the Arctic to melt rapidly, reducing habitat for seals. As a result, seal populations have been declining. Suggest what would happen to the food chain if seal populations decrease significantly. Suggest ONE solution that could help protect seals. [Food chain: Algae → Zooplankton → Fish → Seal → Polar Bear]",
+            "answer": "IF SEALS DECLINE:\n- Fish populations (primary consumers of seals) would increase because fewer seals are eating them. Fish may then overeat zooplankton, causing zooplankton to decline.\n- Polar bears (which eat seals) would lose their main food source. Polar bear populations would decrease and they might starve or be forced to find alternative food sources on land, increasing human-wildlife conflict.\n- The entire food chain becomes unbalanced because a key middle link (seals) has been weakened.\n\nSOLUTION: Reduce greenhouse gas emissions by switching to renewable energy sources to slow the melting of Arctic sea ice and protect the habitat seals need to survive and breed.",
+            "hint": "What eats seals? What do seals eat? Follow the chain UP and DOWN from seals."
+          },
+          {
+            "type": "open",
+            "q": "PART 2 | [5-6] SUGGEST: Read the following situation:\n\nScientists have recorded a massive decline in BEE populations globally. Studies show that bees have declined by 46% over the past decade. Human activities such as pesticide use, habitat destruction, monoculture farming, and climate change have contributed to this crisis. Since bees are critical pollinators, their decline is affecting plant reproduction worldwide.\n\nIn regards to this information: Suggest how the decline in bee populations might affect the ecosystem. State which trophic levels would be affected and how.",
+            "answer": "EFFECTS OF BEE DECLINE ON TROPHIC LEVELS:\n\n1. PRODUCERS (plants): Without bees pollinating flowers, many plants cannot reproduce. Fewer seeds and fruits are produced. Plant populations decline, reducing the base of the food chain.\n\n2. PRIMARY CONSUMERS (herbivores — rabbits, deer, caterpillars): As plants decline, herbivores lose food sources. Their populations also decline due to food scarcity.\n\n3. SECONDARY and TERTIARY CONSUMERS (carnivores and apex predators): With fewer herbivores, predators that eat them (foxes, birds of prey) also face food shortages. Their populations shrink too.\n\n4. DECOMPOSERS: Less dead plant matter to decompose, reducing nutrient cycling in soil, making it less fertile and further harming producer recovery.\n\n5. HUMANS: We are also affected — over 70% of food crops depend on bee pollination (fruits, vegetables, nuts). Less pollination means reduced food production globally.\n\nCONCLUSION: Bee decline creates a cascading effect starting at producers and traveling up ALL trophic levels, disrupting the entire food web.",
+            "hint": "Bees pollinate plants. Plants are producers. What happens to EVERYTHING ABOVE producers if there are fewer plants?"
+          },
+          {
+            "type": "open",
+            "q": "PART 2 | [7-8] OUTLINE + SUGGEST: Outline the factors that might have produced the massive bee decline described above. Then suggest TWO concrete solutions to help reverse the problem of bee decline affecting the ecosystem.",
+            "answer": "FACTORS CAUSING BEE DECLINE:\n1. PESTICIDE USE: Neonicotinoid pesticides used in agriculture attack the nervous system of bees, impairing their navigation, memory, and reproduction. Bees cannot find their way back to the hive.\n2. HABITAT DESTRUCTION: Urban expansion and deforestation eliminate wildflowers and natural habitats where bees nest and feed. Less habitat means smaller bee populations.\n3. MONOCULTURE FARMING: Large farms that grow only ONE type of crop provide insufficient variety of pollen and nectar for bees throughout the year. Bees need diverse flowers.\n4. CLIMATE CHANGE: Rising temperatures alter the timing of flower blooming, so flowers and bees become out of sync (bees emerge but flowers haven't bloomed yet, or vice versa).\n5. DISEASE AND PARASITES: The Varroa mite is a parasite that infects honey bee colonies, weakening and killing them.\n\nTWO SOLUTIONS:\n1. BAN OR RESTRICT neonicotinoid pesticides and promote organic farming that avoids harmful chemicals. This directly addresses the main cause of bee nervous system damage.\n2. CREATE BEE-FRIENDLY HABITATS by planting wildflower corridors between farms, in cities, and in parks. Diverse flowering plants provide nutrition for bees year-round and give them safe nesting sites.",
+            "hint": "Think about what humans do that harms bees: chemicals, land use, climate, disease. Then think: how can each of those be reversed?"
+          },
+          {
+            "type": "open",
+            "q": "PART 3 | [1-2] STATE: An energy pyramid shows the following data:\n- Producers: 100,000 kJ\n- Primary Consumers: 10,000 kJ\n- Secondary Consumers: 1,000 kJ\n- Tertiary Consumers: 100 kJ\n\na) State the TYPE of pyramid presented.",
+            "answer": "This is an UPRIGHT ENERGY PYRAMID (also called a pyramid of energy or trophic pyramid). It is upright because energy decreases at each level from bottom to top, which is the typical pattern in terrestrial food chains.",
+            "hint": "Is the base wider or narrower than the top? That tells you if it is upright or inverted."
+          },
+          {
+            "type": "open",
+            "q": "PART 3 | [3-4] STATE: Using the energy pyramid data (Producers: 100,000 kJ / Primary Consumers: 10,000 kJ / Secondary Consumers: 1,000 kJ / Tertiary Consumers: 100 kJ):\n\nb) State which level has the MOST energy. State why you think this is so, using data from the pyramid to support your answer.",
+            "answer": "The PRODUCERS level has the most energy with 100,000 kJ. This is because producers are the first trophic level and they capture energy directly from the Sun through photosynthesis. They have not lost energy by eating other organisms. All other levels receive their energy by eating the level below — and each time energy is transferred, approximately 90% is lost to heat, respiration, and waste. That is why producers (100,000 kJ) have 10 times more energy than primary consumers (10,000 kJ), 100 times more than secondary consumers (1,000 kJ), and 1,000 times more than tertiary consumers (100 kJ).",
+            "hint": "Use the actual numbers to compare. How many times MORE energy do producers have compared to primary consumers?"
+          },
+          {
+            "type": "open",
+            "q": "PART 3 | [5-6] INTERPRET: Using the same energy pyramid (Producers: 100,000 kJ / Primary Consumers: 10,000 kJ / Secondary Consumers: 1,000 kJ / Tertiary Consumers: 100 kJ):\n\nc) Interpret the information in the pyramid. What happens to the amount of energy as you go up each trophic level? Use the DATA from the pyramid to support your interpretation.",
+            "answer": "As you move UP the trophic levels, the amount of energy DECREASES by approximately 90% at each level (or 10% is transferred). \n\nUsing data: Producers have 100,000 kJ → Primary Consumers have 10,000 kJ (10% of 100,000) → Secondary Consumers have 1,000 kJ (10% of 10,000) → Tertiary Consumers have only 100 kJ (10% of 1,000).\n\nThis means that from Producers to Tertiary Consumers, energy has decreased by 99.9% — from 100,000 kJ to just 100 kJ. The general trend is a consistent 10-fold decrease at each trophic level, which explains why the pyramid is widest at the base and narrowest at the top.",
+            "hint": "Divide each level by the one below it. What fraction is always transferred? Express the trend using the actual numbers."
+          },
+          {
+            "type": "open",
+            "q": "PART 3 | [7-8] INTERPRET (Full Analysis): Using the same energy pyramid, write a COMPLETE interpretation that includes:\n□ Title of the graph\n□ General trend (relate energy between different trophic levels)\n□ Data to support your general trend\n□ Conclusion: What is the importance of PRODUCERS in the ecosystem?",
+            "answer": "TITLE: Upright Energy Pyramid of a Terrestrial Ecosystem — showing energy (kJ) at each trophic level.\n\nGENERAL TREND: The general trend shows that energy DECREASES significantly as you move from lower to higher trophic levels. Each level contains only about 10% of the energy of the level below it, following the 10% rule of energy transfer.\n\nDATA TO SUPPORT TREND: Producers contain 100,000 kJ of energy. Primary consumers contain 10,000 kJ — which is 10 times LESS than producers. Secondary consumers contain 1,000 kJ — 10 times less than primary consumers and 100 times less than producers. Tertiary consumers contain only 100 kJ — 1,000 times less than the energy found in producers. This confirms a consistent 90% energy loss at each trophic level.\n\nCONCLUSION — IMPORTANCE OF PRODUCERS: Producers are the FOUNDATION and the most important level in any ecosystem because: (1) They are the ONLY level that captures energy from the Sun and converts it into chemical energy (glucose) through photosynthesis. Without producers, no energy from the Sun could enter the food web. (2) They support ALL other trophic levels — without producers, primary consumers would starve, causing secondary and tertiary consumers to collapse in a cascading effect. (3) They contain the MOST energy (100,000 kJ), making them the engine that drives the entire ecosystem. (4) They also produce oxygen through photosynthesis, which is essential for the respiration of all organisms. In summary: no producers = no food chain = no ecosystem.",
+            "hint": "Structure your answer in 4 clear parts: title → trend → data → conclusion. The conclusion must explain WHY producers matter, not just what they are."
+          }
+        ]
+      },
+      {
+        "title": "Format B – Energy in the Biosphere (Prueba Real Format)",
+        "questions": [
+          {
+            "type": "mc",
+            "q": "PART 1 | [1-2] SELECT: Which sentence BEST describes a FOOD WEB?",
+            "options": [
+              "A. A food web is a single straight line showing who eats whom in an ecosystem.",
+              "B. A food web is a network of interconnected food chains that shows the complex feeding relationships in an ecosystem.",
+              "C. A food web only includes producers and primary consumers.",
+              "D. A food web shows only the energy flow between predators."
+            ],
+            "answer": "B. A food web is a network of interconnected food chains that shows the complex feeding relationships in an ecosystem.",
+            "hint": "Think of the word 'web' — it has many connections, not just one line."
+          },
+          {
+            "type": "open",
+            "q": "PART 1 | [3-4] RECALL: Classify each of the following as BIOTIC or ABIOTIC factor. Write B (Biotic) or A (Abiotic) next to each one:\n1. Water in a river\n2. A deer in a forest\n3. Soil minerals\n4. A fern plant\n5. The temperature of the air",
+            "answer": "1. Water in a river → A (Abiotic) — water is a non-living substance.\n2. A deer in a forest → B (Biotic) — a deer is a living animal.\n3. Soil minerals → A (Abiotic) — minerals are non-living chemical compounds.\n4. A fern plant → B (Biotic) — a fern is a living organism.\n5. The temperature of the air → A (Abiotic) — temperature is a physical condition of the environment.",
+            "hint": "Ask yourself: is it ALIVE? Biotic = living. Abiotic = non-living."
+          },
+          {
+            "type": "open",
+            "q": "PART 1 | [5-6] STATE: State the energy transformation in each of the following:\n\nA) A battery-powered fan\nFrom _________ into _________\n\nB) A person running\nFrom _________ into _________\n\nC) A hydroelectric dam\nFrom _________ into _________\n\nD) A plant performing photosynthesis\nFrom _________ into _________",
+            "answer": "A) Battery-powered fan: From CHEMICAL (electrical) energy into KINETIC (mechanical/movement) energy.\nB) A person running: From CHEMICAL energy (from food) into KINETIC energy and HEAT energy.\nC) Hydroelectric dam: From POTENTIAL (gravitational) energy of water into ELECTRICAL energy.\nD) Plant photosynthesis: From SOLAR (light) energy into CHEMICAL energy (stored in glucose).",
+            "hint": "Photosynthesis is unique — it captures LIGHT energy and stores it as CHEMICAL energy in glucose."
+          },
+          {
+            "type": "open",
+            "q": "PART 1 | [7-8] OUTLINE: Outline the LEVELS OF BIOLOGICAL ORGANIZATION from smallest to largest. For each level, give a brief description and ONE example from a coral reef ecosystem.",
+            "answer": "Levels of biological organization from smallest to largest:\n\n1. CELL: The basic unit of life. Example: a single coral polyp cell.\n2. TISSUE: A group of similar cells working together. Example: the tissue lining a coral's digestive system.\n3. ORGAN: A group of tissues performing a specific function. Example: a coral polyp's stomach.\n4. ORGAN SYSTEM: Organs working together. Example: the digestive system of a fish.\n5. ORGANISM: A complete living being. Example: one clownfish.\n6. POPULATION: All individuals of the same species in an area. Example: all clownfish in one section of the reef.\n7. COMMUNITY: All different species living together in an area. Example: all fish, corals, algae, and invertebrates in the reef.\n8. ECOSYSTEM: The community PLUS its non-living environment. Example: the coral reef including water, sunlight, temperature, and all living things.\n9. BIOSPHERE: ALL ecosystems on Earth combined — the entire zone of life on our planet.",
+            "hint": "Start with the CELL (smallest) and build up to the BIOSPHERE (largest). The key is that each level CONTAINS the one below it."
+          },
+          {
+            "type": "mc",
+            "q": "PART 2 | [1-2] SELECT: Study this food chain: Grass → Rabbit → Fox → Eagle. Which of the following CORRECTLY identifies the trophic levels?\n",
+            "options": [
+              "A. Grass = Primary Consumer, Rabbit = Producer, Fox = Secondary Consumer, Eagle = Tertiary Consumer",
+              "B. Grass = Producer, Rabbit = Primary Consumer, Fox = Secondary Consumer, Eagle = Tertiary Consumer",
+              "C. Grass = Decomposer, Rabbit = Primary Consumer, Fox = Producer, Eagle = Apex Predator",
+              "D. Grass = Producer, Rabbit = Secondary Consumer, Fox = Primary Consumer, Eagle = Tertiary Consumer"
+            ],
+            "answer": "B. Grass = Producer, Rabbit = Primary Consumer, Fox = Secondary Consumer, Eagle = Tertiary Consumer",
+            "hint": "Producers make their own food. Consumers eat in order: primary eats producer, secondary eats primary, tertiary eats secondary."
+          },
+          {
+            "type": "open",
+            "q": "PART 2 | [3-4] SUGGEST: Overfishing has dramatically reduced the population of sardines in the Pacific Ocean. Sardines are eaten by tuna, sea lions, and seabirds. Suggest what would happen to the food web if sardine populations continue to decline. Suggest ONE solution to help restore sardine populations.",
+            "answer": "IF SARDINES DECLINE:\n- TUNA: Would lose a major food source. Tuna populations would decrease as they struggle to find food. Tuna might be forced to eat other prey, putting pressure on other species.\n- SEA LIONS: Would have less food. Sea lions might starve or move to new areas searching for food. Pup survival rates would drop.\n- SEABIRDS (pelicans, gannets): Would have fewer fish to catch. Breeding success would decline because adults cannot bring enough food for chicks. Seabird populations would fall.\n- CASCADE EFFECTS: With fewer seabirds and sea lions, the predators that eat THEM (larger sharks) would also face food shortages.\n\nSOLUTION: Implement strict fishing quotas that limit the amount of sardines that can be caught each year. This allows sardine populations to recover and stabilizes the entire food web above them.",
+            "hint": "Sardines are in the MIDDLE of the food chain. What do sardines eat? What eats sardines? Both sides are affected."
+          },
+          {
+            "type": "open",
+            "q": "PART 2 | [5-6] SUGGEST: Read the following situation:\n\nIn Brazil, large areas of the Amazon rainforest are being cleared for cattle ranching and soybean farming. Scientists report that 17% of the Amazon has been deforested in the last 50 years, and deforestation is accelerating. The Amazon contains 10% of all species on Earth and generates its own rainfall through a process called 'flying rivers' — water vapor from trees that creates rain across South America.\n\nSuggest how deforestation of the Amazon affects the ecosystem at different trophic levels. Which organisms are most at risk?",
+            "answer": "EFFECTS BY TROPHIC LEVEL:\n\n1. PRODUCERS: Millions of tree and plant species are destroyed. Photosynthesis rates in the region drop dramatically. Less carbon is absorbed and less oxygen is produced. Soil erodes without tree roots holding it in place.\n\n2. PRIMARY CONSUMERS (herbivores): Hundreds of insect, mammal (tapirs, monkeys, deer), and bird species that eat leaves, fruits, and seeds lose their food and habitat. Many species face extinction.\n\n3. SECONDARY CONSUMERS (omnivores and carnivores): Jaguars, ocelots, eagles, and large snakes lose prey. Their territory is fragmented and they cannot hunt effectively. Population sizes shrink dramatically.\n\n4. TERTIARY CONSUMERS/APEX PREDATORS: Jaguars and harpy eagles at the top of the Amazon food web are most vulnerable because they need LARGE territories and LARGE prey populations. They are the first to show population collapse.\n\n5. ABIOTIC EFFECTS → ADDITIONAL HARM: Without trees creating 'flying rivers,' rainfall decreases across the continent. Rivers shrink. Soil becomes dry and infertile. The entire Amazon ecosystem destabilizes, reducing species at ALL trophic levels.\n\nMOST AT RISK: Specialist species (animals that eat only ONE type of food or live in ONE specific habitat) are most vulnerable because they cannot adapt when their food source disappears.",
+            "hint": "Start at the bottom (trees = producers) and work up. Also consider what happens to the ABIOTIC factors (rain, soil) when trees disappear."
+          },
+          {
+            "type": "open",
+            "q": "PART 2 | [7-8] OUTLINE + SUGGEST: Outline the FACTORS that are causing Amazon deforestation described above. Then suggest TWO specific and realistic solutions to stop deforestation and protect the Amazon ecosystem.",
+            "answer": "FACTORS CAUSING AMAZON DEFORESTATION:\n1. CATTLE RANCHING: The Amazon is burned to create pastures for beef cattle that is then exported globally. This is the single largest driver of deforestation.\n2. SOYBEAN FARMING: Vast areas are cleared to grow soybeans, mainly to feed livestock in Europe and Asia. Demand for cheap meat globally drives this.\n3. LOGGING: Both legal and illegal logging removes valuable timber (mahogany, cedar) for furniture and construction. Roads built by loggers then open remote areas to further destruction.\n4. MINING: Gold, iron ore, and other minerals are extracted from the Amazon, destroying large areas and contaminating rivers with toxic mercury.\n5. WEAK ENFORCEMENT: Corruption and insufficient government resources mean environmental laws protecting the Amazon are often not enforced.\n6. GLOBAL DEMAND: Consumer demand in rich countries for cheap beef, soy-fed chicken and pork, and timber products drives the economic incentive for deforestation.\n\nTWO SOLUTIONS:\n1. ECONOMIC INCENTIVES FOR CONSERVATION: Pay indigenous communities and landowners directly to protect the forest through international carbon credit programs. If the forest has greater economic value STANDING than cleared, deforestation stops. Brazil's REDD+ program is an example of this approach.\n2. SUSTAINABLE SUPPLY CHAINS: Major supermarkets and food companies in Europe and the USA commit to buying only beef and soy certified as 'deforestation-free.' If global buyers refuse products from deforested land, the economic driver for clearing the Amazon disappears.",
+            "hint": "Think about WHY people cut down trees (money, farming, mining) and then think about how to make it economically or legally impossible or less attractive."
+          },
+          {
+            "type": "open",
+            "q": "PART 3 | [1-2] STATE: The following data represents the NUMBER OF ORGANISMS at each trophic level in a grassland ecosystem:\n- Grass plants: 500,000\n- Grasshoppers: 50,000\n- Frogs: 5,000\n- Snakes: 500\n- Hawks: 50\n\na) State the TYPE of pyramid this data represents.",
+            "answer": "This data represents an UPRIGHT PYRAMID OF NUMBERS (also called a numbers pyramid). It is upright because the number of organisms decreases at each trophic level from bottom to top — there are far more grass plants (500,000) than hawks (50).",
+            "hint": "Is the number going UP or DOWN as you go from producers to apex predators? Does the shape widen at the base?"
+          },
+          {
+            "type": "open",
+            "q": "PART 3 | [3-4] STATE: Using the pyramid of numbers (Grass: 500,000 / Grasshoppers: 50,000 / Frogs: 5,000 / Snakes: 500 / Hawks: 50):\n\nb) State which trophic level has the MOST organisms. State why using data from the pyramid to support your answer.",
+            "answer": "The GRASS (producers) level has the most organisms with 500,000 individual plants. This is because producers form the BASE of the food chain and must be abundant enough to support all the consumers above them. Grass has 10 times more individuals than grasshoppers (50,000), 100 times more than frogs (5,000), 1,000 times more than snakes (500), and 10,000 times more than hawks (50). The large number of producers is necessary because most of the energy is lost at each trophic level — you need many plants to support the energy needs of all the consumers.",
+            "hint": "Which level has the biggest number? Use the actual numbers to compare: 500,000 vs 50 — how many times bigger is it?"
+          },
+          {
+            "type": "open",
+            "q": "PART 3 | [5-6] INTERPRET: Using the pyramid of numbers (Grass: 500,000 / Grasshoppers: 50,000 / Frogs: 5,000 / Snakes: 500 / Hawks: 50):\n\nc) Interpret the information. What happens to the NUMBER OF ORGANISMS as the trophic level increases? Use data from the pyramid.",
+            "answer": "As you move UP the trophic levels, the NUMBER OF ORGANISMS decreases by a factor of 10 at each level.\n\nUsing data: Grass = 500,000 → Grasshoppers = 50,000 (10 times less) → Frogs = 5,000 (10 times less) → Snakes = 500 (10 times less) → Hawks = 50 (10 times less).\n\nThe general trend is that each successive trophic level has approximately ONE-TENTH the number of organisms of the level below it. This consistent 10-fold decrease occurs because each organism at a higher level needs to eat MANY organisms from the level below to obtain enough energy. For example, one hawk needs to eat many snakes throughout its lifetime to survive, so hawks are rare while their prey (snakes) are more abundant.",
+            "hint": "Divide each number by the one below it. What consistent ratio do you get? State the TREND, then use the numbers to prove it."
+          },
+          {
+            "type": "open",
+            "q": "PART 3 | [7-8] INTERPRET (Full Analysis): Using the pyramid of numbers, write a COMPLETE interpretation including:\n□ Title of the graph\n□ General trend (relate the number of organisms between trophic levels)\n□ Data to support the general trend\n□ Conclusion: What is the importance of the PRODUCERS in this ecosystem?",
+            "answer": "TITLE: Upright Pyramid of Numbers of a Grassland Ecosystem — showing the number of individual organisms at each trophic level.\n\nGENERAL TREND: The number of organisms DECREASES consistently as you move from lower to higher trophic levels. Each trophic level contains approximately 10 times FEWER individual organisms than the level below it. The pyramid is widest at the base (producers) and narrowest at the apex (tertiary consumers), indicating an upright pyramid of numbers.\n\nDATA TO SUPPORT TREND: Grass plants = 500,000 individuals. Grasshoppers (Primary Consumers) = 50,000 — 10 times fewer than grass. Frogs (Secondary Consumers) = 5,000 — 100 times fewer than grass. Snakes (Tertiary Consumers) = 500 — 1,000 times fewer than grass. Hawks (Apex Predators) = 50 — 10,000 times fewer than grass. This confirms a consistent 10-fold decrease at each successive trophic level.\n\nCONCLUSION — IMPORTANCE OF PRODUCERS: Grass plants (producers) are the MOST IMPORTANT level in this grassland ecosystem for three key reasons: (1) They are the FOUNDATION — the 500,000 grass plants capture solar energy and convert it into chemical energy that feeds the entire food chain. Without them, no consumer could survive. (2) They provide HABITAT and SHELTER — the grassland vegetation provides nesting areas, hiding places, and breeding grounds for grasshoppers, frogs, and other animals. (3) They STABILIZE the ecosystem — grass roots prevent soil erosion, maintain water retention in soil, and regulate local microclimate, making the grassland habitable for all other species. Remove the grass and the entire pyramid — all 55,550 animals — would collapse.",
+            "hint": "Four parts: title → trend (what DIRECTION do numbers go?) → data (use actual numbers) → conclusion (WHY do producers matter so much?)."
+          }
+        ]
+      },
+      {
+        "title": "Format C – Energy in the Biosphere (Prueba Real Format)",
+        "questions": [
+          {
+            "type": "mc",
+            "q": "PART 1 | [1-2] SELECT: Which of the following BEST describes what happens to energy as it flows through a food chain?",
+            "options": [
+              "A. Energy increases at each trophic level because organisms gain energy when they eat.",
+              "B. Energy remains constant throughout all trophic levels.",
+              "C. Energy decreases at each trophic level because most energy is lost to heat and respiration.",
+              "D. Energy is highest at the tertiary consumer level because they eat the most."
+            ],
+            "answer": "C. Energy decreases at each trophic level because most energy is lost to heat and respiration.",
+            "hint": "Remember the 10% rule. Where does the other 90% of energy go at each level?"
+          },
+          {
+            "type": "open",
+            "q": "PART 1 | [3-4] RECALL: Classify each organism as AUTOTROPH or HETEROTROPH. Write AU (Autotroph) or HE (Heterotroph) next to each one:\n1. A sunflower\n2. A lion\n3. A mushroom\n4. Seaweed (algae)\n5. A human being",
+            "answer": "1. A sunflower → AU (Autotroph) — it produces its own food through photosynthesis.\n2. A lion → HE (Heterotroph) — it must eat other animals to get energy.\n3. A mushroom → HE (Heterotroph) — fungi absorb nutrients from dead or living organisms (they are decomposers).\n4. Seaweed (algae) → AU (Autotroph) — algae photosynthesize like plants.\n5. A human being → HE (Heterotroph) — humans must eat food (plants or animals) to obtain energy.",
+            "hint": "Autotroph = makes its own food (usually through photosynthesis). Heterotroph = must EAT other organisms to get energy."
+          },
+          {
+            "type": "open",
+            "q": "PART 1 | [5-6] STATE: State the energy transformation in each situation:\n\nA) A green plant in sunlight\nFrom _________ into _________\n\nB) An electric kettle boiling water\nFrom _________ into _________\n\nC) A car engine running\nFrom _________ into _________\n\nD) A glow-worm (bioluminescent insect) emitting light\nFrom _________ into _________",
+            "answer": "A) Green plant: From SOLAR (light) energy into CHEMICAL energy (glucose through photosynthesis).\nB) Electric kettle: From ELECTRICAL energy into THERMAL (heat) energy.\nC) Car engine: From CHEMICAL energy (fuel/petrol) into KINETIC (mechanical) energy and HEAT energy.\nD) Glow-worm: From CHEMICAL energy into LIGHT energy (bioluminescence is a chemical reaction that produces light).",
+            "hint": "For the glow-worm, the insect uses a chemical reaction in its body — what type of energy does a chemical reaction store?"
+          },
+          {
+            "type": "open",
+            "q": "PART 1 | [7-8] OUTLINE: Outline the concept of TROPHIC LEVELS in an ecosystem. Explain the role of DECOMPOSERS and why they are essential to nutrient cycling. Give examples of organisms at each trophic level.",
+            "answer": "TROPHIC LEVELS are the different feeding positions in a food chain or food web. Each level represents a step in the flow of energy through the ecosystem.\n\nLEVEL 1 — PRODUCERS (autotrophs): Plants, algae, and photosynthetic bacteria. Example: grass in a meadow. They convert solar energy into chemical energy.\n\nLEVEL 2 — PRIMARY CONSUMERS (herbivores): Organisms that eat producers. Example: rabbits, caterpillars, cows. They are the first link of consumers.\n\nLEVEL 3 — SECONDARY CONSUMERS (carnivores/omnivores): Organisms that eat primary consumers. Example: foxes, frogs, small predatory fish.\n\nLEVEL 4 — TERTIARY CONSUMERS (apex predators): Organisms at the top that eat secondary consumers. Example: eagles, sharks, lions.\n\nDECOMPOSERS — a special category: Fungi and bacteria that break down DEAD organisms at ALL trophic levels, releasing nutrients back into the soil and water.\n\nIMPORTANCE OF DECOMPOSERS: Without decomposers, dead organic matter would accumulate indefinitely. Decomposers break down proteins, fats, and carbohydrates in dead tissue and release nitrogen, phosphorus, and carbon back into the soil. These nutrients are then absorbed by producers to grow. Decomposers COMPLETE the cycle — they ensure that energy and matter keep flowing through the ecosystem. Without them, soil would become infertile, producers would run out of nutrients, and the entire food web would collapse.",
+            "hint": "Decomposers are like nature's recycling service. What would happen if nothing ever broke down? Nutrients would be locked inside dead bodies forever."
+          },
+          {
+            "type": "mc",
+            "q": "PART 2 | [1-2] SELECT: In the following food chain: Phytoplankton → Zooplankton → Herring → Tuna → Killer Whale. If the killer whale population increases dramatically, which population would MOST LIKELY decrease FIRST?",
+            "options": [
+              "A. Phytoplankton",
+              "B. Zooplankton",
+              "C. Tuna",
+              "D. Herring"
+            ],
+            "answer": "C. Tuna",
+            "hint": "Killer whales eat tuna directly. The organism that is eaten MOST DIRECTLY by the growing predator will decrease FIRST."
+          },
+          {
+            "type": "open",
+            "q": "PART 2 | [3-4] SUGGEST: In parts of Africa, lion populations have decreased by 43% over the past 20 years due to habitat loss and hunting. Lions are apex predators that control the population of zebras and wildebeest. Suggest what would happen to the savanna ecosystem if lion populations continue to decline. Suggest ONE solution to protect lions.",
+            "answer": "IF LION POPULATIONS DECLINE:\n- ZEBRAS and WILDEBEEST (primary consumers): Without lions hunting them, their populations would grow without control. This is called a 'trophic cascade.' Large herds would overgraze the savanna grasslands.\n- GRASS and VEGETATION (producers): Overgrazing by zebras and wildebeest would destroy large areas of grass, reducing the base of the food chain. The savanna would begin to turn into bare land (desertification).\n- OTHER PREDATORS: Hyenas and wild dogs that compete with lions might also grow in number, further pressuring prey populations.\n- ENTIRE ECOSYSTEM: The savanna would become unstable — too many herbivores, not enough grass, leading to widespread starvation of herbivores and collapse of the ecosystem.\n\nSOLUTION: Establish and expand WILDLIFE RESERVES where lions are legally protected from hunting and their habitat is preserved. Strong anti-poaching enforcement and community-based conservation programs that give local communities economic benefits from tourism will reduce the incentive to kill lions.",
+            "hint": "When apex predators disappear, their prey grows unchecked. What does unlimited prey do to the food source below them (producers)?"
+          },
+          {
+            "type": "open",
+            "q": "PART 2 | [5-6] SUGGEST: Read the following situation:\n\nAcross the globe, 50% of all wetland ecosystems (marshes, swamps, mangroves) have been lost in the last 100 years due to drainage for agriculture, urban development, and pollution. Wetlands filter water, store carbon, host enormous biodiversity, and act as nurseries for fish. Scientists warn that continued wetland loss could have cascading effects on food security for millions of people.\n\nSuggest how wetland destruction affects the ecosystem at different trophic levels. Which trophic levels would be most severely affected?",
+            "answer": "EFFECTS BY TROPHIC LEVEL:\n\n1. PRODUCERS: Wetland plants (reeds, mangroves, water lilies, algae) are destroyed. Less photosynthesis occurs. Carbon that was stored in wetland soil is released into the atmosphere as CO₂. The base of the wetland food chain disappears.\n\n2. PRIMARY CONSUMERS: Insects, small crustaceans, tadpoles, and fish larvae that feed on wetland plants and algae lose their nursery and food. Many juvenile fish species that grow in wetlands before moving to the ocean are eliminated before they can reproduce. Fish populations in nearby seas drop dramatically.\n\n3. SECONDARY and TERTIARY CONSUMERS: Wading birds (herons, egrets, storks), otters, and larger fish that hunt in wetlands lose their hunting grounds and food sources. These predators decline rapidly.\n\n4. HUMANS: Wetlands filter toxins from water, making it safe to drink. Without wetlands, water quality deteriorates, affecting human health. Reduced fish populations threaten food security for millions who depend on fish as their primary protein. Coastal flooding increases without mangroves to absorb storm energy.\n\nMOST SEVERELY AFFECTED: All trophic levels are affected, but PRIMARY CONSUMERS are hit hardest first because wetlands are nurseries — removing them prevents young fish and invertebrates from surviving to adulthood, collapsing populations even before they can reproduce.",
+            "hint": "Wetlands are nurseries — many species GROW UP there before living elsewhere. What happens if the nursery disappears?"
+          },
+          {
+            "type": "open",
+            "q": "PART 2 | [7-8] OUTLINE + SUGGEST: Outline the FACTORS causing global wetland loss described above. Then suggest TWO effective solutions to stop wetland destruction and restore affected wetland ecosystems.",
+            "answer": "FACTORS CAUSING WETLAND LOSS:\n1. DRAINAGE FOR AGRICULTURE: Wetlands are drained and converted into flat agricultural land for growing crops or raising livestock. This is the largest single cause globally.\n2. URBAN DEVELOPMENT: Cities, roads, and housing developments are built on wetland areas. Wetlands are seen as 'wasteland' to be filled and built upon.\n3. WATER POLLUTION: Industrial and agricultural chemicals (pesticides, fertilizers, heavy metals) contaminate wetland water, making it toxic for plants and animals. The ecosystem becomes uninhabitable.\n4. WATER DIVERSION: Rivers and streams that feed wetlands are diverted for irrigation, leaving wetlands without enough water to function.\n5. CLIMATE CHANGE: Changing rainfall patterns cause wetlands to dry out in regions experiencing drought. Rising sea levels can flood and salinize coastal freshwater wetlands.\n6. INVASIVE SPECIES: Non-native plants can take over wetlands, outcompeting native species and reducing biodiversity.\n\nTWO SOLUTIONS:\n1. LEGAL PROTECTION AND RESTORATION: Governments must pass and enforce laws that classify wetlands as protected ecosystems. The Ramsar Convention (international treaty) already protects many wetlands globally. Restoration programs should actively replant native wetland vegetation and reintroduce native species to degraded areas. Funding for wetland restoration should come from carbon credit programs that pay countries for the carbon stored in wetland soil.\n2. PAYMENT FOR ECOSYSTEM SERVICES: Instead of draining wetlands for agriculture, farmers and communities near wetlands are paid for the services that intact wetlands provide (water filtration, flood protection, carbon storage, fisheries support). This creates an economic incentive to KEEP wetlands intact rather than destroy them, making conservation economically competitive with agriculture.",
+            "hint": "Agriculture + cities = physical destruction. Pollution + climate = slow degradation. Solutions must address both the PHYSICAL and ECONOMIC causes."
+          },
+          {
+            "type": "open",
+            "q": "PART 3 | [1-2] STATE: The following FOOD WEB exists in an ocean ecosystem:\n- Phytoplankton → Zooplankton → Herring → Tuna\n- Phytoplankton → Zooplankton → Squid → Tuna\n- Phytoplankton → Zooplankton → Squid → Sperm Whale\n- Tuna → Shark\n- Sperm Whale → (no predator)\n\na) State whether this is a FOOD CHAIN or a FOOD WEB and explain why.",
+            "answer": "This is a FOOD WEB (not a simple food chain) because it shows MULTIPLE interconnected pathways of energy flow. For example, zooplankton can be eaten by herring OR squid; tuna can eat herring OR squid; and tuna is eaten by sharks. There is no single straight line of energy flow — instead, organisms are connected through multiple alternative routes. This makes it a web of feeding relationships rather than a single chain.",
+            "hint": "A food chain is one straight line. A food web has multiple interconnected paths. Count the pathways — does this have more than one?"
+          },
+          {
+            "type": "open",
+            "q": "PART 3 | [3-4] STATE: Using the ocean food web above:\n\nb) State which organism is the APEX PREDATOR. State why, using information from the food web to support your answer.",
+            "answer": "The SPERM WHALE is the apex predator in this food web. This is because no other organism in the food web is shown eating the sperm whale — it has no predators. It is at the highest trophic level, eating squid which in turn eat zooplankton that eat phytoplankton. The shark is also an apex predator in its part of the web (it eats tuna but nothing eats sharks here). However, the sperm whale occupies a longer food chain (Phytoplankton → Zooplankton → Squid → Sperm Whale = 4 levels) making it the organism furthest from the producer level.",
+            "hint": "The apex predator has NO arrows pointing away from it — nothing eats it. Scan the food web for who has no predator."
+          },
+          {
+            "type": "open",
+            "q": "PART 3 | [5-6] INTERPRET: Using the ocean food web:\n\nc) Interpret what would happen to the food web if ZOOPLANKTON populations declined by 80% due to ocean acidification. Use information from the food web to support your interpretation.",
+            "answer": "If zooplankton declined by 80%, the consequences would cascade through the ENTIRE food web because zooplankton are primary consumers that connect phytoplankton (producers) to ALL higher trophic levels:\n\n- HERRING: Would immediately lose 80% of their main food source. Herring populations would crash rapidly.\n- SQUID: Similarly, squid eat zooplankton and would decline significantly. With less squid, both tuna and sperm whale food supplies shrink.\n- TUNA: Lose both major food sources (herring and squid). Tuna populations would collapse.\n- SHARK: With far fewer tuna to eat, sharks would starve. Shark populations would decline.\n- SPERM WHALE: With far fewer squid available, sperm whale populations would also decline.\n- PHYTOPLANKTON: Without zooplankton to eat them, phytoplankton might initially increase (bloom), but this could create oxygen-depleted dead zones as they die and decompose.\n\nCONCLUSION: The decline of zooplankton — a single key species — would cause a TOTAL COLLAPSE of the ocean food web from primary consumers upward, demonstrating how food webs are highly vulnerable when a central link is removed.",
+            "hint": "Zooplankton is the ONLY bridge between phytoplankton and ALL other organisms in this web. What happens when you remove the bridge?"
+          },
+          {
+            "type": "open",
+            "q": "PART 3 | [7-8] INTERPRET (Full Analysis): Using the ocean food web, write a COMPLETE interpretation including:\n□ Title of the food web\n□ General trend: How does energy and biodiversity change as you move from producers to apex predators?\n□ Data/examples from the food web to support your trend\n□ Conclusion: Why is it important to protect organisms at the BASE of marine food webs (like phytoplankton and zooplankton)?",
+            "answer": "TITLE: Marine Food Web of an Open Ocean Ecosystem — showing feeding relationships and energy flow from phytoplankton to apex predators.\n\nGENERAL TREND: As you move from PRODUCERS upward toward APEX PREDATORS, two clear trends occur simultaneously: (1) ENERGY DECREASES — each level receives approximately 10% of the energy from the level below, so the energy available to sperm whales and sharks is tiny compared to what phytoplankton capture from the sun. (2) NUMBER OF PATHWAYS CONVERGES — multiple different feeding routes at lower levels (herring, squid, zooplankton all provide energy upward) narrow to fewer pathways at higher levels (only tuna and sperm whale feed the shark and sperm whale levels).\n\nEVIDENCE FROM FOOD WEB: Phytoplankton supports the ENTIRE web — it is eaten by zooplankton which is the gateway to herring, squid, tuna, sperm whale, and shark. Multiple pathways exist at the middle level (zooplankton → herring OR squid), which makes the mid-level more resilient. However, tuna can only be eaten by sharks, showing convergence at the top.\n\nCONCLUSION — IMPORTANCE OF PROTECTING PHYTOPLANKTON AND ZOOPLANKTON: Phytoplankton and zooplankton are the FOUNDATION of the entire marine food web: (1) Phytoplankton produce 50% of ALL the oxygen on Earth through photosynthesis — more than all land plants combined. Without them, animal life on Earth would be impossible. (2) Zooplankton are the ONLY transfer point between phytoplankton and ALL other marine life. If zooplankton disappear, every organism in this food web — from herring to sperm whale — loses its food supply. (3) Their small size is deceptive — they are not small in importance. Losing phytoplankton or zooplankton would be a catastrophic, irreversible loss for the entire ocean ecosystem and for human civilization that depends on fish as a food source. Therefore, protecting ocean chemistry (reducing acidification and warming) to maintain phytoplankton and zooplankton populations is one of the most critical environmental priorities humans face.",
+            "hint": "Four parts: title → two simultaneous trends (energy decreasing, pathways converging) → evidence (use the organisms' names) → why the BASE matters for ALL life on Earth."
+          }
+        ]
+      }
+    ],
+    "Ciencias Sociales": [
+      {
+        "title": "Causas de la Independencia de Hispanoamérica",
+        "questions": [
+          {
+            "type": "mc",
+            "q": "La Ilustración fue un movimiento intelectual que surgió en el siglo XVIII. ¿Cuál de las siguientes ideas promovía?",
+            "options": [
+              "La obediencia absoluta al rey y la Iglesia",
+              "La libertad del ser humano, la soberanía popular y la separación de poderes",
+              "El fortalecimiento de las monarquías absolutas europeas",
+              "La expansión del comercio colonial sin cambios políticos"
+            ],
+            "answer": "La libertad del ser humano, la soberanía popular y la separación de poderes",
+            "hint": "Piensa en qué tipo de gobierno querían reemplazar las monarquías: uno basado en el pueblo."
+          },
+          {
+            "type": "mc",
+            "q": "¿Qué tipo de causa de independencia fue la difusión de las ideas ilustradas en América?",
+            "options": [
+              "Causa interna",
+              "Causa directa",
+              "Causa externa",
+              "Causa económica"
+            ],
+            "answer": "Causa externa",
+            "hint": "Las causas externas son eventos que ocurrieron FUERA del imperio español."
+          },
+          {
+            "type": "mc",
+            "q": "La Independencia de Estados Unidos (1776) fue importante para Hispanoamérica porque:",
+            "options": [
+              "EE.UU. envió tropas para liberar las colonias españolas",
+              "Demostró que las ideas ilustradas podían convertirse en una república independiente, inspirando a los criollos",
+              "España perdió el control de sus colonias por culpa de EE.UU.",
+              "Los criollos copiaron exactamente la constitución estadounidense"
+            ],
+            "answer": "Demostró que las ideas ilustradas podían convertirse en una república independiente, inspirando a los criollos",
+            "hint": "Hispanoamérica vio en el proceso norteamericano una inspiración para su propia emancipación."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuáles eran las causas INTERNAS de la independencia hispanoamericana?",
+            "options": [
+              "La Ilustración y la Independencia de EE.UU.",
+              "El debilitamiento de España y el descontento criollo",
+              "La invasión de Napoleón a España",
+              "La Revolución Francesa y la caída del rey Luis XVI"
+            ],
+            "answer": "El debilitamiento de España y el descontento criollo",
+            "hint": "Las causas internas ocurrieron DENTRO del imperio español."
+          },
+          {
+            "type": "open",
+            "q": "Explica por qué los criollos estaban descontentos con el sistema colonial español. Menciona al menos dos razones.",
+            "answer": "Los criollos estaban descontentos porque no podían acceder a cargos políticos, que estaban reservados exclusivamente para los españoles peninsulares. Además, querían participar en la gobernación de sus territorios. Con el tiempo, fueron haciéndose conscientes de su propia identidad y comenzaron a inspirarse en ideas liberales y revolucionarias que llegaban de Francia y Estados Unidos.",
+            "hint": "Piensa en los cargos políticos y en la identidad criolla."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuál fue la CAUSA DIRECTA que desencadenó el proceso de independencia?",
+            "options": [
+              "La difusión de las ideas ilustradas",
+              "El descontento criollo por los cargos políticos",
+              "Napoleón Bonaparte invadió España en 1808 y apresó al rey Fernando VII",
+              "La independencia de Estados Unidos en 1776"
+            ],
+            "answer": "Napoleón Bonaparte invadió España en 1808 y apresó al rey Fernando VII",
+            "hint": "La causa directa fue un hecho puntual que desencadenó todo el proceso."
+          },
+          {
+            "type": "open",
+            "q": "¿Qué fueron las Juntas de Gobierno y por qué se formaron en las colonias americanas?",
+            "answer": "Las Juntas de Gobierno fueron organizaciones políticas formadas por los criollos para gobernar en nombre del rey Fernando VII mientras este estuviera preso por Napoleón. Se negaron a obedecer al invasor francés (José Bonaparte). Aunque inicialmente declararon fidelidad al rey español, esto les permitió comenzar a autogobernarse, lo que eventualmente llevó a la independencia.",
+            "hint": "Se formaron como reacción al arresto de Fernando VII por Napoleón."
+          },
+          {
+            "type": "mc",
+            "q": "¿Qué ocurrió el 18 de septiembre de 1810 en Chile?",
+            "options": [
+              "Se firmó el Acta de Independencia de Chile",
+              "Se formó la Primera Junta Nacional de Gobierno",
+              "Comenzó la Reconquista española",
+              "Bernardo O'Higgins fue nombrado Director Supremo"
+            ],
+            "answer": "Se formó la Primera Junta Nacional de Gobierno",
+            "hint": "Esta fecha se celebra hasta hoy como fiesta nacional."
+          },
+          {
+            "type": "mc",
+            "q": "¿Quién convocó al Cabildo Abierto que dio origen a la Primera Junta de Gobierno en Chile?",
+            "options": [
+              "Bernardo O'Higgins",
+              "José Miguel Carrera",
+              "Mateo de Toro y Zambrano",
+              "Manuel Rodríguez"
+            ],
+            "answer": "Mateo de Toro y Zambrano",
+            "hint": "Fue presionado por los criollos para convocar esta reunión."
+          },
+          {
+            "type": "open",
+            "q": "Completa la secuencia de la Causa Directa: Evento → Reacción → Objetivo → Resultado. Explica cada paso con tus palabras.",
+            "answer": "Evento: Napoleón invade España y apresa a Fernando VII. Reacción: En España y América se forman Juntas de Gobierno para organizarse ante la ausencia del rey. Objetivo: Proteger la soberanía del rey hasta su regreso. Resultado: Los criollos comienzan a planificar sus propios gobiernos, aplicando la idea de soberanía popular (el poder reside en el pueblo).",
+            "hint": "Piensa en qué pasó → cómo reaccionaron → para qué → qué terminó ocurriendo."
+          },
+          {
+            "type": "mc",
+            "q": "¿Qué significa el concepto de 'soberanía popular'?",
+            "options": [
+              "Que el rey tiene todo el poder sobre el pueblo",
+              "Que el poder político reside en el pueblo, no en el monarca",
+              "Que solo los militares pueden gobernar",
+              "Que los criollos son superiores a los peninsulares"
+            ],
+            "answer": "Que el poder político reside en el pueblo, no en el monarca",
+            "hint": "Es una idea de la Ilustración que inspiró las repúblicas."
+          },
+          {
+            "type": "open",
+            "q": "La Primera Junta de Gobierno de Chile 'se declaró fiel al rey español, pero no al pueblo español'. ¿Qué significa esta frase y por qué es importante?",
+            "answer": "Significa que los criollos reconocían la autoridad legítima de Fernando VII como rey, pero rechazaban someterse al gobierno impuesto por Napoleón (José Bonaparte). Esto es importante porque, aunque no declararon la independencia abiertamente, al negarse a obedecer al poder español vigente y gobernarse a sí mismos, dieron el primer paso hacia la autonomía y eventualmente la independencia total.",
+            "hint": "Distingue entre la lealtad al rey legítimo y la obediencia al gobierno invasor francés."
+          }
+        ]
+      },
+      {
+        "title": "Proceso de Independencia de Chile: Reconquista y Patria Nueva",
+        "questions": [
+          {
+            "type": "mc",
+            "q": "¿Qué evento marcó el fin de la Patria Vieja en 1814?",
+            "options": [
+              "La Batalla de Chacabuco",
+              "El Desastre de Rancagua",
+              "La Batalla de Maipú",
+              "La firma del Acta de Independencia"
+            ],
+            "answer": "El Desastre de Rancagua",
+            "hint": "Tras este evento, O'Higgins y los patriotas debieron cruzar la cordillera hacia Mendoza."
+          },
+          {
+            "type": "mc",
+            "q": "Durante la Reconquista (1814-1817), ¿qué gobernadores reinstauraron el régimen colonial en Chile?",
+            "options": [
+              "Bernardo O'Higgins y José de San Martín",
+              "Mariano Osorio y Casimiro Marcó del Pont",
+              "José Miguel Carrera y Manuel Rodríguez",
+              "Mateo de Toro y Zambrano y Diego Portales"
+            ],
+            "answer": "Mariano Osorio y Casimiro Marcó del Pont",
+            "hint": "Fueron gobernadores españoles que reprimieron duramente a los patriotas."
+          },
+          {
+            "type": "open",
+            "q": "Describe las principales características del período de la Reconquista. ¿Por qué este período terminó fortaleciendo el deseo de independencia?",
+            "answer": "La Reconquista se caracterizó por una severa represión hacia los criollos simpatizantes de la independencia: persecución política, confinamiento de patriotas en la Isla de Juan Fernández y confiscación de bienes. Paradójicamente, esto fortaleció el deseo de independencia porque generó un profundo resentimiento en la población civil, transformando el antiguo desinterés de las masas en un ferviente deseo de emancipación.",
+            "hint": "La represión tuvo el efecto contrario al esperado por los españoles."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuál fue el rol fundamental de Manuel Rodríguez durante la preparación del Cruce de los Andes?",
+            "options": [
+              "Comandó una de las columnas del Ejército de los Andes",
+              "Negoció la rendición de los realistas en Santiago",
+              "Usó tácticas de espionaje y distracción para confundir a los realistas y dividir sus fuerzas",
+              "Financió el ejército patriota con su fortuna personal"
+            ],
+            "answer": "Usó tácticas de espionaje y distracción para confundir a los realistas y dividir sus fuerzas",
+            "hint": "Su labor logró que Marcó del Pont distribuyera sus 4.000 soldados a lo largo de toda la zona central."
+          },
+          {
+            "type": "open",
+            "q": "Explica por qué el Cruce de los Andes (enero 1817) fue considerado una hazaña logística sin precedentes.",
+            "answer": "Fue una hazaña porque implicó cruzar más de 5.000 hombres, cañones, víveres y miles de mulas a altitudes superiores a los 4.000 metros. El ejército se dividió en seis columnas simultáneas distribuidas a lo largo de 800 kilómetros de cordillera. Las dos fuerzas principales cruzaron de forma coordinada por los pasos cordilleranos, llegando al valle de Chacabuco el 12 de febrero de 1817.",
+            "hint": "Piensa en la cantidad de soldados, la altura, la extensión y la coordinación necesaria."
+          },
+          {
+            "type": "mc",
+            "q": "¿Qué batalla marcó el fin de la Reconquista y abrió el camino a la liberación de Santiago?",
+            "options": [
+              "Batalla de Maipú",
+              "Batalla de Rancagua",
+              "Batalla de Chacabuco",
+              "Batalla de Cancha Rayada"
+            ],
+            "answer": "Batalla de Chacabuco",
+            "hint": "Ocurrió el 12 de febrero de 1817, justo después del Cruce de los Andes."
+          },
+          {
+            "type": "mc",
+            "q": "Tras la Batalla de Chacabuco, ¿qué cargo asumió Bernardo O'Higgins?",
+            "options": [
+              "Presidente de la República",
+              "Director Supremo",
+              "Gobernador Colonial",
+              "General del Ejército de los Andes"
+            ],
+            "answer": "Director Supremo",
+            "hint": "Este cargo marcó el inicio de la Patria Nueva (1817-1823)."
+          },
+          {
+            "type": "mc",
+            "q": "¿Qué dos hechos consolidaron la independencia de Chile en 1818?",
+            "options": [
+              "El Cruce de los Andes y la Batalla de Chacabuco",
+              "La firma del Acta de Independencia (12 de febrero) y la Batalla de Maipú (5 de abril)",
+              "La creación de la Alameda y la abolición de títulos de nobleza",
+              "La renuncia de O'Higgins y la Constitución de 1822"
+            ],
+            "answer": "La firma del Acta de Independencia (12 de febrero) y la Batalla de Maipú (5 de abril)",
+            "hint": "Una fue legal (documento) y la otra fue militar (batalla decisiva)."
+          },
+          {
+            "type": "open",
+            "q": "¿Qué fue el 'Abrazo de Maipú' y qué significó para la independencia de Chile?",
+            "answer": "El Abrazo de Maipú fue el encuentro entre Bernardo O'Higgins y José de San Martín tras la Batalla de Maipú (5 de abril de 1818). Este abrazo selló la independencia militar de Chile, confirmando la derrota definitiva de las fuerzas realistas y consolidando la independencia que se había declarado formalmente dos meses antes con el Acta de Independencia.",
+            "hint": "Fue un gesto simbólico entre dos líderes tras una batalla decisiva."
+          },
+          {
+            "type": "open",
+            "q": "Nombra al menos tres obras o reformas importantes del gobierno de O'Higgins y explica por qué generaron conflicto con la aristocracia.",
+            "answer": "Obras/reformas de O'Higgins: 1) Creación de la Alameda de las Delicias (transformó La Cañada, un terreno seco y abandonado, en un paseo público inspirado en París). 2) Abolición de los títulos de nobleza (buscaba promover la igualdad, pero la aristocracia lo consideró un ataque a su estatus). 3) Creación del Cementerio General (1821), abierto a difuntos de todas las religiones (la aristocracia católica lo consideró un insulto). 4) Constitución de 1822, que permitía su reelección por 10 años (fue vista como autoritaria). Estas reformas generaron conflicto porque, aunque modernizaban el Estado, atacaban los privilegios y tradiciones de la élite criolla conservadora.",
+            "hint": "Piensa en la Alameda, los títulos de nobleza, el cementerio y la Constitución de 1822."
+          },
+          {
+            "type": "mc",
+            "q": "¿Por qué O'Higgins renunció como Director Supremo en 1823?",
+            "options": [
+              "Porque España reconquistó Chile nuevamente",
+              "Porque fue superado por las críticas de autoritarismo y la amenaza de una guerra civil",
+              "Porque San Martín le pidió que se fuera al Perú",
+              "Porque ganó las elecciones un candidato de la oposición"
+            ],
+            "answer": "Porque fue superado por las críticas de autoritarismo y la amenaza de una guerra civil",
+            "hint": "Sus reformas liberales excedieron el ritmo que la aristocracia estaba dispuesta a tolerar."
+          },
+          {
+            "type": "open",
+            "q": "La Patria Nueva tiene un 'arco' histórico: Ascenso (1817) → Cúspide Legal (1818) → Gestión Civil (1818-1822) → Declive (1823). Explica brevemente qué ocurrió en cada etapa.",
+            "answer": "Ascenso (1817): Batalla de Chacabuco y nombramiento de O'Higgins como Director Supremo. Cúspide Legal (1818): Acta de Independencia (12 de febrero) y Batalla de Maipú que sellan la independencia. Gestión Civil (1818-1822): Obras públicas como la Alameda y reformas sociales radicales (abolición de títulos, Cementerio General). Declive (1823): La Constitución autoritaria de 1822 y el descontento de la aristocracia llevan a la renuncia y autoexilio de O'Higgins en el Perú.",
+            "hint": "Sigue el arco: victoria militar → independencia formal → reformas modernizadoras → conflicto y caída."
+          }
+        ]
+      },
+      {
+        "title": "Análisis de Fuentes Históricas y Pensamiento Crítico (Criterio D)",
+        "questions": [
+          {
+            "type": "mc",
+            "q": "¿Qué es una fuente histórica?",
+            "options": [
+              "Un libro de texto escolar",
+              "Evidencia que nos permite comprender el pasado",
+              "Un documento firmado por un presidente",
+              "Una película sobre hechos históricos"
+            ],
+            "answer": "Evidencia que nos permite comprender el pasado",
+            "hint": "Las fuentes históricas pueden ser muy variadas: objetos, documentos, fotos, etc."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuál es la diferencia principal entre una fuente primaria y una secundaria?",
+            "options": [
+              "Las primarias son más importantes que las secundarias",
+              "Las primarias fueron producidas en el período estudiado; las secundarias fueron creadas después, a partir de fuentes primarias",
+              "Las primarias son siempre documentos escritos; las secundarias son siempre imágenes",
+              "Las primarias son objetivas y las secundarias son subjetivas"
+            ],
+            "answer": "Las primarias fueron producidas en el período estudiado; las secundarias fueron creadas después, a partir de fuentes primarias",
+            "hint": "El criterio clave es CUÁNDO fue producida la fuente en relación al hecho histórico."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuál de los siguientes es un ejemplo de fuente PRIMARIA?",
+            "options": [
+              "Un libro de historia publicado en 2020",
+              "Un documental de Netflix sobre imperios",
+              "Una carta escrita por Diego Portales en 1836",
+              "Un artículo académico sobre la independencia"
+            ],
+            "answer": "Una carta escrita por Diego Portales en 1836",
+            "hint": "Fue escrita DURANTE el período histórico que se estudia."
+          },
+          {
+            "type": "mc",
+            "q": "Un billete de 500 pesos del Banco Central de Chile de 1956 es una fuente:",
+            "options": [
+              "Secundaria, porque ya no se usa",
+              "Primaria, porque fue producido en el período que se estudia",
+              "Secundaria, porque es una copia del original",
+              "Ni primaria ni secundaria"
+            ],
+            "answer": "Primaria, porque fue producido en el período que se estudia",
+            "hint": "Los objetos originales del período estudiado son fuentes primarias, no solo los documentos escritos."
+          },
+          {
+            "type": "open",
+            "q": "Lee la siguiente fuente y responde: ¿Es primaria o secundaria? Justifica tu respuesta.\n\n\"Ya se ha descubierto la insurrección de las cuadrillas armadas y brigadas en los montes... Esto exige contraponer fuerzas de guerrillas o cuerpos volantes para evadir el plan enemigo.\"\n— Marcó del Pont, oficio al virrey Pezuela, 1817.",
+            "answer": "Es una fuente PRIMARIA porque fue escrita en 1817, durante el período histórico que se estudia (la Reconquista). Fue redactada por Casimiro Marcó del Pont, quien fue gobernador de Chile en ese momento, y es un documento oficial (un oficio al virrey) producido como parte de los acontecimientos mismos. No es una interpretación posterior, sino evidencia original del período.",
+            "hint": "Fíjate en quién la escribió, cuándo y en qué contexto histórico se encontraba."
+          },
+          {
+            "type": "open",
+            "q": "En la fuente de Marcó del Pont (1817), él menciona 'la insurrección de las cuadrillas armadas' y la necesidad de 'contraponer fuerzas de guerrillas'. ¿A quiénes se refiere como insurgentes y qué consecuencia tuvo esto para los realistas?",
+            "answer": "Los 'insurgentes' son los patriotas chilenos que organizaban guerrillas bajo el liderazgo de Manuel Rodríguez para distraer y confundir a los realistas. La consecuencia fue que Marcó del Pont, al no saber por dónde vendría el ataque patriota, distribuyó sus más de 4.000 soldados a lo largo de toda la zona central para resguardar múltiples pasos fronterizos, dividiendo críticamente sus fuerzas. Esto facilitó el exitoso Cruce de los Andes y la victoria patriota en Chacabuco.",
+            "hint": "Piensa en Manuel Rodríguez y cómo su labor afectó la estrategia militar realista."
+          },
+          {
+            "type": "open",
+            "q": "Para analizar fuentes históricas se usa la técnica OPVL. En 6º básico nos enfocamos en Origen y Propósito. ¿Qué preguntas debemos hacernos para identificar cada uno?",
+            "answer": "Para el ORIGEN debemos preguntarnos: ¿Qué tipo de fuente es (primaria o secundaria)? ¿Quién es el autor? ¿Dónde y cuándo fue publicada o escrita? Para el PROPÓSITO debemos preguntarnos: ¿Por qué la escribió el autor? ¿Cuál es el mensaje o idea principal? ¿Cuál es la audiencia (a quién va dirigida)?",
+            "hint": "Origen = quién, cuándo, dónde, qué tipo. Propósito = por qué, para quién, con qué mensaje."
+          },
+          {
+            "type": "open",
+            "q": "Analiza el ORIGEN y PROPÓSITO de la siguiente fuente:\n\nSesión del Congreso Nacional, 11 de octubre de 1811 — Ley de Libertad de Vientres:\n\"...acordó el Congreso que desde hoy en adelante no venga a Chile ningún esclavo; y que los que al presente se hallan en servidumbre, permanezcan en una condición que se les hará tolerable... y, sobre todo, el consuelo de que sus hijos que nazcan desde hoy, serán libres.\"",
+            "answer": "ORIGEN: Es una fuente primaria. Fue escrita por el Congreso Nacional de Chile el 11 de octubre de 1811, durante el período de la Patria Vieja. Es un documento oficial (acta de sesión del Congreso). PROPÓSITO: El propósito era establecer la ley de Libertad de Vientres, que prohibía la entrada de nuevos esclavos a Chile y declaraba libres a los hijos de esclavos nacidos desde esa fecha. La audiencia eran los habitantes de Chile y las autoridades. El mensaje principal era dar un paso hacia la abolición de la esclavitud, reflejando las ideas ilustradas de libertad.",
+            "hint": "Identifica el tipo de fuente, quién la produjo, cuándo, y luego analiza por qué y para qué fue escrita."
+          },
+          {
+            "type": "open",
+            "q": "Lee la siguiente fuente de José de San Martín (1816): 'Los trabajos de los emigrados chilenos en las provincias de Santiago y Concepción son admirables; la desorganización en que se halla el gobierno realista de Santiago es una prueba de ello. Los enemigos están en la mayor incertidumbre; no saben por dónde serán atacados.'\n\n¿Quién es el 'enemigo' al que se refiere San Martín?",
+            "answer": "El 'enemigo' al que se refiere San Martín son los realistas españoles que controlaban Chile durante la Reconquista, específicamente el gobierno del gobernador Casimiro Marcó del Pont. San Martín los describe como desorganizados e inciertos, lo que refleja el éxito de las operaciones de espionaje y guerrillas de Manuel Rodríguez y los patriotas chilenos exiliados.",
+            "hint": "San Martín escribía desde Mendoza, preparando el Cruce de los Andes. ¿Contra quién planeaba luchar?"
+          },
+          {
+            "type": "mc",
+            "q": "Según la rúbrica del Criterio D (7-8 puntos), un alumno debe:",
+            "options": [
+              "Identificar de forma limitada los aspectos principales de una fuente",
+              "Identificar de forma detallada los aspectos principales, justificar detalladamente opiniones, e identificar coherentemente opiniones diferentes",
+              "Justificar opiniones sin usar información de la fuente",
+              "Solo identificar si la fuente es primaria o secundaria"
+            ],
+            "answer": "Identificar de forma detallada los aspectos principales, justificar detalladamente opiniones, e identificar coherentemente opiniones diferentes",
+            "hint": "El nivel más alto (7-8) requiere análisis detallado y coherente en todos los criterios."
+          },
+          {
+            "type": "open",
+            "q": "¿Qué medida del gobierno de José Miguel Carrera consideras que fue más revolucionaria y por qué? Justifica tu opinión usando información del período de la Patria Vieja.",
+            "answer": "Respuesta modelo: La Ley de Libertad de Vientres (1811) fue la medida más revolucionaria porque desafió directamente la institución de la esclavitud que existía desde la Conquista. Declarar que los hijos de esclavos nacerían libres fue un acto radical para la época, inspirado en las ideas ilustradas de libertad e igualdad. Además, prohibió la entrada de nuevos esclavos a Chile. Otra posible respuesta válida sería mencionar la creación del primer periódico (La Aurora de Chile) o la apertura de relaciones comerciales. Lo importante es que la justificación sea detallada y use información concreta.",
+            "hint": "Piensa en las reformas de la Patria Vieja: Libertad de Vientres, Aurora de Chile, relaciones comerciales. ¿Cuál cambió más profundamente la sociedad?"
+          },
+          {
+            "type": "open",
+            "q": "Imagina que eres un criollo en 1810 y que un español peninsular defiende que las colonias deben seguir obedeciendo a José Bonaparte (puesto por Napoleón en el trono de España). ¿Qué argumentos usarías para justificar la formación de una Junta de Gobierno? Menciona al menos dos argumentos.",
+            "answer": "Argumentos posibles: 1) El rey legítimo Fernando VII está preso, por lo tanto no hay autoridad legítima en España y tenemos el derecho de autogobernarnos hasta su regreso (soberanía popular). 2) No reconocemos a José Bonaparte como rey legítimo porque fue impuesto por un invasor extranjero (Napoleón), por lo tanto no tenemos obligación de obedecerle. 3) Las ideas ilustradas nos enseñan que el poder reside en el pueblo, no en un monarca impuesto por la fuerza. 4) Los criollos hemos sido excluidos del poder político durante siglos y tenemos el derecho de participar en el gobierno de nuestros propios territorios.",
+            "hint": "Piensa en la legitimidad del rey, la soberanía popular y los derechos de los criollos."
+          }
+        ]
+      }
+    ]
+  },
+  "benjamin": {}
+}
