@@ -825,5 +825,365 @@
       }
     ]
   },
-  "benjamin": {}
+  "benjamin": {
+    "Matemáticas": [
+      {
+        "title": "Multiplicaciones: Tablas del 2 al 5",
+        "questions": [
+          {
+            "type": "mc",
+            "q": "¿Cuánto es 3 × 4?",
+            "options": [
+              "10",
+              "12",
+              "14",
+              "11"
+            ],
+            "answer": "12",
+            "hint": "Suma 3 cuatro veces: 3+3+3+3"
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuánto es 2 × 7?",
+            "options": [
+              "12",
+              "16",
+              "14",
+              "13"
+            ],
+            "answer": "14",
+            "hint": "La tabla del 2: cada vez sumas 2 más."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuánto es 5 × 6?",
+            "options": [
+              "25",
+              "35",
+              "30",
+              "28"
+            ],
+            "answer": "30",
+            "hint": "La tabla del 5 siempre termina en 0 o 5."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuánto es 4 × 8?",
+            "options": [
+              "24",
+              "36",
+              "30",
+              "32"
+            ],
+            "answer": "32",
+            "hint": "4×8: piensa en 4×4=16 y duplícalo."
+          },
+          {
+            "type": "mc",
+            "q": "Un paquete tiene 3 galletas. Si compras 5 paquetes, ¿cuántas galletas tienes?",
+            "options": [
+              "8",
+              "15",
+              "20",
+              "10"
+            ],
+            "answer": "15",
+            "hint": "Multiplica la cantidad por paquete por el número de paquetes."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuál de estas multiplicaciones da 20?",
+            "options": [
+              "3×6",
+              "4×6",
+              "5×4",
+              "2×8"
+            ],
+            "answer": "5×4",
+            "hint": "Prueba multiplicando cada opción."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuánto es 2 × 9?",
+            "options": [
+              "16",
+              "18",
+              "20",
+              "17"
+            ],
+            "answer": "18",
+            "hint": "Cuenta de 2 en 2 hasta 9 veces."
+          },
+          {
+            "type": "open",
+            "q": "Escribe la tabla del 3 completa (del 3×1 al 3×10).",
+            "answer": "3×1=3 / 3×2=6 / 3×3=9 / 3×4=12 / 3×5=15 / 3×6=18 / 3×7=21 / 3×8=24 / 3×9=27 / 3×10=30",
+            "hint": "Empieza en 3 y suma 3 cada vez: 3, 6, 9..."
+          },
+          {
+            "type": "open",
+            "q": "Hay 4 filas de sillas y en cada fila hay 6 sillas. ¿Cuántas sillas hay en total? Escribe la multiplicación y el resultado.",
+            "answer": "4 × 6 = 24 sillas en total.",
+            "hint": "Multiplica las filas por las sillas de cada fila."
+          },
+          {
+            "type": "open",
+            "q": "¿Cuánto es 5 × 5? Y ahora, ¿cuánto es 5 × 5 × 2? Explica cómo llegaste al resultado.",
+            "answer": "5 × 5 = 25. Luego 25 × 2 = 50. Primero resuelves la primera multiplicación y el resultado lo multiplicas por 2.",
+            "hint": "Resuelve paso a paso: primero 5×5, luego ese resultado × 2."
+          },
+          {
+            "type": "open",
+            "q": "Completa los espacios en blanco: 2 × ___ = 16 / 4 × ___ = 28 / 3 × ___ = 24",
+            "answer": "2 × 8 = 16 / 4 × 7 = 28 / 3 × 8 = 24",
+            "hint": "Piensa: ¿cuántas veces tengo que sumar ese número para llegar al resultado?"
+          },
+          {
+            "type": "open",
+            "q": "Benjamín tiene 3 cajas de lápices. Cada caja tiene 5 lápices rojos y 3 lápices azules. ¿Cuántos lápices tiene en total? Explica con multiplicaciones.",
+            "answer": "Lápices rojos: 3 × 5 = 15. Lápices azules: 3 × 3 = 9. Total: 15 + 9 = 24 lápices. También se puede hacer: 3 × (5+3) = 3 × 8 = 24.",
+            "hint": "Primero multiplica los rojos, luego los azules, y finalmente súmalos."
+          }
+        ]
+      },
+      {
+        "title": "Multiplicaciones: Tablas del 6 al 9",
+        "questions": [
+          {
+            "type": "mc",
+            "q": "¿Cuánto es 6 × 7?",
+            "options": [
+              "36",
+              "48",
+              "42",
+              "40"
+            ],
+            "answer": "42",
+            "hint": "6×7: recuerda 6×6=36, más 6 es 42."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuánto es 8 × 9?",
+            "options": [
+              "63",
+              "72",
+              "81",
+              "70"
+            ],
+            "answer": "72",
+            "hint": "Truco: 8×9 = 80 - 8 = 72."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuánto es 7 × 7?",
+            "options": [
+              "42",
+              "56",
+              "49",
+              "48"
+            ],
+            "answer": "49",
+            "hint": "7×7 es uno de los más importantes. ¡Memorízalo!"
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuánto es 6 × 8?",
+            "options": [
+              "42",
+              "48",
+              "54",
+              "44"
+            ],
+            "answer": "48",
+            "hint": "6×8: piensa en 6×4=24 y duplícalo."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuánto es 9 × 6?",
+            "options": [
+              "54",
+              "56",
+              "48",
+              "63"
+            ],
+            "answer": "54",
+            "hint": "Truco del 9: 9×6 = 60 - 6 = 54."
+          },
+          {
+            "type": "mc",
+            "q": "Un restaurante tiene 9 mesas con 6 sillas cada una. ¿Cuántos comensales caben?",
+            "options": [
+              "54",
+              "45",
+              "63",
+              "48"
+            ],
+            "answer": "54",
+            "hint": "Multiplica el número de mesas por las sillas de cada una."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuál de estas NO es igual a 56?",
+            "options": [
+              "7×8",
+              "8×7",
+              "6×9",
+              "56×1"
+            ],
+            "answer": "6×9",
+            "hint": "6×9=54, no 56. El resto sí da 56."
+          },
+          {
+            "type": "open",
+            "q": "Escribe la tabla del 9 completa (del 9×1 al 9×10). Tip: ¿notas algún patrón en los dígitos?",
+            "answer": "9×1=9 / 9×2=18 / 9×3=27 / 9×4=36 / 9×5=45 / 9×6=54 / 9×7=63 / 9×8=72 / 9×9=81 / 9×10=90. Patrón: la suma de los dígitos de cada resultado siempre es 9 (ej: 1+8=9, 2+7=9, 3+6=9...).",
+            "hint": "Empieza en 9 y suma 9 cada vez. ¿Qué pasa con los dígitos de los resultados?"
+          },
+          {
+            "type": "open",
+            "q": "Completa: 7 × ___ = 63 / 8 × ___ = 64 / 6 × ___ = 54 / 9 × ___ = 81",
+            "answer": "7 × 9 = 63 / 8 × 8 = 64 / 6 × 9 = 54 / 9 × 9 = 81",
+            "hint": "Usa las tablas para buscar el número que falta."
+          },
+          {
+            "type": "open",
+            "q": "Hay 8 bolsas con 7 manzanas cada una. ¿Cuántas manzanas hay en total? Luego, si regalas 3 bolsas completas, ¿cuántas manzanas te quedan? Escribe las operaciones.",
+            "answer": "Total: 8 × 7 = 56 manzanas. Si regalas 3 bolsas: 3 × 7 = 21 manzanas regaladas. Te quedan: 56 - 21 = 35 manzanas. O también: 5 × 7 = 35 manzanas.",
+            "hint": "Primero calcula el total, luego resta las manzanas de las bolsas que regalas."
+          },
+          {
+            "type": "open",
+            "q": "¿Por qué 7 × 8 es igual a 8 × 7? Explica con tus palabras y compruébalo con un ejemplo dibujado o escrito.",
+            "answer": "Porque la multiplicación es conmutativa: el orden de los factores no cambia el resultado. 7×8 = 56 y 8×7 = 56. Por ejemplo: 7 filas de 8 puntos tiene la misma cantidad que 8 filas de 7 puntos.",
+            "hint": "Piensa en filas y columnas de puntos o estrellas."
+          },
+          {
+            "type": "open",
+            "q": "Inventa un problema de la vida real donde necesites usar 9 × 8. Escribe el problema y la solución.",
+            "answer": "Ejemplo de respuesta: 'Hay 9 canastas de naranjas y cada canasta tiene 8 naranjas. ¿Cuántas naranjas hay en total? 9 × 8 = 72 naranjas.' Cualquier problema que use correctamente 9 × 8 = 72 es válido.",
+            "hint": "Piensa en situaciones cotidianas: grupos de personas, filas de objetos, bolsas de cosas, etc."
+          }
+        ]
+      },
+      {
+        "title": "Desafío Total: Tablas Mezcladas y Problemas",
+        "questions": [
+          {
+            "type": "mc",
+            "q": "¿Cuánto es 7 × 6?",
+            "options": [
+              "48",
+              "42",
+              "45",
+              "40"
+            ],
+            "answer": "42",
+            "hint": "7×6 = 6×7. Cuenta de 6 en 6 hasta 7 veces."
+          },
+          {
+            "type": "mc",
+            "q": "Si una araña tiene 8 patas, ¿cuántas patas tienen 9 arañas?",
+            "options": [
+              "63",
+              "72",
+              "81",
+              "64"
+            ],
+            "answer": "72",
+            "hint": "Multiplica el número de arañas por sus patas."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuánto es 4 × 9?",
+            "options": [
+              "32",
+              "36",
+              "40",
+              "34"
+            ],
+            "answer": "36",
+            "hint": "Truco: 4×9 = 40 - 4 = 36."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuál es el mayor resultado de estas multiplicaciones?",
+            "options": [
+              "8×7",
+              "9×6",
+              "6×8",
+              "7×9"
+            ],
+            "answer": "7×9",
+            "hint": "Calcula cada una: 56, 54, 48 y 63. ¿Cuál es el mayor?"
+          },
+          {
+            "type": "mc",
+            "q": "Un equipo de fútbol tiene 11 jugadores. ¿Cuántos jugadores hay en 6 equipos?",
+            "options": [
+              "60",
+              "66",
+              "72",
+              "55"
+            ],
+            "answer": "66",
+            "hint": "Multiplica los jugadores por la cantidad de equipos."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuánto es 3 × 3 × 3?",
+            "options": [
+              "9",
+              "18",
+              "27",
+              "21"
+            ],
+            "answer": "27",
+            "hint": "Primero calcula 3×3=9, luego multiplica ese resultado por 3."
+          },
+          {
+            "type": "mc",
+            "q": "Benjamín ahorra $500 por semana. ¿Cuánto habrá ahorrado en 8 semanas?",
+            "options": [
+              "$3.500",
+              "$4.500",
+              "$4.000",
+              "$3.000"
+            ],
+            "answer": "$4.000",
+            "hint": "Multiplica el ahorro semanal por el número de semanas."
+          },
+          {
+            "type": "open",
+            "q": "Ordena estas multiplicaciones de MENOR a MAYOR resultado: 9×8, 6×7, 5×9, 8×8, 7×6",
+            "answer": "5×9=45, 6×7=42 y 7×6=42 (son iguales), 8×8=64, 9×8=72. Orden de menor a mayor: 42, 42, 45, 64, 72.",
+            "hint": "Calcula cada resultado primero y luego ordénalos."
+          },
+          {
+            "type": "open",
+            "q": "Hay 6 cajas de chocolates. Cada caja tiene 4 filas y en cada fila hay 5 chocolates. ¿Cuántos chocolates hay en total? Muestra todos tus cálculos.",
+            "answer": "Paso 1: Chocolates por caja = 4 × 5 = 20 chocolates. Paso 2: Total = 6 × 20 = 120 chocolates.",
+            "hint": "Primero calcula cuántos hay en UNA caja, luego multiplica por las 6 cajas."
+          },
+          {
+            "type": "open",
+            "q": "Completa la tabla de multiplicar del 7 solo con los resultados impares (los que terminan en número impar). ¿Cuántos hay?",
+            "answer": "7×1=7✓ / 7×2=14✗ / 7×3=21✓ / 7×4=28✗ / 7×5=35✓ / 7×6=42✗ / 7×7=49✓ / 7×8=56✗ / 7×9=63✓ / 7×10=70✗. Hay 5 resultados impares: 7, 21, 35, 49, 63. (Los resultados son impares cuando se multiplica 7 por un número impar.)",
+            "hint": "Un número impar termina en 1, 3, 5, 7 o 9. Revisa cada resultado de la tabla del 7."
+          },
+          {
+            "type": "open",
+            "q": "Crea tu propio problema difícil con multiplicaciones y escribe la solución. El problema debe tener al menos dos multiplicaciones.",
+            "answer": "Cualquier problema que use correctamente dos o más multiplicaciones es válido. Por ejemplo: 'En el colegio hay 4 cursos. Cada curso tiene 8 filas de 5 alumnos. ¿Cuántos alumnos hay en total en el colegio? Solución: 8×5=40 alumnos por curso. 40×4=160 alumnos en total.'",
+            "hint": "Piensa en grupos dentro de grupos: filas, cajas, equipos, etc."
+          },
+          {
+            "type": "open",
+            "q": "Explica con tus palabras qué significa multiplicar. Luego, ¿en qué se diferencia sumar de multiplicar? Da un ejemplo de cada una.",
+            "answer": "Multiplicar significa sumar un número varias veces. Por ejemplo, 4×3 es lo mismo que 4+4+4=12. La diferencia con sumar es que en la suma puedes sumar números distintos (ej: 4+3+7=14), mientras que multiplicar siempre repite el mismo número una cantidad de veces determinada. Es una forma más rápida de sumar grupos iguales.",
+            "hint": "Piensa en 3×5: ¿qué suma rápida es igual? ¿Cuándo sería más cómodo multiplicar que sumar?"
+          }
+        ]
+      }
+    ]
+  }
 }
