@@ -469,6 +469,125 @@
             "hint": "Four parts: title → two simultaneous trends (energy decreasing, pathways converging) → evidence (use the organisms' names) → why the BASE matters for ALL life on Earth."
           }
         ]
+      },
+      {
+        "title": "Unidad 1: Energía y la Biosfera - Criterion D y Erosión del Suelo",
+        "questions": [
+          {
+            "type": "mc",
+            "q": "¿Cuál es el concepto clave (Key Concept) de la Unidad 1 'Energy and the Biosphere'?",
+            "options": [
+              "Cambio (Change)",
+              "Sistemas",
+              "Relaciones",
+              "Desarrollo"
+            ],
+            "answer": "Cambio (Change)",
+            "hint": "Revisa la primera diapositiva donde aparece la declaración de indagación."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuál es el contexto global (Global Context) de esta unidad?",
+            "options": [
+              "Identidad y relaciones",
+              "Impacto humano en el ambiente",
+              "Expresión y creatividad",
+              "Orientación en el espacio y el tiempo"
+            ],
+            "answer": "Impacto humano en el ambiente",
+            "hint": "Está relacionado con cómo los humanos afectan el planeta a través de la energía."
+          },
+          {
+            "type": "open",
+            "q": "Explica con tus palabras qué significa la declaración de indagación: 'Cambiar hacia un uso sostenible de la energía podría reducir el impacto de la globalización en el ambiente'.",
+            "answer": "Significa que si las personas y países usan fuentes de energía más limpias y responsables, se podría disminuir el daño que la globalización (el aumento del comercio, la industria y el consumo mundial) causa al medio ambiente.",
+            "hint": "Piensa en la relación entre energía sostenible y menor daño ambiental."
+          },
+          {
+            "type": "mc",
+            "q": "Según el Criterion D, ¿qué debe hacer el estudiante en el punto (i)?",
+            "options": [
+              "Resumir las formas en que la ciencia se aplica para abordar un problema",
+              "Documentar solo las fuentes usadas",
+              "Aplicar lenguaje científico avanzado",
+              "Describir experimentos de laboratorio"
+            ],
+            "answer": "Resumir las formas en que la ciencia se aplica para abordar un problema",
+            "hint": "Revisa el primer punto (i) de los criterios de evaluación D."
+          },
+          {
+            "type": "mc",
+            "q": "¿Qué verbo de mando (command term) significa 'dar un resumen breve o síntesis'?",
+            "options": [
+              "Outline",
+              "Describe",
+              "Apply",
+              "State"
+            ],
+            "answer": "Outline",
+            "hint": "Es la palabra que se usa para pedir un resumen corto, no muy detallado."
+          },
+          {
+            "type": "open",
+            "q": "Según la tabla de MYP Command Terms, ¿cuál es la diferencia entre 'Describe' y 'Summarise'?",
+            "answer": "'Describe' significa dar un relato detallado de una situación, evento o proceso, mientras que 'Summarise' significa abstraer el tema general o los puntos principales sin tantos detalles.",
+            "hint": "Uno pide detalle completo y el otro pide solo las ideas principales."
+          },
+          {
+            "type": "mc",
+            "q": "En el sistema de citación APA, si la cita aparece al final del párrafo, ¿qué debe incluir?",
+            "options": [
+              "El nombre del autor y el año entre paréntesis",
+              "Solo el título del artículo",
+              "El número de página únicamente",
+              "El nombre completo de la revista"
+            ],
+            "answer": "El nombre del autor y el año entre paréntesis",
+            "hint": "Piensa en el ejemplo de la Organización Mundial de la Salud (2025) al final de la oración."
+          },
+          {
+            "type": "mc",
+            "q": "¿Qué es la 'tillage' (labranza) según el material?",
+            "options": [
+              "El proceso de preparar y trabajar el suelo antes de plantar cultivos",
+              "Un tipo de fertilizante químico",
+              "La cosecha final de los cultivos",
+              "Un sistema de riego automático"
+            ],
+            "answer": "El proceso de preparar y trabajar el suelo antes de plantar cultivos",
+            "hint": "Se relaciona con crear un buen ambiente para que crezcan las semillas."
+          },
+          {
+            "type": "open",
+            "q": "Nombra y describe brevemente los tres tipos de labranza (tillage) mencionados en el material.",
+            "answer": "Labranza convencional: el suelo se voltea completamente para controlar malezas. Labranza reducida: el suelo se disturba menos, dejando algunos residuos de cultivo en la superficie. Labranza cero (no-till): el suelo no se disturba y las semillas se plantan directamente.",
+            "hint": "Piensa en los tres carteles de la infografía sobre tillage: convencional, reducida y no-till."
+          },
+          {
+            "type": "mc",
+            "q": "Según el texto sobre erosión del suelo, ¿qué podría pasar en unos 50 años si seguimos dañando el suelo?",
+            "options": [
+              "Podríamos no tener suficiente suelo fértil para cultivar alimentos",
+              "El suelo se volvería más fértil naturalmente",
+              "No habría ningún cambio significativo",
+              "Los alimentos serían más nutritivos"
+            ],
+            "answer": "Podríamos no tener suficiente suelo fértil para cultivar alimentos",
+            "hint": "Revisa el resumen del artículo 'Soil in Danger: Why Erosion Threatens Our Future Food'."
+          },
+          {
+            "type": "open",
+            "q": "Nombra al menos tres causas de daño al suelo mencionadas en el artículo sobre erosión.",
+            "answer": "Las causas mencionadas son la decarbonización, la erosión, la desertificación y la contaminación química.",
+            "hint": "Están listadas entre paréntesis en el texto del artículo de Kaitlyn Ersek."
+          },
+          {
+            "type": "open",
+            "q": "Explica la estructura de un párrafo tipo 'hamburguesa' (Hamburger Paragraph) usada para organizar ideas.",
+            "answer": "Se compone de una introducción que presenta la idea principal, un cuerpo con al menos tres datos o hechos que la sustentan, y una conclusión que vuelve a plantear la idea principal.",
+            "hint": "Piensa en las capas del sándwich: pan de arriba, relleno y pan de abajo."
+          }
+        ]
       }
     ],
     "Ciencias Sociales": [
