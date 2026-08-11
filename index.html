@@ -592,6 +592,7 @@ select.inp{cursor:pointer}
 // ============================================================
 const DATA_URL   = 'https://felipevera-droid.github.io/vera/data.json';
 const GH_REPO    = 'felipevera-droid/vera';
+const GH_BRANCH  = 'portal-v4-limpio'; // rama que sirve GitHub Pages: publicar/borrar debe escribir aquí
 const GEN_MODEL  = 'claude-sonnet-5';
 const EVAL_MODEL = 'claude-haiku-4-5-20251001';
 
@@ -799,13 +800,13 @@ async function publishToGitHub(stKey, subject, test){
   const token=getGhToken(); if(!token) return {ok:false, local:true};
   const url=`https://api.github.com/repos/${GH_REPO}/contents/data.json`;
   const headers={'Authorization':'token '+token,'Accept':'application/vnd.github+json'};
-  const gr=await fetch(url,{headers}); if(!gr.ok) throw new Error('No se pudo leer data.json ('+gr.status+').');
+  const gr=await fetch(url+'?ref='+GH_BRANCH,{headers}); if(!gr.ok) throw new Error('No se pudo leer data.json ('+gr.status+').');
   const info=await gr.json();
   const data=JSON.parse(b64ToUtf8(info.content.replace(/\n/g,'')));
   data[stKey]=data[stKey]||{}; data[stKey][subject]=data[stKey][subject]||[];
   if(!data[stKey][subject].some(t=>t.title===test.title)) data[stKey][subject].push(test);
   const body=JSON.stringify({ message:`Nueva prueba: ${subject} — ${test.title} (${STUDENTS[stKey].name})`,
-    content:utf8ToB64(JSON.stringify(data,null,2)), sha:info.sha });
+    content:utf8ToB64(JSON.stringify(data,null,2)), sha:info.sha, branch:GH_BRANCH });
   const pr=await fetch(url,{method:'PUT',headers:{...headers,'Content-Type':'application/json'},body});
   if(!pr.ok){ let m=''; try{m=(await pr.json())?.message||'';}catch(e){} throw new Error('No se pudo publicar ('+pr.status+'). '+m); }
   setRemote(data); // refresh local cache
@@ -815,7 +816,7 @@ async function deleteFromGitHub(stKey, subject, title){
   const token=getGhToken(); if(!token) return {ok:false, local:true};
   const url=`https://api.github.com/repos/${GH_REPO}/contents/data.json`;
   const headers={'Authorization':'token '+token,'Accept':'application/vnd.github+json'};
-  const gr=await fetch(url,{headers}); if(!gr.ok) throw new Error('No se pudo leer data.json ('+gr.status+').');
+  const gr=await fetch(url+'?ref='+GH_BRANCH,{headers}); if(!gr.ok) throw new Error('No se pudo leer data.json ('+gr.status+').');
   const info=await gr.json();
   const data=JSON.parse(b64ToUtf8(info.content.replace(/\n/g,'')));
   if(data[stKey]&&data[stKey][subject]){
@@ -824,7 +825,7 @@ async function deleteFromGitHub(stKey, subject, title){
     if(data[stKey]&&!Object.keys(data[stKey]).length) delete data[stKey];
   }
   const body=JSON.stringify({ message:`Borrar prueba: ${subject} — ${title} (${STUDENTS[stKey].name})`,
-    content:utf8ToB64(JSON.stringify(data,null,2)), sha:info.sha });
+    content:utf8ToB64(JSON.stringify(data,null,2)), sha:info.sha, branch:GH_BRANCH });
   const pr=await fetch(url,{method:'PUT',headers:{...headers,'Content-Type':'application/json'},body});
   if(!pr.ok){ let m=''; try{m=(await pr.json())?.message||'';}catch(e){} throw new Error('No se pudo borrar ('+pr.status+'). '+m); }
   setRemote(data); // refresh local cache
