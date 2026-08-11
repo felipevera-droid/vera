@@ -588,6 +588,125 @@
             "hint": "Piensa en las capas del sándwich: pan de arriba, relleno y pan de abajo."
           }
         ]
+      },
+      {
+        "title": "Ciencias Naturales - Criterio D: Erosión del Suelo y Labranza Cero",
+        "questions": [
+          {
+            "type": "mc",
+            "q": "¿Qué significa 'erosión del suelo' según el material?",
+            "options": [
+              "La pérdida de la capa superior fértil del suelo por agua, viento o labranza",
+              "El proceso de plantar semillas nuevas",
+              "La adición de fertilizantes químicos al suelo",
+              "El crecimiento natural de las plantas"
+            ],
+            "answer": "La pérdida de la capa superior fértil del suelo por agua, viento o labranza",
+            "hint": "Piensa en lo que le pasa al 'topsoil' cuando el viento o la lluvia lo arrastran."
+          },
+          {
+            "type": "mc",
+            "q": "Según la ONU, ¿en qué porcentaje podría reducirse el rendimiento global de cultivos por la erosión hacia el año 2050?",
+            "options": [
+              "5%",
+              "10%",
+              "20%",
+              "50%"
+            ],
+            "answer": "10%",
+            "hint": "Revisa el dato que aparece en la Fuente 1 sobre el año 2050."
+          },
+          {
+            "type": "open",
+            "q": "Explica por qué la capa superior del suelo (topsoil) es tan importante para los ecosistemas.",
+            "answer": "Porque contiene la mayor cantidad de materia orgánica y nutrientes, es la más fértil, y sostiene el crecimiento de las plantas que dan alimento y hábitat a otros organismos.",
+            "hint": "Piensa en qué contiene esta capa y qué necesitan las plantas para crecer."
+          },
+          {
+            "type": "mc",
+            "q": "¿Qué es la 'labranza cero' o 'no-till farming'?",
+            "options": [
+              "Un método para cultivar sin arar ni voltear el suelo",
+              "Un método que usa más productos químicos que el tradicional",
+              "Una técnica para plantar solo en época de lluvias",
+              "Un tipo de fertilizante natural para el suelo"
+            ],
+            "answer": "Un método para cultivar sin arar ni voltear el suelo",
+            "hint": "Recuerda la definición al inicio de la Fuente 2."
+          },
+          {
+            "type": "open",
+            "q": "Menciona dos ventajas económicas de la labranza cero (no-till farming) para los agricultores.",
+            "answer": "Ahorra combustible (puede reducirse entre 50-80%) y disminuye la mano de obra (entre 30-50%), lo que reduce los costos de producción a largo plazo.",
+            "hint": "Piensa en el uso de tractores y el tiempo/trabajo que se necesita para plantar."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuál es una desventaja de la labranza cero mencionada en las fuentes?",
+            "options": [
+              "El equipo especializado puede ser costoso al inicio",
+              "Aumenta mucho la erosión del suelo",
+              "Elimina toda la biodiversidad del suelo",
+              "Reduce la materia orgánica disponible"
+            ],
+            "answer": "El equipo especializado puede ser costoso al inicio",
+            "hint": "Piensa en lo que necesitan comprar los agricultores para empezar a usar este método."
+          },
+          {
+            "type": "open",
+            "q": "Según el Criterio D, ¿qué significa el término 'summarise' (resumir)?",
+            "answer": "Significa abstraer o extraer el tema general o los puntos principales de una información, sin entrar en muchos detalles.",
+            "hint": "Busca la definición en la tabla de 'MYP Command Terms'."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuál de las siguientes NO es uno de los cuatro subcriterios del Criterio D?",
+            "options": [
+              "Resumir las formas en que se aplica la ciencia",
+              "Describir las implicaciones del uso de la ciencia",
+              "Aplicar lenguaje científico efectivamente",
+              "Realizar un experimento de laboratorio"
+            ],
+            "answer": "Realizar un experimento de laboratorio",
+            "hint": "El Criterio D se llama 'Reflecting on the impacts of science', no trata sobre hacer experimentos."
+          },
+          {
+            "type": "open",
+            "q": "Explica con tus palabras qué es la 'tillage' (labranza tradicional) y por qué puede dañar el suelo.",
+            "answer": "Es el proceso de voltear la capa superior del suelo antes de plantar; daña el suelo porque lo deja desnudo y sin protección, facilitando que el viento y la lluvia se lo lleven (erosión), y también afecta a los insectos y microorganismos beneficiosos.",
+            "hint": "Piensa en lo que pasa cuando se usa un arado o 'plow' sobre la tierra."
+          },
+          {
+            "type": "mc",
+            "q": "En el formato APA 7ma edición para citar un sitio web, ¿qué elemento va después del año de publicación?",
+            "options": [
+              "El título de la página",
+              "El nombre del editor",
+              "La fecha de acceso",
+              "El número de página"
+            ],
+            "answer": "El título de la página",
+            "hint": "Revisa el ejemplo de cita de Medrut (2017) en la Parte 4."
+          },
+          {
+            "type": "mc",
+            "q": "¿Cuál es la 'Statement of Inquiry' (declaración de indagación) de esta unidad?",
+            "options": [
+              "Cambiar hacia un uso sostenible de la energía podría reducir el impacto de la globalización en el medio ambiente",
+              "La erosión del suelo es un problema sin solución posible",
+              "Los fertilizantes son la única forma de mejorar el suelo",
+              "El clima no afecta la agricultura de ninguna forma"
+            ],
+            "answer": "Cambiar hacia un uso sostenible de la energía podría reducir el impacto de la globalización en el medio ambiente",
+            "hint": "Está escrita en la parte superior de la página 2 del documento del profesor."
+          },
+          {
+            "type": "open",
+            "q": "Según los textos, ¿cómo ayuda la labranza cero a la biodiversidad y a los organismos del suelo?",
+            "answer": "Al no voltear el suelo, se conservan los insectos, bacterias y hongos beneficiosos, y los residuos de plantas en descomposición aumentan la materia orgánica, alimentando a organismos como las lombrices y mejorando la fertilidad del suelo.",
+            "hint": "Piensa en qué pasa con los residuos de las plantas que quedan sobre la superficie."
+          }
+        ]
       }
     ],
     "Ciencias Sociales": [
