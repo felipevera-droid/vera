@@ -546,7 +546,8 @@ select.inp{cursor:pointer}
         </div>
 
         <div class="card">
-          <h3>🗂️ Pruebas creadas por IA</h3>
+          <h3>🗂️ Administrar pruebas</h3>
+          <p class="hint"><b>Borrar</b> = quita la prueba publicada para todos los dispositivos (necesita token). <b>Quitar</b> = solo la borra de este equipo.</p>
           <div id="publishedList"></div>
         </div>
       </div>
@@ -807,6 +808,25 @@ async function publishToGitHub(stKey, subject, test){
     content:utf8ToB64(JSON.stringify(data,null,2)), sha:info.sha });
   const pr=await fetch(url,{method:'PUT',headers:{...headers,'Content-Type':'application/json'},body});
   if(!pr.ok){ let m=''; try{m=(await pr.json())?.message||'';}catch(e){} throw new Error('No se pudo publicar ('+pr.status+'). '+m); }
+  setRemote(data); // refresh local cache
+  return {ok:true};
+}
+async function deleteFromGitHub(stKey, subject, title){
+  const token=getGhToken(); if(!token) return {ok:false, local:true};
+  const url=`https://api.github.com/repos/${GH_REPO}/contents/data.json`;
+  const headers={'Authorization':'token '+token,'Accept':'application/vnd.github+json'};
+  const gr=await fetch(url,{headers}); if(!gr.ok) throw new Error('No se pudo leer data.json ('+gr.status+').');
+  const info=await gr.json();
+  const data=JSON.parse(b64ToUtf8(info.content.replace(/\n/g,'')));
+  if(data[stKey]&&data[stKey][subject]){
+    data[stKey][subject]=data[stKey][subject].filter(t=>t.title!==title);
+    if(!data[stKey][subject].length) delete data[stKey][subject];
+    if(data[stKey]&&!Object.keys(data[stKey]).length) delete data[stKey];
+  }
+  const body=JSON.stringify({ message:`Borrar prueba: ${subject} — ${title} (${STUDENTS[stKey].name})`,
+    content:utf8ToB64(JSON.stringify(data,null,2)), sha:info.sha });
+  const pr=await fetch(url,{method:'PUT',headers:{...headers,'Content-Type':'application/json'},body});
+  if(!pr.ok){ let m=''; try{m=(await pr.json())?.message||'';}catch(e){} throw new Error('No se pudo borrar ('+pr.status+'). '+m); }
   setRemote(data); // refresh local cache
   return {ok:true};
 }
@@ -1122,22 +1142,44 @@ function refreshSubjectList(){
   const set=new Set([...allSubs('santiago'),...allSubs('benjamin'),'Matemáticas','Ciencias Sociales','Lenguaje','Sciences']);
   document.getElementById('subjectList').innerHTML=[...set].map(s=>`<option value="${esc(s)}">`).join('');
 }
+function removeLocalTest(st,sub,title){
+  let all={}; try{all=JSON.parse(localStorage.getItem('localTests')||'{}');}catch(e){}
+  if(all[st]&&all[st][sub]){ all[st][sub]=all[st][sub].filter(x=>x.title!==title); if(!all[st][sub].length)delete all[st][sub]; }
+  localStorage.setItem('localTests',JSON.stringify(all));
+}
+const _tagPub='font-size:.66rem;font-weight:800;color:var(--success);background:var(--success-soft);padding:1px 8px;border-radius:999px;margin-left:4px';
+const _tagLoc='font-size:.66rem;font-weight:800;color:var(--muted);background:var(--surface-3);padding:1px 8px;border-radius:999px;margin-left:4px';
 function renderPublished(){
   const el=document.getElementById('publishedList'); let html='';
-  ['santiago','benjamin'].forEach(st=>{ const lt=getLocalTests(st); const subs=Object.keys(lt); if(!subs.length)return;
-    html+=`<p style="font-weight:800;font-size:.85rem;margin:8px 0 6px">${STUDENTS[st].av} ${STUDENTS[st].name}</p>`;
-    subs.forEach(sub=>lt[sub].forEach(t=>{
-      html+=`<div class="published-item"><span>${subjIcon(sub)} ${esc(sub)} — ${esc(t.title)} <span style="color:var(--muted)">(${t.questions.length}q)</span></span>
-        <button class="del" data-st="${st}" data-sub="${esc(sub)}" data-t="${esc(t.title)}">Quitar</button></div>`;
-    }));
+  ['santiago','benjamin'].forEach(st=>{
+    const remote=getRemote(st), local=getLocalTests(st);
+    const subs=[...new Set([...Object.keys(remote),...Object.keys(local)])].sort();
+    let rows='';
+    subs.forEach(sub=>{
+      const remTitles=new Set((remote[sub]||[]).map(t=>t.title));
+      (remote[sub]||[]).forEach(t=>{
+        rows+=`<div class="published-item"><span>${subjIcon(sub)} ${esc(sub)} — ${esc(t.title)} <span style="color:var(--muted)">(${(t.questions||[]).length}q)</span> <span style="${_tagPub}">Publicada</span></span>
+          <button class="del" data-scope="remote" data-st="${st}" data-sub="${esc(sub)}" data-t="${esc(t.title)}">Borrar</button></div>`;
+      });
+      (local[sub]||[]).forEach(t=>{ if(remTitles.has(t.title))return;
+        rows+=`<div class="published-item"><span>${subjIcon(sub)} ${esc(sub)} — ${esc(t.title)} <span style="color:var(--muted)">(${(t.questions||[]).length}q)</span> <span style="${_tagLoc}">Solo aquí</span></span>
+          <button class="del" data-scope="local" data-st="${st}" data-sub="${esc(sub)}" data-t="${esc(t.title)}">Quitar</button></div>`;
+      });
+    });
+    if(rows) html+=`<p style="font-weight:800;font-size:.85rem;margin:12px 0 6px">${STUDENTS[st].av} ${STUDENTS[st].name}</p>`+rows;
   });
-  el.innerHTML=html||'<p class="empty">Aún no has creado pruebas con IA en este dispositivo.</p>';
-  el.querySelectorAll('.del').forEach(b=>b.addEventListener('click',()=>{
-    if(!confirm('¿Quitar esta prueba de este dispositivo?')) return;
-    let all={}; try{all=JSON.parse(localStorage.getItem('localTests')||'{}');}catch(e){}
-    const st=b.dataset.st,sub=b.dataset.sub,t=b.dataset.t;
-    if(all[st]&&all[st][sub]){ all[st][sub]=all[st][sub].filter(x=>x.title!==t); if(!all[st][sub].length)delete all[st][sub]; }
-    localStorage.setItem('localTests',JSON.stringify(all)); renderPublished(); refreshSubjectList(); toast('Prueba quitada de este dispositivo');
+  el.innerHTML=html||'<p class="empty">Aún no hay pruebas. Genera una en la pestaña “Crear”.</p>';
+  el.querySelectorAll('.del').forEach(b=>b.addEventListener('click',async()=>{
+    const st=b.dataset.st,sub=b.dataset.sub,t=b.dataset.t,scope=b.dataset.scope;
+    if(scope==='local'){
+      if(!confirm('¿Quitar esta prueba de este dispositivo?')) return;
+      removeLocalTest(st,sub,t); renderPublished(); refreshSubjectList(); toast('Prueba quitada de este dispositivo'); return;
+    }
+    if(!getGhToken()){ alert('Para borrar una prueba publicada necesitas el token de GitHub (pestaña Config).'); return; }
+    if(!confirm('¿Borrar esta prueba para TODOS los dispositivos? Los niños dejarán de verla.')) return;
+    b.disabled=true; const orig=b.textContent; b.textContent='Borrando…';
+    try{ await deleteFromGitHub(st,sub,t); removeLocalTest(st,sub,t); renderPublished(); refreshSubjectList(); toast('Prueba borrada para todos'); }
+    catch(e){ b.disabled=false; b.textContent=orig; alert(e.message||'No se pudo borrar.'); }
   }));
 }
 
