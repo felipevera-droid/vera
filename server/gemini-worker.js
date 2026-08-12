@@ -28,7 +28,7 @@ export default {
 
     const key = env.GEMINI_API_KEY;
     if (!key) return json({ error: 'Falta configurar GEMINI_API_KEY en el servidor' }, 500, cors);
-    const model = env.GEMINI_MODEL || 'gemini-2.5-flash';
+    const model = env.GEMINI_MODEL || ''; // vacío = usar la cadena automática
 
     let body;
     try { body = await request.json(); } catch { return json({ error: 'JSON inválido' }, 400, cors); }
@@ -51,47 +51,44 @@ function json(obj, status, cors) {
   });
 }
 
-async function listModels(key) {
-  const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${key}&pageSize=1000`);
-  if (!r.ok) return [];
-  const d = await r.json();
-  return (d.models || [])
-    .filter((m) => (m.supportedGenerationMethods || []).includes('generateContent'))
-    .map((m) => (m.name || '').replace(/^models\//, ''));
-}
-function bestFlash(names, preferred) {
-  const order = [preferred, 'gemini-2.5-flash', 'gemini-flash-latest', 'gemini-2.5-flash-lite',
-                 'gemini-2.0-flash-001', 'gemini-2.0-flash', 'gemini-1.5-flash'];
-  for (const p of order) if (p && names.includes(p)) return p;
-  const flash = names.find((n) => /flash/.test(n) && !/vision|tts|image/.test(n));
-  return flash || names[0] || preferred;
-}
-async function callGemini(model, key, parts, schema) {
-  let m = model;
-  for (let attempt = 0; attempt < 2; attempt++) {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${key}`;
-    const r = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ role: 'user', parts }],
-        generationConfig: { temperature: 0.6, responseMimeType: 'application/json', responseSchema: schema },
-      }),
-    });
+// Cadena de modelos: se prueba en orden hasta que uno responda 200.
+// Los alias "*-latest" los mantiene Google disponibles para todos (incl. cuentas nuevas).
+const MODEL_CHAIN = [
+  'gemini-flash-latest',
+  'gemini-flash-lite-latest',
+  'gemini-2.5-flash-lite',
+  'gemini-2.0-flash-lite',
+  'gemini-2.5-flash',
+  'gemini-2.0-flash',
+  'gemini-1.5-flash',
+];
+async function callGemini(preferred, key, parts, schema) {
+  const seen = new Set();
+  const candidates = [preferred, ...MODEL_CHAIN].filter((n) => { if (!n || seen.has(n)) return false; seen.add(n); return true; });
+  let lastErr = 'No se encontró un modelo Gemini disponible para tu clave.';
+  for (const m of candidates) {
+    let r;
+    try {
+      r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${key}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ role: 'user', parts }],
+          generationConfig: { temperature: 0.6, responseMimeType: 'application/json', responseSchema: schema },
+        }),
+      });
+    } catch (e) { lastErr = 'Red: ' + String((e && e.message) || e); continue; }
     if (r.ok) {
       const d = await r.json();
       const txt = (d.candidates?.[0]?.content?.parts || []).map((p) => p.text || '').join('');
       if (!txt) throw new Error('Gemini no devolvió contenido (¿material muy largo o bloqueado?)');
-      return JSON.parse(txt);
+      const out = JSON.parse(txt);
+      out.__model = m; // informativo
+      return out;
     }
-    const t = await r.text();
-    // Si el modelo no existe / fue retirado, descubrimos uno disponible y reintentamos una vez.
-    if ((r.status === 404 || /no longer available|not found|not supported/i.test(t)) && attempt === 0) {
-      const picked = bestFlash(await listModels(key), m);
-      if (picked && picked !== m) { m = picked; continue; }
-    }
-    throw new Error('Gemini ' + r.status + ' (modelo ' + m + '): ' + t.slice(0, 240));
+    lastErr = 'Gemini ' + r.status + ' (' + m + '): ' + (await r.text()).slice(0, 160);
   }
+  throw new Error(lastErr);
 }
 
 async function generate(b, key, model) {
