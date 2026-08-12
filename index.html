@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="theme-color" content="#6d5efc"/>
 <title>📚 Portal de Estudios Vera</title>
+<!-- PWA: instalable en iPhone y Android -->
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="icon" href="icons/favicon-32.png"/>
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="Estudios Vera"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
@@ -369,6 +377,7 @@ select.inp{cursor:pointer}
     <h1>Estudia y practica<br><span class="grad">con tus pruebas</span></h1>
     <p class="subtitle">Elige tu perfil, practica con pruebas reales y la IA te explica lo que se espera de ti.</p>
     <div class="home-tools">
+      <button id="installBtn" class="chip hidden">📲 Instalar app</button>
       <button id="themeToggle" class="chip">🌙 Oscuro</button>
       <button id="soundToggle" class="chip">🔊 Sonido</button>
       <button id="adminBtn" class="chip">👨‍👦 Panel del papá</button>
@@ -1314,6 +1323,56 @@ applyTheme();
 document.getElementById('soundToggle').textContent=getSettings().sound?'🔊 Sonido':'🔇 Silencio';
 renderHome();
 loadRemote().then(renderHome).catch(()=>{});
+
+// ============================================================
+// PWA: instalación + service worker (app instalable iPhone/Android)
+// ============================================================
+(function(){
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone===true;
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
+  const btn = document.getElementById('installBtn');
+  let deferred = null;
+
+  if('serviceWorker' in navigator){
+    window.addEventListener('load',()=>{ navigator.serviceWorker.register('sw.js').catch(()=>{}); });
+  }
+
+  if(isStandalone){ if(btn) btn.classList.add('hidden'); }
+  else {
+    window.addEventListener('beforeinstallprompt',(e)=>{ e.preventDefault(); deferred=e; if(btn) btn.classList.remove('hidden'); });
+    if(isIOS && btn) btn.classList.remove('hidden'); // iOS no dispara el evento: mostramos instrucciones
+  }
+  window.addEventListener('appinstalled',()=>{ deferred=null; if(btn) btn.classList.add('hidden'); toast('¡App instalada! 🎉'); });
+
+  function iosSheet(){
+    if(document.getElementById('iosInstall')) return;
+    const ov=document.createElement('div'); ov.id='iosInstall';
+    ov.style.cssText='position:fixed;inset:0;z-index:100;background:rgba(20,20,45,.55);backdrop-filter:blur(3px);display:grid;place-items:end center;padding:0 0 22px';
+    ov.innerHTML=`<div style="background:var(--surface);color:var(--text);max-width:420px;width:92%;border-radius:22px;box-shadow:var(--shadow-lg);padding:20px 20px 22px;font-family:var(--ff-body)">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <img src="icons/icon-192.png" alt="" width="46" height="46" style="border-radius:12px"/>
+        <div><div style="font-weight:800;font-size:1.05rem;font-family:var(--ff-display)">Instalar en tu iPhone</div>
+        <div style="color:var(--muted);font-size:.85rem;font-weight:700">Queda como una app, con su ícono</div></div>
+      </div>
+      <ol style="margin:6px 0 0;padding-left:20px;line-height:1.9;font-weight:600">
+        <li>Toca el botón <b>Compartir</b> (el cuadro con la flecha ↑, abajo en Safari).</li>
+        <li>Baja y elige <b>“Agregar a inicio”</b>.</li>
+        <li>Toca <b>“Agregar”</b> arriba a la derecha.</li>
+      </ol>
+      <button id="iosClose" class="btn btn-primary" style="margin-top:16px">Entendido</button>
+    </div>`;
+    document.body.appendChild(ov);
+    const close=()=>ov.remove();
+    ov.addEventListener('click',(e)=>{ if(e.target===ov) close(); });
+    ov.querySelector('#iosClose').addEventListener('click',close);
+  }
+
+  if(btn) btn.addEventListener('click', async ()=>{
+    if(deferred){ deferred.prompt(); try{ await deferred.userChoice; }catch(_){} deferred=null; }
+    else if(isIOS){ iosSheet(); }
+    else { toast('Abre el menú del navegador y elige “Instalar app”.'); }
+  });
+})();
 </script>
 </body>
 </html>
