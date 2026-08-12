@@ -383,20 +383,7 @@ select.inp{cursor:pointer}
       <button id="adminBtn" class="chip">👨‍👦 Panel del papá</button>
     </div>
   </div>
-  <div class="profiles">
-    <button class="profile-card" data-student="santiago">
-      <span class="avatar">🚀</span>
-      <span class="pname">Santiago</span>
-      <span class="psub">11 años · IB MYP</span>
-      <div class="pstats" id="psSantiago"></div>
-    </button>
-    <button class="profile-card" data-student="benjamin">
-      <span class="avatar">🦊</span>
-      <span class="pname">Benjamín</span>
-      <span class="psub">9 años · 4° básico</span>
-      <div class="pstats" id="psBenjamin"></div>
-    </button>
-  </div>
+  <div class="profiles" id="profiles"></div>
   <p class="home-hint" id="homeHint">Cargando materias…</p>
 </section>
 
@@ -497,6 +484,7 @@ select.inp{cursor:pointer}
       <div class="tabs">
         <button class="tab active" data-tab="ready">📊 Preparación</button>
         <button class="tab" data-tab="create">✨ Crear prueba</button>
+        <button class="tab" data-tab="kids">👦 Niños</button>
         <button class="tab" data-tab="settings">⚙️ Config</button>
       </div>
 
@@ -504,7 +492,7 @@ select.inp{cursor:pointer}
       <div id="tab-ready" class="tab-panel">
         <div class="parent-hero">
           <h3>¿Están listos para la prueba?</h3>
-          <p>Aquí ves, por materia, qué tan preparados están Santiago y Benjamín según cómo les fue practicando — y qué les conviene repasar.</p>
+          <p>Aquí ves, por materia, qué tan preparado está cada niño/a según cómo va practicando — y qué le conviene repasar.</p>
         </div>
         <div id="parentBody"></div>
       </div>
@@ -512,16 +500,13 @@ select.inp{cursor:pointer}
       <!-- TAB: CREATE FROM PDF -->
       <div id="tab-create" class="tab-panel hidden">
         <div class="admin-info">
-          📄 Sube el PDF que el profe subió a Google Classroom (o pega el texto). La IA crea una prueba de práctica con preguntas de alternativas y de desarrollo, calibradas por edad.
+          📄 Sube el PDF o pega el texto del material y la <b>IA (Gemini)</b> crea una prueba de práctica calibrada por edad. ¿Aún sin servidor de IA? Usa <b>“✍️ Crear manualmente”</b>.
         </div>
         <div class="card">
           <h3>✨ Generar prueba con IA</h3>
           <div class="row2">
             <div class="field"><label>Alumno</label>
-              <select id="genStudent" class="inp">
-                <option value="santiago">🚀 Santiago (11)</option>
-                <option value="benjamin">🦊 Benjamín (9)</option>
-              </select>
+              <select id="genStudent" class="inp"></select>
             </div>
             <div class="field"><label>N° de preguntas</label>
               <select id="genCount" class="inp">
@@ -547,44 +532,50 @@ select.inp{cursor:pointer}
             <textarea id="genText" class="inp" rows="4" placeholder="Pega aquí el temario, la guía o los apuntes…"></textarea>
           </div>
           <button id="genBtn" class="btn btn-primary">✨ Generar prueba</button>
+          <button id="manualBtn" class="btn btn-soft" style="margin-top:8px">✍️ Crear manualmente</button>
           <p id="genStatus" class="hidden"></p>
           <div id="genPreview" class="gen-preview hidden">
-            <button id="publishBtn" class="btn btn-accent" style="margin-top:6px">📤 Publicar para los niños</button>
+            <button id="publishBtn" class="btn btn-accent" style="margin-top:6px">💾 Guardar prueba</button>
             <p id="pubStatus" class="hidden"></p>
           </div>
         </div>
 
         <div class="card">
           <h3>🗂️ Administrar pruebas</h3>
-          <p class="hint"><b>Borrar</b> = quita la prueba publicada para todos los dispositivos (necesita token). <b>Quitar</b> = solo la borra de este equipo.</p>
+          <p class="hint">Todas las pruebas guardadas. <b>Editar</b> para cambiarlas, <b>Borrar</b> para eliminarlas.</p>
           <div id="publishedList"></div>
+        </div>
+      </div>
+
+      <!-- TAB: NIÑOS -->
+      <div id="tab-kids" class="tab-panel hidden">
+        <div class="admin-info">👦👧 Crea un perfil por cada hijo/a. Cada niño tiene sus propias pruebas y su progreso, solo en este dispositivo.</div>
+        <div class="card">
+          <h3>👦 Niños</h3>
+          <div id="kidsList"></div>
         </div>
       </div>
 
       <!-- TAB: SETTINGS -->
       <div id="tab-settings" class="tab-panel hidden">
         <div class="card">
-          <h3>🔑 API Key de Anthropic</h3>
-          <p class="hint">Necesaria para generar pruebas y para que la IA evalúe las respuestas de desarrollo. Se guarda solo en este dispositivo.</p>
-          <div class="field">
-            <input id="apiKeyInput" type="password" class="inp" placeholder="sk-ant-api03-…"/>
-          </div>
-          <button id="apiKeySave" class="btn btn-soft">Guardar API Key</button>
-          <p id="apiKeyStatus" class="status-ok"></p>
+          <h3>🤖 Servidor de IA (Gemini)</h3>
+          <p class="hint">Pega la dirección del servidor gratis (Cloudflare Worker) que genera las pruebas con Gemini. Así la app usa IA <b>sin ninguna API key</b>. Sin esto, puedes crear pruebas manualmente.</p>
+          <div class="field"><input id="aiUrlInput" class="inp" placeholder="https://tu-servidor.workers.dev"/></div>
+          <button id="aiUrlSave" class="btn btn-soft">Guardar servidor</button>
+          <p id="aiUrlStatus" class="status-ok"></p>
         </div>
         <div class="card">
-          <h3>📤 Publicación (GitHub)</h3>
-          <p class="hint">Token de GitHub para que las pruebas nuevas lleguen a los dispositivos de los niños. Es opcional: sin token, las pruebas quedan solo en este dispositivo.</p>
-          <div class="field">
-            <input id="ghTokenInput" type="password" class="inp" placeholder="ghp_… (opcional)"/>
-          </div>
-          <button id="ghTokenSave" class="btn btn-soft">Guardar token</button>
-          <p id="ghTokenStatus" class="status-ok"></p>
+          <h3>🔐 PIN del panel</h3>
+          <p class="hint">Cambia el PIN para entrar al Panel del papá (4 a 6 dígitos).</p>
+          <div class="field"><input id="pinInput2" type="password" inputmode="numeric" maxlength="6" class="inp" placeholder="Nuevo PIN"/></div>
+          <button id="pinSave" class="btn btn-soft">Cambiar PIN</button>
         </div>
         <div class="card">
           <h3 style="color:var(--danger)">⚠️ Zona peligrosa</h3>
-          <p class="hint">Borra todo el progreso guardado de Santiago y Benjamín en este dispositivo.</p>
-          <button id="resetBtn" class="btn btn-danger">🗑️ Borrar todo el progreso</button>
+          <p class="hint">Borra el progreso (mantiene niños y pruebas), o borra absolutamente todo de este dispositivo.</p>
+          <button id="resetBtn" class="btn btn-soft" style="margin-bottom:8px">🧹 Borrar solo el progreso</button>
+          <button id="wipeBtn" class="btn btn-danger">🗑️ Borrar TODO (niños + pruebas)</button>
         </div>
       </div>
     </div>
@@ -599,19 +590,17 @@ select.inp{cursor:pointer}
 // ============================================================
 // PORTAL DE ESTUDIOS VERA — v4.0
 // ============================================================
-const DATA_URL   = 'https://felipevera-droid.github.io/vera/data.json';
-const GH_REPO    = 'felipevera-droid/vera';
-const GH_BRANCH  = 'portal-v4-limpio'; // rama que sirve GitHub Pages: publicar/borrar debe escribir aquí
-const GEN_MODEL  = 'claude-sonnet-5';
-const EVAL_MODEL = 'claude-haiku-4-5-20251001';
-
-// Real content lives in data.json; BUILTIN kept empty so no demo clutter.
-const BUILTIN = { santiago:{}, benjamin:{} };
-
-const STUDENTS = {
-  santiago:{ name:'Santiago', av:'🚀', age:11, grade:'6° / IB MYP' },
-  benjamin:{ name:'Benjamín', av:'🦊', age:9,  grade:'4° básico / IB MYP' }
-};
+const APP_VERSION = 'v5.0';
+// Paletas de color para cada perfil (se elige una al crear el niño/a)
+const PALETTES = [
+  {a:'#5b8bff',b:'#8b5cf6',soft:'#e8edff'},
+  {a:'#ff9f45',b:'#ff6b8b',soft:'#fff0e4'},
+  {a:'#25c9c0',b:'#0ea5a5',soft:'#e2f7f5'},
+  {a:'#ff6ba8',b:'#c026d3',soft:'#ffe6f3'},
+  {a:'#22c55e',b:'#16a34a',soft:'#e3f9ef'},
+  {a:'#38bdf8',b:'#6d5efc',soft:'#e6f3ff'}
+];
+const EMOJIS = ['🚀','🦊','🐯','🦄','🐬','🦁','🐨','🐼','🦖','🐧','🦋','🌟','⚽','🎨','🎮','🎸','📚','🧩','🐢','🦉'];
 
 const BADGES = [
   {id:'first',  icon:'🌟', name:'Primera estrella', check:p=>p.totalCompleted>=1},
@@ -631,10 +620,19 @@ function subjColor(s){ return SUBJ_COLOR[s] || '#6d5efc'; }
 function subjIcon(s){ return ICONS[s] || '📘'; }
 
 // ---------- STATE ----------
-const S = { student:'', quiz:[], meta:{}, idx:0, points:0, answers:[], lastPct:0, subject:'', genTest:null, genFile:null };
+const S = { student:'', quiz:[], meta:{}, idx:0, points:0, answers:[], lastPct:0, subject:'', genTest:null, genFile:null, manual:null, editKid:null };
 let _cache = [], _audio = null;
 
-// ---------- STORAGE ----------
+// ---------- KIDS (multi-familia: cada familia crea sus niños; todo local en este dispositivo) ----------
+function newId(pfx){ return (pfx||'x')+Date.now().toString(36)+Math.floor(Math.random()*46656).toString(36); }
+function getKids(){ try{ return JSON.parse(localStorage.getItem('kids')||'[]'); }catch(e){ return []; } }
+function saveKids(list){ localStorage.setItem('kids', JSON.stringify(list)); }
+function getKid(id){ return getKids().find(k=>k.id===id) || {id:id,name:'Alumno',emoji:'⭐',grade:'',accent:0}; }
+function kidPal(k){ return PALETTES[(k&&k.accent)||0] || PALETTES[0]; }
+function upsertKid(kid){ const l=getKids(); const i=l.findIndex(k=>k.id===kid.id); if(i>=0)l[i]=kid; else l.push(kid); saveKids(l); }
+function removeKid(id){ saveKids(getKids().filter(k=>k.id!==id)); localStorage.removeItem('prg_'+id); localStorage.removeItem('tests_'+id); }
+
+// ---------- PROGRESS (por niño) ----------
 function getPrg(st){
   const d = {quizHistory:[],streak:0,lastStudyDate:null,totalCompleted:0,totalStars:0,bestScore:0};
   try{ const r=localStorage.getItem('prg_'+st); return r?{...d,...JSON.parse(r)}:d; }catch(e){ return d; }
@@ -649,32 +647,30 @@ function savePrg(st, meta, pct){
   p.totalCompleted++; p.totalStars+=stars; p.bestScore=Math.max(p.bestScore,pct);
   localStorage.setItem('prg_'+st, JSON.stringify(p));
 }
-function getRemote(st){ try{const r=localStorage.getItem('remote');return r?(JSON.parse(r)[st]||{}):{};}catch(e){return{};} }
-function setRemote(d){ localStorage.setItem('remote', JSON.stringify(d)); }
-function getLocalTests(st){ try{const r=localStorage.getItem('localTests');return r?(JSON.parse(r)[st]||{}):{};}catch(e){return{};} }
-function addLocalTest(st, subject, test){
-  let all={}; try{ all=JSON.parse(localStorage.getItem('localTests')||'{}'); }catch(e){}
-  all[st]=all[st]||{}; all[st][subject]=all[st][subject]||[];
-  if(!all[st][subject].some(t=>t.title===test.title)) all[st][subject].push(test);
-  localStorage.setItem('localTests', JSON.stringify(all));
-}
-function getSettings(){ try{return JSON.parse(localStorage.getItem('cfg')||'{"theme":"light","sound":true,"pin":"1234"}');}catch(e){return{theme:'light',sound:true,pin:'1234'};} }
-function setSetting(k,v){ const s=getSettings(); s[k]=v; localStorage.setItem('cfg',JSON.stringify(s)); }
-function getApiKey(){ return localStorage.getItem('api_key')||''; }
-function getGhToken(){ return localStorage.getItem('gh_token')||''; }
 
-// ---------- DATA MERGE ----------
-function allSubs(st){
-  return [...new Set([...Object.keys(BUILTIN[st]||{}), ...Object.keys(getRemote(st)), ...Object.keys(getLocalTests(st))])];
+// ---------- TESTS (por niño, guardadas localmente) ----------
+function getTests(st){ try{ return JSON.parse(localStorage.getItem('tests_'+st)||'{}'); }catch(e){ return {}; } }
+function saveTestsObj(st,obj){ localStorage.setItem('tests_'+st, JSON.stringify(obj)); }
+function allSubs(st){ return Object.keys(getTests(st)); }
+function allTests(st,s){ return (getTests(st)[s]||[]).slice(); }
+function saveTest(st, subject, test){
+  const all=getTests(st); all[subject]=all[subject]||[];
+  if(!test.id) test.id=newId('t');
+  const i=all[subject].findIndex(x=>x.id===test.id);
+  if(i>=0) all[subject][i]=test; else all[subject].push(test);
+  saveTestsObj(st,all); return test;
 }
-function allTests(st,s){
-  const list=[...(BUILTIN[st]||{})[s]||[], ...(getRemote(st)[s]||[]), ...(getLocalTests(st)[s]||[])];
-  const seen=new Set(), out=[];
-  for(const t of list){ if(t&&t.title&&!seen.has(t.title)){ seen.add(t.title); out.push(t); } }
-  return out;
+function removeTest(st, subject, testId){
+  const all=getTests(st); if(all[subject]){ all[subject]=all[subject].filter(x=>x.id!==testId); if(!all[subject].length) delete all[subject]; }
+  saveTestsObj(st,all);
 }
-function isAiTest(st,subject,title){ return !!(getLocalTests(st)[subject]||[]).some(t=>t.title===title); }
-function qid(st,s,t){ return [st,s,t].join('|').replace(/\s+/g,'_'); }
+function findTest(st, subject, testId){ return (getTests(st)[subject]||[]).find(x=>x.id===testId)||null; }
+function qid(st,s,tid){ return [st,s,tid].join('|'); }
+
+// ---------- SETTINGS ----------
+function getSettings(){ const d={theme:'light',sound:true,pin:'1234',aiUrl:''}; try{return {...d,...JSON.parse(localStorage.getItem('cfg')||'{}')};}catch(e){return d;} }
+function setSetting(k,v){ const s=getSettings(); s[k]=v; localStorage.setItem('cfg',JSON.stringify(s)); }
+function getAiUrl(){ return String(getSettings().aiUrl||'').trim(); }
 
 // ---------- UTILS ----------
 function today(){ return new Date().toISOString().slice(0,10); }
@@ -707,165 +703,86 @@ function applyTheme(){
   const t=getSettings().theme; document.body.setAttribute('data-theme',t);
   document.getElementById('themeToggle').textContent = t==='dark'?'☀️ Claro':'🌙 Oscuro';
 }
-function setStudentAccent(){ if(S.student) document.body.setAttribute('data-student',S.student); else document.body.removeAttribute('data-student'); }
+function setStudentAccent(){
+  const b=document.body;
+  if(S.student){ const p=kidPal(getKid(S.student));
+    b.style.setProperty('--accent-a',p.a); b.style.setProperty('--accent-b',p.b); b.style.setProperty('--accent-soft',p.soft);
+  } else { b.style.removeProperty('--accent-a'); b.style.removeProperty('--accent-b'); b.style.removeProperty('--accent-soft'); }
+}
 
 // ============================================================
-// AI — evaluación de respuestas de desarrollo
+// IA — vía servidor gratis (Gemini). La app NO guarda ninguna key:
+// el servidor (Cloudflare Worker) tiene la clave y la app solo lo llama.
 // ============================================================
+async function aiCall(payload){
+  const url=getAiUrl();
+  if(!url) throw new Error('AI_NOT_CONFIGURED');
+  const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+  if(!r.ok){ let m=''; try{m=(await r.json())?.error||'';}catch(e){} throw new Error('Servidor de IA ('+r.status+'). '+m); }
+  return r.json();
+}
 async function evaluateAnswer(question, modelAnswer, studentAnswer, stName){
-  const key=getApiKey();
-  if(!key || !studentAnswer.trim()) return null;
-  const schema={type:'object',additionalProperties:false,
-    properties:{
-      veredicto:{type:'string',enum:['correcto','parcial','incorrecto']},
-      puntaje:{type:'integer'},
-      bien:{type:'string'}, mejorar:{type:'string'}, recordar:{type:'string'}
-    }, required:['veredicto','puntaje','bien','mejorar','recordar']};
-  const prompt=`Eres un tutor escolar chileno, cálido y pedagógico. Evalúa la respuesta de ${stName} (estudiante de básica).
-
-PREGUNTA: ${question}
-RESPUESTA ESPERADA: ${modelAnswer}
-RESPUESTA DEL ESTUDIANTE: ${studentAnswer}
-
-Devuelve:
-- veredicto: "correcto" (captó lo esencial), "parcial" (algo bien pero incompleto) o "incorrecto".
-- puntaje: número 0 a 100 según qué tanto coincide con lo esperado.
-- bien: 1 frase sobre lo que expresó bien (háblale de tú, alentador).
-- mejorar: 1 frase con lo que faltó o cómo mejorar.
-- recordar: 1 frase con el concepto clave, simple y memorable.`;
+  if(!getAiUrl() || !studentAnswer.trim()) return null;
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-      body:JSON.stringify({ model:EVAL_MODEL, max_tokens:700,
-        output_config:{format:{type:'json_schema',schema}},
-        messages:[{role:'user',content:prompt}] })
-    });
-    if(!r.ok) return null;
-    const d=await r.json();
-    const txt=(d.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
-    return JSON.parse(txt);
+    const d=await aiCall({mode:'evaluate', question, modelAnswer, studentAnswer, name:stName});
+    return (d && d.veredicto) ? d : null;
   }catch(e){ return null; }
 }
 
 // ============================================================
-// AI — generación de prueba desde PDF / texto
+// IA — generación de prueba desde PDF / texto (vía servidor Gemini)
 // ============================================================
 async function generateTest({stKey, subject, topic, count, base64, mediaType, text}){
-  const key=getApiKey(); if(!key) throw new Error('Falta la API Key de Anthropic (pestaña Config).');
-  const st=STUDENTS[stKey];
-  const schema={type:'object',additionalProperties:false,
-    properties:{
-      title:{type:'string'},
-      questions:{type:'array',items:{type:'object',additionalProperties:false,
-        properties:{
-          type:{type:'string',enum:['mc','open']},
-          q:{type:'string'},
-          options:{type:'array',items:{type:'string'}},
-          answer:{type:'string'},
-          hint:{type:'string'}
-        }, required:['type','q','answer','hint']}}
-    }, required:['title','questions']};
-  const instr=`Eres un profesor chileno experto. Crea una prueba de PRÁCTICA para ${st.name} (${st.age} años, ${st.grade}) de la materia "${subject}"${topic?`, tema "${topic}"`:''}, basándote en el material adjunto.
-
-Reglas:
-- Exactamente ${count} preguntas, en español, calibradas para su edad y nivel.
-- MEZCLA preguntas "mc" (selección múltiple, exactamente 4 opciones en "options", "answer" = texto EXACTO de la opción correcta) y "open" (desarrollo; "answer" = respuesta modelo clara de 1-3 frases; sin "options").
-- Aproximadamente 60% mc y 40% open.
-- Cada pregunta incluye "hint": una pista útil que oriente sin dar la respuesta.
-- "title": un título corto y descriptivo del contenido.
-- Basa TODO en el material adjunto; no inventes contenido ajeno al material.`;
-  const content=[];
-  if(base64){
-    if(mediaType==='application/pdf') content.push({type:'document',source:{type:'base64',media_type:'application/pdf',data:base64}});
-    else content.push({type:'image',source:{type:'base64',media_type:mediaType,data:base64}});
-  }
-  if(text&&text.trim()) content.push({type:'text',text:'MATERIAL (texto):\n'+text.trim()});
-  content.push({type:'text',text:instr});
-
-  const r=await fetch('https://api.anthropic.com/v1/messages',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-    body:JSON.stringify({ model:GEN_MODEL, max_tokens:8000,
-      output_config:{format:{type:'json_schema',schema}},
-      messages:[{role:'user',content}] })
-  });
-  if(!r.ok){ let m=''; try{m=(await r.json())?.error?.message||'';}catch(e){} throw new Error('Error de la IA ('+r.status+'). '+m); }
-  const d=await r.json();
-  if(d.stop_reason==='refusal') throw new Error('La IA no pudo procesar este material.');
-  const txt=(d.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
-  const test=JSON.parse(txt);
-  if(!test.questions || !test.questions.length) throw new Error('No se generaron preguntas.');
+  if(!getAiUrl()) throw new Error('Aún no está configurado el servidor de IA (Gemini). Ve a Config → “Servidor de IA”, o crea la prueba manualmente.');
+  const k=getKid(stKey);
+  const d=await aiCall({mode:'generate', name:k.name, grade:k.grade||'', subject, topic:topic||'', count,
+    text:text||'', fileB64:base64||'', mediaType:mediaType||''});
+  const test=(d && (d.test||d))||{};
+  if(!Array.isArray(test.questions) || !test.questions.length) throw new Error('La IA no devolvió preguntas. Prueba con menos material o créala manualmente.');
   test.questions.forEach(q=>{ if(q.type==='mc'&&!Array.isArray(q.options))q.options=[]; });
+  test.ai=true;
   return test;
-}
-
-// ============================================================
-// GitHub publish
-// ============================================================
-function utf8ToB64(str){ return btoa(unescape(encodeURIComponent(str))); }
-function b64ToUtf8(str){ return decodeURIComponent(escape(atob(str))); }
-async function publishToGitHub(stKey, subject, test){
-  const token=getGhToken(); if(!token) return {ok:false, local:true};
-  const url=`https://api.github.com/repos/${GH_REPO}/contents/data.json`;
-  const headers={'Authorization':'token '+token,'Accept':'application/vnd.github+json'};
-  const gr=await fetch(url+'?ref='+GH_BRANCH,{headers}); if(!gr.ok) throw new Error('No se pudo leer data.json ('+gr.status+').');
-  const info=await gr.json();
-  const data=JSON.parse(b64ToUtf8(info.content.replace(/\n/g,'')));
-  data[stKey]=data[stKey]||{}; data[stKey][subject]=data[stKey][subject]||[];
-  if(!data[stKey][subject].some(t=>t.title===test.title)) data[stKey][subject].push(test);
-  const body=JSON.stringify({ message:`Nueva prueba: ${subject} — ${test.title} (${STUDENTS[stKey].name})`,
-    content:utf8ToB64(JSON.stringify(data,null,2)), sha:info.sha, branch:GH_BRANCH });
-  const pr=await fetch(url,{method:'PUT',headers:{...headers,'Content-Type':'application/json'},body});
-  if(!pr.ok){ let m=''; try{m=(await pr.json())?.message||'';}catch(e){} throw new Error('No se pudo publicar ('+pr.status+'). '+m); }
-  setRemote(data); // refresh local cache
-  return {ok:true};
-}
-async function deleteFromGitHub(stKey, subject, title){
-  const token=getGhToken(); if(!token) return {ok:false, local:true};
-  const url=`https://api.github.com/repos/${GH_REPO}/contents/data.json`;
-  const headers={'Authorization':'token '+token,'Accept':'application/vnd.github+json'};
-  const gr=await fetch(url+'?ref='+GH_BRANCH,{headers}); if(!gr.ok) throw new Error('No se pudo leer data.json ('+gr.status+').');
-  const info=await gr.json();
-  const data=JSON.parse(b64ToUtf8(info.content.replace(/\n/g,'')));
-  if(data[stKey]&&data[stKey][subject]){
-    data[stKey][subject]=data[stKey][subject].filter(t=>t.title!==title);
-    if(!data[stKey][subject].length) delete data[stKey][subject];
-    if(data[stKey]&&!Object.keys(data[stKey]).length) delete data[stKey];
-  }
-  const body=JSON.stringify({ message:`Borrar prueba: ${subject} — ${title} (${STUDENTS[stKey].name})`,
-    content:utf8ToB64(JSON.stringify(data,null,2)), sha:info.sha, branch:GH_BRANCH });
-  const pr=await fetch(url,{method:'PUT',headers:{...headers,'Content-Type':'application/json'},body});
-  if(!pr.ok){ let m=''; try{m=(await pr.json())?.message||'';}catch(e){} throw new Error('No se pudo borrar ('+pr.status+'). '+m); }
-  setRemote(data); // refresh local cache
-  return {ok:true};
-}
-async function loadRemote(){
-  try{ const r=await fetch(DATA_URL+'?_='+Date.now()); if(!r.ok) return; const d=await r.json(); if(d&&Object.keys(d).length) setRemote(d); }catch(e){}
 }
 
 // ============================================================
 // HOME
 // ============================================================
 function renderHome(){
-  ['santiago','benjamin'].forEach(st=>{
-    const p=getPrg(st), el=document.getElementById('ps'+st[0].toUpperCase()+st.slice(1));
-    if(!el) return;
-    el.innerHTML = (p.totalStars?`<span>⭐ ${p.totalStars}</span>`:'') +
-                   (p.totalCompleted?`<span>📝 ${p.totalCompleted}</span>`:'') +
-                   (p.streak>0?`<span>🔥 ${p.streak}</span>`:'') ||
-                   '<span>¡Empieza a practicar!</span>';
-  });
-  const total = allSubs('santiago').length + allSubs('benjamin').length;
-  document.getElementById('homeHint').textContent = total? `${total} materias disponibles para practicar` : 'Aún no hay materias — créalas en el Panel del papá';
+  const kids=getKids(), wrap=document.getElementById('profiles'), hint=document.getElementById('homeHint');
+  if(!kids.length){
+    wrap.innerHTML=`<button class="profile-card add" id="firstKid" style="grid-column:1/-1;border:2px dashed var(--border-strong)">
+      <span class="avatar" style="margin-top:22px">➕</span><span class="pname">Agregar niño/a</span>
+      <span class="psub">Crea el primer perfil</span></button>`;
+    wrap.querySelector('#firstKid').addEventListener('click',()=>openKidEditor(null));
+    hint.textContent='Crea el perfil de tu hijo/a para empezar 👦👧';
+    return;
+  }
+  let html=kids.map(k=>{ const p=getPrg(k.id), pal=kidPal(k);
+    const stats=((p.totalStars?`<span>⭐ ${p.totalStars}</span>`:'')+(p.totalCompleted?`<span>📝 ${p.totalCompleted}</span>`:'')+(p.streak>0?`<span>🔥 ${p.streak}</span>`:'')) || '<span>¡Empieza a practicar!</span>';
+    return `<button class="profile-card" data-kid="${k.id}" style="--pc-a:${pal.a};--pc-b:${pal.b}">
+      <span class="edit-kid" data-edit="${k.id}" title="Editar" style="position:absolute;top:10px;left:10px;z-index:2;font-size:.85rem;background:rgba(255,255,255,.9);width:28px;height:28px;border-radius:50%;display:grid;place-items:center;box-shadow:var(--shadow-sm)">✏️</span>
+      <span class="avatar">${esc(k.emoji||'⭐')}</span>
+      <span class="pname">${esc(k.name)}</span>
+      <span class="psub">${esc(k.grade||'')}</span>
+      <div class="pstats">${stats}</div>
+    </button>`;
+  }).join('');
+  html+=`<button class="profile-card add" id="addKid" style="border:2px dashed var(--border-strong)"><span class="avatar" style="margin-top:22px">➕</span><span class="pname">Agregar</span><span class="psub">Otro niño/a</span></button>`;
+  wrap.innerHTML=html;
+  wrap.querySelectorAll('.profile-card[data-kid]').forEach(b=>b.addEventListener('click',(e)=>{ if(e.target.closest('.edit-kid'))return; enterKid(b.dataset.kid); }));
+  wrap.querySelectorAll('.edit-kid').forEach(b=>b.addEventListener('click',(e)=>{ e.stopPropagation(); openKidEditor(b.dataset.edit); }));
+  const add=wrap.querySelector('#addKid'); if(add) add.addEventListener('click',()=>openKidEditor(null));
+  const total=kids.reduce((a,k)=>a+allSubs(k.id).length,0);
+  hint.textContent = total? `${total} materia(s) para practicar` : 'Aún no hay pruebas — créalas en el Panel del papá ✨';
 }
+function enterKid(id){ S.student=id; setStudentAccent(); renderDash(); go('dashboard'); }
 
 // ============================================================
 // DASHBOARD (kid)
 // ============================================================
 function renderDash(){
-  const st=S.student, p=getPrg(st), meta=STUDENTS[st];
-  document.getElementById('stuAv').textContent=meta.av;
+  const st=S.student, p=getPrg(st), meta=getKid(st);
+  document.getElementById('stuAv').textContent=meta.emoji;
   document.getElementById('stuName').textContent=meta.name;
   document.getElementById('cTests').textContent=p.totalCompleted;
   document.getElementById('cStars').textContent=p.totalStars;
@@ -899,11 +816,12 @@ function renderSubjects(st){
   el.querySelectorAll('.subject-card').forEach(b=>b.addEventListener('click',()=>openSubject(b.dataset.s)));
 }
 function renderRanking(){
-  const rows=[{k:'santiago'},{k:'benjamin'}].map(x=>({...x,...STUDENTS[x.k],p:getPrg(x.k)}))
+  const medal=['🥇','🥈','🥉'];
+  const rows=getKids().map(k=>({k:k.id,name:k.name,av:k.emoji,p:getPrg(k.id)}))
     .sort((a,b)=>b.p.totalStars-a.p.totalStars);
-  document.getElementById('ranking').innerHTML=rows.map((r,i)=>
-    `<div class="rank-item ${r.k===S.student?'cur':''}"><span>${i===0?'🥇':'🥈'}</span><span>${r.av}</span>
-     <span class="rn">${r.name}</span><span class="rs">⭐${r.p.totalStars}</span></div>`).join('');
+  document.getElementById('ranking').innerHTML= rows.length? rows.map((r,i)=>
+    `<div class="rank-item ${r.k===S.student?'cur':''}"><span>${medal[i]||'🎖️'}</span><span>${esc(r.av)}</span>
+     <span class="rn">${esc(r.name)}</span><span class="rs">⭐${r.p.totalStars}</span></div>`).join('') : '<p class="empty">Sin niños aún</p>';
 }
 function renderPlan(st,p){
   const studied=new Set((p.quizHistory||[]).filter(h=>h.date===today()).map(h=>h.subject));
@@ -926,16 +844,16 @@ function renderBadges(p){
 function openSubject(subject){
   S.subject=subject;
   document.getElementById('tlSubject').textContent=subject;
-  document.getElementById('tlStudent').textContent=STUDENTS[S.student].name;
+  document.getElementById('tlStudent').textContent=getKid(S.student).name;
   const p=getPrg(S.student); _cache=allTests(S.student,subject);
   const wrap=document.getElementById('testCards');
   wrap.innerHTML = !_cache.length ? '<p class="empty">Sin pruebas aún en esta materia.</p>' :
     _cache.map((q,i)=>{
-      const hist=(p.quizHistory||[]).filter(h=>h.quizId===qid(S.student,subject,q.title));
+      const hist=(p.quizHistory||[]).filter(h=>h.quizId===qid(S.student,subject,q.id));
       const best=hist.length?Math.max(...hist.map(h=>h.score)):null;
       const openC=q.questions.filter(x=>x.type==='open').length, mcC=q.questions.length-openC;
       const pill = openC&&mcC?'<span class="pill mix">🔀 Mixta</span>':openC?'<span class="pill open">📝 Desarrollo</span>':'<span class="pill mc">⚡ Alternativas</span>';
-      const ai = isAiTest(S.student,subject,q.title)?'<span class="pill ai">✨ IA</span>':'';
+      const ai = q.ai?'<span class="pill ai">✨ IA</span>':'';
       return `<button class="test-card" data-i="${i}">
         <div class="th"><h3>${esc(q.title)}</h3>${ai}</div>
         <div class="meta"><span>${q.questions.length} preguntas</span>${pill}</div>
@@ -950,10 +868,10 @@ function openSubject(subject){
 // QUIZ ENGINE
 // ============================================================
 function startTest(test, subject){
-  S.quiz=test.questions; S.meta={id:qid(S.student,subject,test.title),subject,title:test.title};
+  S.quiz=test.questions; S.meta={id:qid(S.student,subject,test.id),subject,title:test.title};
   S.idx=0; S.points=0; S.answers=[];
   document.getElementById('testTitle').textContent=test.title;
-  document.getElementById('testMeta').textContent=subject+' · '+STUDENTS[S.student].name;
+  document.getElementById('testMeta').textContent=subject+' · '+getKid(S.student).name;
   go('testScreen'); renderQ();
 }
 function renderQ(){
@@ -1001,9 +919,9 @@ async function revealOpen(q, ta, act, fb){
   playSound('correct');
 
   let aiScore=null, aiVerd=null;
-  if(getApiKey() && studentAns){
+  if(getAiUrl() && studentAns){
     const load=document.createElement('div'); load.className='ai-load'; load.innerHTML='<div class="spin"></div><span>La IA está revisando tu respuesta…</span>'; act.appendChild(load);
-    const ev=await evaluateAnswer(q.q, q.answer, studentAns, STUDENTS[S.student].name);
+    const ev=await evaluateAnswer(q.q, q.answer, studentAns, getKid(S.student).name);
     load.remove();
     if(ev){
       aiScore=Math.max(0,Math.min(100,ev.puntaje)); aiVerd=ev.veredicto;
@@ -1063,11 +981,11 @@ function computeReadiness(st, subject){
   const bestBy={}, lastBy={};
   hist.forEach(h=>{ bestBy[h.quizId]=Math.max(bestBy[h.quizId]??0,h.score); lastBy[h.quizId]=Math.max(lastBy[h.quizId]??0, h.ts||0); });
   let attempted=0, sumBest=0; const weak=[];
-  tests.forEach(t=>{ const id=qid(st,subject,t.title); const b=bestBy[id];
+  tests.forEach(t=>{ const id=qid(st,subject,t.id); const b=bestBy[id];
     if(b!=null){ attempted++; sumBest+=b; if(b<70) weak.push({title:t.title,score:b}); }
     else weak.push({title:t.title,score:null}); });
   // readiness: promedio sobre TODAS las pruebas (no practicadas cuentan 0) → exige cobertura + dominio
-  const readiness=Math.round(tests.reduce((a,t)=>a+(bestBy[qid(st,subject,t.title)]??0),0)/tests.length);
+  const readiness=Math.round(tests.reduce((a,t)=>a+(bestBy[qid(st,subject,t.id)]??0),0)/tests.length);
   const avgAttempted=attempted?Math.round(sumBest/attempted):0;
   const coverage=Math.round(attempted/tests.length*100);
   const dates=hist.map(h=>h.date).filter(Boolean).sort(); const lastDate=dates.length?dates[dates.length-1]:null;
@@ -1089,7 +1007,7 @@ function computeReadiness(st, subject){
 function fmtDate(d){ if(!d)return 'nunca'; const [y,m,dd]=d.split('-'); const days=Math.round((Date.now()-new Date(d).getTime())/86400000);
   if(days<=0)return 'hoy'; if(days===1)return 'ayer'; if(days<7)return `hace ${days} días`; return `${dd}/${m}`; }
 function readinessVerdict(st, subject, r){
-  const name=STUDENTS[st].name;
+  const name=getKid(st).name;
   if(r.level==='none') return `${name} aún no ha practicado <b>${esc(subject)}</b>. Pídele que haga al menos una prueba para poder evaluarlo.`;
   const notDone=r.weak.filter(w=>w.score==null).length, lowDone=r.weak.filter(w=>w.score!=null).length;
   if(r.level==='ready') return `${name} está <b>preparado</b> para rendir <b>${esc(subject)}</b> 🎉 Domina el contenido (${r.readiness}%). ${r.avgAttempted<100?'Un repaso final no está de más.':''}`;
@@ -1099,10 +1017,12 @@ function readinessVerdict(st, subject, r){
 }
 function renderParent(){
   const body=document.getElementById('parentBody'); let html='';
-  ['santiago','benjamin'].forEach(st=>{
-    const subs=allSubs(st), meta=STUDENTS[st];
-    html+=`<div class="stu-block"><div class="sbh"><span class="av">${meta.av}</span>
-      <div><div class="nm">${meta.name}</div><div class="vd">${meta.grade}</div></div></div>`;
+  const kids=getKids();
+  if(!kids.length){ body.innerHTML='<p class="empty">Aún no has creado niños. Ve a la pestaña “Niños” para agregarlos.</p>'; return; }
+  kids.forEach(k=>{ const st=k.id;
+    const subs=allSubs(st);
+    html+=`<div class="stu-block"><div class="sbh"><span class="av">${esc(k.emoji)}</span>
+      <div><div class="nm">${esc(k.name)}</div><div class="vd">${esc(k.grade||'')}</div></div></div>`;
     if(!subs.length){ html+='<p class="empty">Sin materias todavía. Crea una prueba en la pestaña “Crear prueba”.</p></div>'; return; }
     subs.forEach(s=>{ const r=computeReadiness(st,s); if(!r)return;
       const trendTxt=r.trend==='up'?'📈 Mejorando':r.trend==='down'?'📉 Bajando':'➖ Estable';
@@ -1142,55 +1062,149 @@ function showAdmin(){
 function openAdminContent(){
   document.getElementById('pinGate').classList.add('hidden');
   document.getElementById('adminContent').classList.remove('hidden');
-  document.getElementById('apiKeyStatus').textContent=getApiKey()?'✅ API Key configurada':'';
-  document.getElementById('apiKeyInput').placeholder=getApiKey()?'sk-ant-… (ya configurada)':'sk-ant-api03-…';
-  document.getElementById('ghTokenStatus').textContent=getGhToken()?'✅ Token configurado — se publicará a los niños':'';
-  document.getElementById('ghTokenInput').placeholder=getGhToken()?'ghp_… (ya configurado)':'ghp_… (opcional)';
-  refreshSubjectList(); renderParent(); renderPublished();
+  const ai=document.getElementById('aiUrlInput'); if(ai) ai.value=getAiUrl();
+  const aiSt=document.getElementById('aiUrlStatus'); if(aiSt) aiSt.textContent=getAiUrl()?'✅ Servidor de IA configurado':'Sin servidor: puedes crear pruebas manualmente.';
+  refreshGenStudents(); refreshSubjectList(); renderParent(); renderPublished(); renderKidsAdmin();
 }
 function refreshSubjectList(){
-  const set=new Set([...allSubs('santiago'),...allSubs('benjamin'),'Matemáticas','Ciencias Sociales','Lenguaje','Sciences']);
+  const set=new Set(['Matemáticas','Lenguaje','Ciencias','Historia','Inglés']);
+  getKids().forEach(k=>allSubs(k.id).forEach(s=>set.add(s)));
   document.getElementById('subjectList').innerHTML=[...set].map(s=>`<option value="${esc(s)}">`).join('');
 }
-function removeLocalTest(st,sub,title){
-  let all={}; try{all=JSON.parse(localStorage.getItem('localTests')||'{}');}catch(e){}
-  if(all[st]&&all[st][sub]){ all[st][sub]=all[st][sub].filter(x=>x.title!==title); if(!all[st][sub].length)delete all[st][sub]; }
-  localStorage.setItem('localTests',JSON.stringify(all));
+function refreshGenStudents(){
+  const sel=document.getElementById('genStudent'); if(!sel) return;
+  const kids=getKids();
+  sel.innerHTML = kids.length? kids.map(k=>`<option value="${k.id}">${esc(k.emoji)} ${esc(k.name)}</option>`).join('')
+    : '<option value="">(crea un niño primero)</option>';
 }
-const _tagPub='font-size:.66rem;font-weight:800;color:var(--success);background:var(--success-soft);padding:1px 8px;border-radius:999px;margin-left:4px';
-const _tagLoc='font-size:.66rem;font-weight:800;color:var(--muted);background:var(--surface-3);padding:1px 8px;border-radius:999px;margin-left:4px';
+const _tagPub='font-size:.66rem;font-weight:800;color:var(--primary);background:var(--primary-soft);padding:1px 8px;border-radius:999px;margin-left:4px';
+// ---- Modal genérico ----
+function closeModal(){ const m=document.getElementById('modalOv'); if(m) m.remove(); }
+function modal(html){
+  closeModal();
+  const ov=document.createElement('div'); ov.id='modalOv';
+  ov.style.cssText='position:fixed;inset:0;z-index:120;background:rgba(20,20,45,.55);backdrop-filter:blur(3px);display:grid;place-items:start center;padding:20px 14px;overflow:auto';
+  const box=document.createElement('div');
+  box.style.cssText='background:var(--surface);color:var(--text);max-width:470px;width:100%;border-radius:22px;box-shadow:var(--shadow-lg);padding:20px;font-family:var(--ff-body);margin:auto';
+  box.innerHTML=html; ov.appendChild(box); document.body.appendChild(ov);
+  ov.addEventListener('click',e=>{ if(e.target===ov) closeModal(); });
+  return box;
+}
+function adminOpen(){ const a=document.getElementById('adminContent'); return a && !a.classList.contains('hidden'); }
+function refreshAdmin(){ if(adminOpen()){ renderKidsAdmin(); refreshGenStudents(); refreshSubjectList(); renderParent(); renderPublished(); } }
+
+// ---- Administrar pruebas (local por niño) ----
 function renderPublished(){
-  const el=document.getElementById('publishedList'); let html='';
-  ['santiago','benjamin'].forEach(st=>{
-    const remote=getRemote(st), local=getLocalTests(st);
-    const subs=[...new Set([...Object.keys(remote),...Object.keys(local)])].sort();
-    let rows='';
-    subs.forEach(sub=>{
-      const remTitles=new Set((remote[sub]||[]).map(t=>t.title));
-      (remote[sub]||[]).forEach(t=>{
-        rows+=`<div class="published-item"><span>${subjIcon(sub)} ${esc(sub)} — ${esc(t.title)} <span style="color:var(--muted)">(${(t.questions||[]).length}q)</span> <span style="${_tagPub}">Publicada</span></span>
-          <button class="del" data-scope="remote" data-st="${st}" data-sub="${esc(sub)}" data-t="${esc(t.title)}">Borrar</button></div>`;
-      });
-      (local[sub]||[]).forEach(t=>{ if(remTitles.has(t.title))return;
-        rows+=`<div class="published-item"><span>${subjIcon(sub)} ${esc(sub)} — ${esc(t.title)} <span style="color:var(--muted)">(${(t.questions||[]).length}q)</span> <span style="${_tagLoc}">Solo aquí</span></span>
-          <button class="del" data-scope="local" data-st="${st}" data-sub="${esc(sub)}" data-t="${esc(t.title)}">Quitar</button></div>`;
-      });
-    });
-    if(rows) html+=`<p style="font-weight:800;font-size:.85rem;margin:12px 0 6px">${STUDENTS[st].av} ${STUDENTS[st].name}</p>`+rows;
+  const el=document.getElementById('publishedList'); if(!el) return; let html='';
+  getKids().forEach(k=>{
+    const t=getTests(k.id), subs=Object.keys(t).sort(); let rows='';
+    subs.forEach(sub=>(t[sub]||[]).forEach(q=>{
+      rows+=`<div class="published-item"><span>${subjIcon(sub)} ${esc(sub)} — ${esc(q.title)} <span style="color:var(--muted)">(${(q.questions||[]).length}q)</span>${q.ai?`<span style="${_tagPub}">✨ IA</span>`:''}</span>
+        <span style="display:flex;gap:10px;flex-shrink:0">
+          <button class="del" style="color:var(--primary)" data-act="edit" data-kid="${k.id}" data-sub="${esc(sub)}" data-t="${q.id}">Editar</button>
+          <button class="del" data-act="del" data-kid="${k.id}" data-sub="${esc(sub)}" data-t="${q.id}">Borrar</button></span></div>`;
+    }));
+    if(rows) html+=`<p style="font-weight:800;font-size:.85rem;margin:12px 0 6px">${esc(k.emoji)} ${esc(k.name)}</p>`+rows;
   });
-  el.innerHTML=html||'<p class="empty">Aún no hay pruebas. Genera una en la pestaña “Crear”.</p>';
-  el.querySelectorAll('.del').forEach(b=>b.addEventListener('click',async()=>{
-    const st=b.dataset.st,sub=b.dataset.sub,t=b.dataset.t,scope=b.dataset.scope;
-    if(scope==='local'){
-      if(!confirm('¿Quitar esta prueba de este dispositivo?')) return;
-      removeLocalTest(st,sub,t); renderPublished(); refreshSubjectList(); toast('Prueba quitada de este dispositivo'); return;
-    }
-    if(!getGhToken()){ alert('Para borrar una prueba publicada necesitas el token de GitHub (pestaña Config).'); return; }
-    if(!confirm('¿Borrar esta prueba para TODOS los dispositivos? Los niños dejarán de verla.')) return;
-    b.disabled=true; const orig=b.textContent; b.textContent='Borrando…';
-    try{ await deleteFromGitHub(st,sub,t); removeLocalTest(st,sub,t); renderPublished(); refreshSubjectList(); toast('Prueba borrada para todos'); }
-    catch(e){ b.disabled=false; b.textContent=orig; alert(e.message||'No se pudo borrar.'); }
+  el.innerHTML=html||'<p class="empty">Aún no hay pruebas. Genérala con IA o créala manualmente.</p>';
+  el.querySelectorAll('.del').forEach(b=>b.addEventListener('click',()=>{
+    const kid=b.dataset.kid,sub=b.dataset.sub,tid=b.dataset.t,act=b.dataset.act;
+    if(act==='edit'){ openManualEditor(kid,sub,tid); return; }
+    if(!confirm('¿Borrar esta prueba? No se puede deshacer.')) return;
+    removeTest(kid,sub,tid); renderPublished(); refreshSubjectList(); renderParent(); toast('Prueba borrada');
   }));
+}
+
+// ---- Gestión de niños ----
+function renderKidsAdmin(){
+  const el=document.getElementById('kidsList'); if(!el) return;
+  const kids=getKids();
+  el.innerHTML=(kids.length? kids.map(k=>{ const tests=Object.values(getTests(k.id)).reduce((a,x)=>a+x.length,0);
+    return `<div class="published-item" style="background:var(--surface-2)"><span><span style="font-size:1.2rem">${esc(k.emoji)}</span> <b>${esc(k.name)}</b> <span style="color:var(--muted)">${esc(k.grade||'')} · ${tests} prueba(s)</span></span>
+      <button class="del" style="color:var(--primary)" data-edit="${k.id}">Editar</button></div>`;
+  }).join('') : '<p class="empty">Aún no hay niños. Agrega el primero 👇</p>')
+    + `<button id="addKidAdmin" class="btn btn-primary" style="margin-top:10px">➕ Agregar niño/a</button>`;
+  el.querySelectorAll('.del[data-edit]').forEach(b=>b.addEventListener('click',()=>openKidEditor(b.dataset.edit)));
+  el.querySelector('#addKidAdmin').addEventListener('click',()=>openKidEditor(null));
+}
+function openKidEditor(id){
+  const k = id? {...getKid(id)} : {id:newId('k'), name:'', emoji:EMOJIS[Math.floor(Math.random()*EMOJIS.length)], grade:'', accent:getKids().length%PALETTES.length};
+  const box=modal(`
+    <h3 style="font-family:var(--ff-display);font-size:1.2rem;font-weight:800">${id?'Editar niño/a':'Nuevo niño/a'}</h3>
+    <p style="color:var(--muted);font-weight:700;font-size:.82rem;margin:4px 0 14px">Se guarda solo en este dispositivo.</p>
+    <div class="field"><label>Nombre</label><input id="kName" class="inp" maxlength="20" value="${esc(k.name)}" placeholder="Ej: Santiago"/></div>
+    <div class="field"><label>Curso / nivel (opcional)</label><input id="kGrade" class="inp" maxlength="30" value="${esc(k.grade||'')}" placeholder="Ej: 4° básico"/></div>
+    <div class="field"><label>Emoji</label><div id="emojiGrid" style="display:flex;flex-wrap:wrap;gap:6px">${EMOJIS.map(e=>`<button type="button" class="em" data-e="${e}" style="font-size:1.35rem;width:40px;height:40px;border-radius:12px;border:2px solid ${e===k.emoji?'var(--primary)':'var(--border)'};background:${e===k.emoji?'var(--primary-soft)':'var(--surface-2)'}">${e}</button>`).join('')}</div></div>
+    <div class="field"><label>Color</label><div id="palGrid" style="display:flex;gap:8px">${PALETTES.map((p,i)=>`<button type="button" class="pl" data-i="${i}" style="width:36px;height:36px;border-radius:50%;border:3px solid ${i===(k.accent||0)?'var(--text)':'transparent'};background:linear-gradient(135deg,${p.a},${p.b})"></button>`).join('')}</div></div>
+    <button id="kSave" class="btn btn-primary" style="margin-top:8px">${id?'Guardar cambios':'Crear perfil'}</button>
+    ${id?`<button id="kDel" class="btn btn-danger" style="width:100%;margin-top:8px">🗑️ Eliminar niño/a</button>`:''}
+    <button id="kCancel" class="btn btn-ghost" style="width:100%;margin-top:8px">Cancelar</button>`);
+  box.querySelectorAll('.em').forEach(b=>b.addEventListener('click',()=>{ k.emoji=b.dataset.e; box.querySelectorAll('.em').forEach(x=>{x.style.borderColor='var(--border)';x.style.background='var(--surface-2)';}); b.style.borderColor='var(--primary)'; b.style.background='var(--primary-soft)'; }));
+  box.querySelectorAll('.pl').forEach(b=>b.addEventListener('click',()=>{ k.accent=+b.dataset.i; box.querySelectorAll('.pl').forEach(x=>x.style.borderColor='transparent'); b.style.borderColor='var(--text)'; }));
+  box.querySelector('#kSave').addEventListener('click',()=>{
+    const name=box.querySelector('#kName').value.trim(); if(!name){ box.querySelector('#kName').focus(); return; }
+    k.name=name; k.grade=box.querySelector('#kGrade').value.trim();
+    upsertKid(k); closeModal(); renderHome(); refreshAdmin(); toast(id?'Perfil actualizado':'¡Perfil creado!');
+  });
+  if(id) box.querySelector('#kDel').addEventListener('click',()=>{ if(!confirm('¿Eliminar a '+k.name+' con todas sus pruebas y progreso? No se puede deshacer.')) return; removeKid(id); closeModal(); if(S.student===id)S.student=''; renderHome(); refreshAdmin(); toast('Niño/a eliminado'); });
+  box.querySelector('#kCancel').addEventListener('click',closeModal);
+  setTimeout(()=>box.querySelector('#kName').focus(),80);
+}
+
+// ---- Editor manual de pruebas ----
+function openManualEditor(kidId, subject, testId){
+  const kids=getKids(); if(!kids.length){ toast('Primero crea un niño'); openKidEditor(null); return; }
+  const existing = (kidId&&subject&&testId)? findTest(kidId,subject,testId) : null;
+  const state = { kid:kidId||kids[0].id, subject:subject||'', title:existing?existing.title:'', questions: existing?JSON.parse(JSON.stringify(existing.questions)):[{type:'mc',q:'',options:[],answer:'',hint:''}] };
+  function qRow(q,i){
+    return `<div class="gen-q" data-i="${i}" style="text-align:left">
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+        <select class="inp qtype" style="width:auto;padding:6px 10px"><option value="mc"${q.type==='mc'?' selected':''}>⚡ Alternativas</option><option value="open"${q.type==='open'?' selected':''}>📝 Desarrollo</option></select>
+        <span style="flex:1"></span><button type="button" class="qdel" data-i="${i}" style="color:var(--danger);font-weight:800;font-size:1rem">✕</button>
+      </div>
+      <input class="inp qq" placeholder="Pregunta" value="${esc(q.q||'')}" style="margin-bottom:6px"/>
+      <div class="qopts" style="${q.type==='mc'?'':'display:none'}">${[0,1,2,3].map(j=>`<input class="inp qopt" data-j="${j}" placeholder="Opción ${j+1}" value="${esc((q.options||[])[j]||'')}" style="margin-bottom:5px"/>`).join('')}</div>
+      <input class="inp qans" placeholder="${q.type==='mc'?'Respuesta correcta (igual a una opción)':'Respuesta modelo'}" value="${esc(q.answer||'')}" style="margin-bottom:6px"/>
+      <input class="inp qhint" placeholder="Pista (opcional)" value="${esc(q.hint||'')}"/></div>`;
+  }
+  function render(){
+    const box=modal(`
+      <h3 style="font-family:var(--ff-display);font-size:1.2rem;font-weight:800;margin-bottom:10px">${existing?'Editar prueba':'Crear prueba manual'}</h3>
+      <div class="row2">
+        <div class="field"><label>Alumno</label><select id="mKid" class="inp">${kids.map(k=>`<option value="${k.id}"${k.id===state.kid?' selected':''}>${esc(k.emoji)} ${esc(k.name)}</option>`).join('')}</select></div>
+        <div class="field"><label>Materia</label><input id="mSub" class="inp" list="subjectList" value="${esc(state.subject)}" placeholder="Ej: Matemáticas"/></div>
+      </div>
+      <div class="field"><label>Título de la prueba</label><input id="mTitle" class="inp" value="${esc(state.title)}" placeholder="Ej: Fracciones – repaso"/></div>
+      <div id="mQs">${state.questions.map(qRow).join('')}</div>
+      <button type="button" id="mAdd" class="btn btn-soft" style="margin-top:6px">➕ Agregar pregunta</button>
+      <button type="button" id="mSave" class="btn btn-primary" style="margin-top:10px">💾 Guardar prueba</button>
+      <button type="button" id="mCancel" class="btn btn-ghost" style="width:100%;margin-top:8px">Cancelar</button>`);
+    function pull(){
+      state.kid=box.querySelector('#mKid').value; state.subject=box.querySelector('#mSub').value.trim(); state.title=box.querySelector('#mTitle').value.trim();
+      state.questions=[...box.querySelectorAll('#mQs .gen-q')].map(row=>{
+        const type=row.querySelector('.qtype').value;
+        return { type, q:row.querySelector('.qq').value.trim(),
+          options: type==='mc'? [...row.querySelectorAll('.qopt')].map(x=>x.value.trim()).filter(Boolean) : [],
+          answer:row.querySelector('.qans').value.trim(), hint:row.querySelector('.qhint').value.trim() };
+      });
+    }
+    box.querySelector('#mAdd').addEventListener('click',()=>{ pull(); state.questions.push({type:'mc',q:'',options:[],answer:'',hint:''}); render(); });
+    box.querySelectorAll('.qdel').forEach(b=>b.addEventListener('click',()=>{ pull(); state.questions.splice(+b.dataset.i,1); if(!state.questions.length)state.questions.push({type:'mc',q:'',options:[],answer:'',hint:''}); render(); }));
+    box.querySelectorAll('.qtype').forEach(s=>s.addEventListener('change',()=>{ pull(); render(); }));
+    box.querySelector('#mCancel').addEventListener('click',closeModal);
+    box.querySelector('#mSave').addEventListener('click',()=>{
+      pull();
+      if(!state.subject){ toast('Escribe la materia'); return; }
+      if(!state.title){ toast('Ponle un título'); return; }
+      const qs=state.questions.filter(q=>q.q && q.answer);
+      if(!qs.length){ toast('Agrega al menos 1 pregunta con respuesta'); return; }
+      const test={ id: existing?existing.id:newId('t'), title:state.title, questions:qs, ai: existing?!!existing.ai:false };
+      if(existing) removeTest(kidId, subject, existing.id);
+      saveTest(state.kid, state.subject, test);
+      closeModal(); refreshSubjectList(); renderPublished(); renderParent(); toast('Prueba guardada ✅');
+    });
+  }
+  render();
 }
 
 // tabs
@@ -1199,6 +1213,8 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.add('hidden'));
   document.getElementById('tab-'+t.dataset.tab).classList.remove('hidden');
   if(t.dataset.tab==='ready') renderParent();
+  if(t.dataset.tab==='kids') renderKidsAdmin();
+  if(t.dataset.tab==='create'){ refreshGenStudents(); refreshSubjectList(); }
 }));
 // pin
 document.getElementById('pinBtn').addEventListener('click',()=>{
@@ -1207,24 +1223,28 @@ document.getElementById('pinBtn').addEventListener('click',()=>{
 });
 document.getElementById('pinInput').addEventListener('keypress',e=>{ if(e.key==='Enter')document.getElementById('pinBtn').click(); });
 // settings save
-document.getElementById('apiKeySave').addEventListener('click',()=>{
-  const k=document.getElementById('apiKeyInput').value.trim(); if(!k)return;
-  localStorage.setItem('api_key',k); document.getElementById('apiKeyInput').value='';
-  document.getElementById('apiKeyInput').placeholder='sk-ant-… (ya configurada)';
-  document.getElementById('apiKeyStatus').textContent='✅ API Key configurada'; toast('API Key guardada');
+function bindClick(id,fn){ const el=document.getElementById(id); if(el) el.addEventListener('click',fn); }
+bindClick('aiUrlSave',()=>{
+  const v=document.getElementById('aiUrlInput').value.trim();
+  setSetting('aiUrl',v);
+  document.getElementById('aiUrlStatus').textContent=v?'✅ Servidor de IA configurado':'Sin servidor: puedes crear pruebas manualmente.';
+  toast('Guardado');
 });
-document.getElementById('ghTokenSave').addEventListener('click',()=>{
-  const k=document.getElementById('ghTokenInput').value.trim();
-  if(k) localStorage.setItem('gh_token',k); else localStorage.removeItem('gh_token');
-  document.getElementById('ghTokenInput').value='';
-  document.getElementById('ghTokenStatus').textContent=k?'✅ Token configurado — se publicará a los niños':'Token eliminado';
-  document.getElementById('ghTokenInput').placeholder=k?'ghp_… (ya configurado)':'ghp_… (opcional)';
-  toast(k?'Token guardado':'Token eliminado');
+bindClick('pinSave',()=>{
+  const v=document.getElementById('pinInput2').value.trim();
+  if(!/^\d{4,6}$/.test(v)){ toast('El PIN debe tener 4 a 6 dígitos'); return; }
+  setSetting('pin',v); document.getElementById('pinInput2').value=''; toast('PIN actualizado');
 });
-document.getElementById('resetBtn').addEventListener('click',()=>{
-  if(!confirm('⚠️ ¿Borrar TODO el progreso de Santiago y Benjamín en este dispositivo?')) return;
-  ['prg_santiago','prg_benjamin','answers_santiago','answers_benjamin'].forEach(k=>localStorage.removeItem(k));
+bindClick('manualBtn',()=>openManualEditor(null));
+bindClick('resetBtn',()=>{
+  if(!confirm('⚠️ ¿Borrar el PROGRESO de todos los niños en este dispositivo? (Los perfiles y las pruebas se conservan.)')) return;
+  getKids().forEach(k=>localStorage.removeItem('prg_'+k.id));
   renderHome(); renderParent(); toast('Progreso borrado');
+});
+bindClick('wipeBtn',()=>{
+  if(!confirm('⚠️ ¿Borrar TODO (niños, pruebas y progreso) de este dispositivo? No se puede deshacer.')) return;
+  getKids().forEach(k=>{ localStorage.removeItem('prg_'+k.id); localStorage.removeItem('tests_'+k.id); });
+  localStorage.removeItem('kids'); S.student=''; renderHome(); refreshAdmin(); toast('Todo borrado');
 });
 
 // ---- PDF / generation ----
@@ -1251,7 +1271,8 @@ document.getElementById('genBtn').addEventListener('click',async()=>{
   const status=document.getElementById('genStatus'), btn=document.getElementById('genBtn');
   if(!subject){ status.className='status-err'; status.classList.remove('hidden'); status.textContent='Escribe el nombre de la materia.'; return; }
   if(!S.genFile && !text){ status.className='status-err'; status.classList.remove('hidden'); status.textContent='Sube un PDF/imagen o pega el texto.'; return; }
-  if(!getApiKey()){ status.className='status-err'; status.classList.remove('hidden'); status.textContent='Configura tu API Key en la pestaña Config.'; return; }
+  if(!stKey){ status.className='status-err'; status.classList.remove('hidden'); status.textContent='Primero crea un niño en la pestaña “Niños”.'; return; }
+  if(!getAiUrl()){ status.className='status-err'; status.classList.remove('hidden'); status.textContent='No hay servidor de IA configurado. Ponlo en Config → “Servidor de IA”, o usa “Crear manualmente”.'; return; }
   btn.disabled=true; btn.innerHTML='<span class="spin" style="display:inline-block;vertical-align:middle"></span> Generando…';
   status.className='status-ok'; status.classList.remove('hidden'); status.textContent='La IA está creando la prueba… (puede tardar ~15s)';
   document.getElementById('genPreview').classList.add('hidden');
@@ -1276,22 +1297,12 @@ function renderGenPreview(test){
   wrap.classList.remove('hidden');
   document.getElementById('pubStatus').classList.add('hidden');
 }
-document.getElementById('publishBtn').addEventListener('click',async()=>{
+document.getElementById('publishBtn').addEventListener('click',()=>{
   if(!S.genTest)return; const {stKey,subject,test}=S.genTest;
-  const btn=document.getElementById('publishBtn'), ps=document.getElementById('pubStatus');
-  addLocalTest(stKey,subject,test); // always available on this device
-  if(!getGhToken()){
-    ps.className='status-ok'; ps.classList.remove('hidden');
-    ps.innerHTML='✅ Guardada en este dispositivo. Para que llegue a los niños, agrega un token de GitHub en Config.';
-    refreshSubjectList(); renderPublished(); renderParent(); resetGenForm(); toast('Prueba guardada en este dispositivo'); return;
-  }
-  btn.disabled=true; btn.innerHTML='<span class="spin" style="display:inline-block;vertical-align:middle"></span> Publicando…';
-  ps.className='status-ok'; ps.classList.remove('hidden'); ps.textContent='Publicando en GitHub…';
-  try{ await publishToGitHub(stKey,subject,test);
-    ps.className='status-ok'; ps.innerHTML='🎉 ¡Publicada! Los niños la verán en ~2 minutos (GitHub Pages).';
-    refreshSubjectList(); renderPublished(); renderParent(); resetGenForm(); toast('Prueba publicada 🎉');
-  }catch(err){ ps.className='status-err'; ps.textContent='⚠️ Guardada localmente, pero no se pudo publicar: '+err.message; }
-  finally{ btn.disabled=false; btn.textContent='📤 Publicar para los niños'; }
+  const ps=document.getElementById('pubStatus');
+  saveTest(stKey,subject,test);
+  ps.className='status-ok'; ps.classList.remove('hidden'); ps.innerHTML='✅ Prueba guardada. Ya aparece para '+esc(getKid(stKey).name)+'.';
+  refreshSubjectList(); renderPublished(); renderParent(); resetGenForm(); toast('Prueba guardada');
 });
 function resetGenForm(){
   S.genTest=null; S.genFile=null;
@@ -1322,7 +1333,6 @@ document.getElementById('soundToggle').addEventListener('click',function(){ cons
 applyTheme();
 document.getElementById('soundToggle').textContent=getSettings().sound?'🔊 Sonido':'🔇 Silencio';
 renderHome();
-loadRemote().then(renderHome).catch(()=>{});
 
 // ============================================================
 // PWA: instalación + service worker (app instalable iPhone/Android)
