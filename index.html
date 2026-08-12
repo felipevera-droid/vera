@@ -670,7 +670,10 @@ function qid(st,s,tid){ return [st,s,tid].join('|'); }
 // ---------- SETTINGS ----------
 function getSettings(){ const d={theme:'light',sound:true,pin:'1234',aiUrl:''}; try{return {...d,...JSON.parse(localStorage.getItem('cfg')||'{}')};}catch(e){return d;} }
 function setSetting(k,v){ const s=getSettings(); s[k]=v; localStorage.setItem('cfg',JSON.stringify(s)); }
-function getAiUrl(){ return String(getSettings().aiUrl||'').trim(); }
+// Servidor de IA (Gemini) por defecto: así, con solo compartir el link de la app,
+// la IA funciona para todos sin configurar nada. Se puede sobreescribir en Config.
+const DEFAULT_AI_URL = 'https://vera-ia.felipe-vera.workers.dev';
+function getAiUrl(){ const v=getSettings().aiUrl; return String((v===undefined||v==='')?DEFAULT_AI_URL:v).trim(); }
 
 // ---------- UTILS ----------
 function today(){ return new Date().toISOString().slice(0,10); }
