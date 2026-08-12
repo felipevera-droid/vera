@@ -28,7 +28,7 @@ export default {
 
     const key = env.GEMINI_API_KEY;
     if (!key) return json({ error: 'Falta configurar GEMINI_API_KEY en el servidor' }, 500, cors);
-    const model = env.GEMINI_MODEL || 'gemini-2.0-flash';
+    const model = env.GEMINI_MODEL || 'gemini-2.5-flash';
 
     let body;
     try { body = await request.json(); } catch { return json({ error: 'JSON inválido' }, 400, cors); }
@@ -51,28 +51,47 @@ function json(obj, status, cors) {
   });
 }
 
-async function callGemini(model, key, parts, schema) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`;
-  const r = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      contents: [{ role: 'user', parts }],
-      generationConfig: {
-        temperature: 0.6,
-        responseMimeType: 'application/json',
-        responseSchema: schema,
-      },
-    }),
-  });
-  if (!r.ok) {
-    const t = await r.text();
-    throw new Error('Gemini ' + r.status + ': ' + t.slice(0, 300));
-  }
+async function listModels(key) {
+  const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${key}&pageSize=1000`);
+  if (!r.ok) return [];
   const d = await r.json();
-  const txt = (d.candidates?.[0]?.content?.parts || []).map((p) => p.text || '').join('');
-  if (!txt) throw new Error('Gemini no devolvió contenido (¿material muy largo o bloqueado?)');
-  return JSON.parse(txt);
+  return (d.models || [])
+    .filter((m) => (m.supportedGenerationMethods || []).includes('generateContent'))
+    .map((m) => (m.name || '').replace(/^models\//, ''));
+}
+function bestFlash(names, preferred) {
+  const order = [preferred, 'gemini-2.5-flash', 'gemini-flash-latest', 'gemini-2.5-flash-lite',
+                 'gemini-2.0-flash-001', 'gemini-2.0-flash', 'gemini-1.5-flash'];
+  for (const p of order) if (p && names.includes(p)) return p;
+  const flash = names.find((n) => /flash/.test(n) && !/vision|tts|image/.test(n));
+  return flash || names[0] || preferred;
+}
+async function callGemini(model, key, parts, schema) {
+  let m = model;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${key}`;
+    const r = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ role: 'user', parts }],
+        generationConfig: { temperature: 0.6, responseMimeType: 'application/json', responseSchema: schema },
+      }),
+    });
+    if (r.ok) {
+      const d = await r.json();
+      const txt = (d.candidates?.[0]?.content?.parts || []).map((p) => p.text || '').join('');
+      if (!txt) throw new Error('Gemini no devolvió contenido (¿material muy largo o bloqueado?)');
+      return JSON.parse(txt);
+    }
+    const t = await r.text();
+    // Si el modelo no existe / fue retirado, descubrimos uno disponible y reintentamos una vez.
+    if ((r.status === 404 || /no longer available|not found|not supported/i.test(t)) && attempt === 0) {
+      const picked = bestFlash(await listModels(key), m);
+      if (picked && picked !== m) { m = picked; continue; }
+    }
+    throw new Error('Gemini ' + r.status + ' (modelo ' + m + '): ' + t.slice(0, 240));
+  }
 }
 
 async function generate(b, key, model) {
