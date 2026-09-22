@@ -1,0 +1,20 @@
+#:schema node_modules/wrangler/config-schema.json
+# Configuración para que Cloudflare despliegue el Worker automáticamente
+# desde GitHub (Workers → Settings → Build → Connect Git).
+#
+# Con esto, cada vez que se actualice server/gemini-worker.js en el repo,
+# Cloudflare lo despliega solo: no hay que copiar y pegar código nunca más.
+
+name = "vera-ia"
+main = "server/gemini-worker.js"
+compatibility_date = "2026-09-01"
+
+# Almacenamiento para la sincronización entre dispositivos (pruebas y progreso).
+# Reemplaza "PEGAR_ID_DEL_NAMESPACE" por el ID que muestra Cloudflare en
+# Storage & databases → KV → (tu namespace) → ID.
+[[kv_namespaces]]
+binding = "VERA_KV"
+id = "PEGAR_ID_DEL_NAMESPACE"
+
+# Nota: GEMINI_API_KEY NO va aquí (es un secreto y vive solo en Cloudflare:
+# Settings → Variables and Secrets).
