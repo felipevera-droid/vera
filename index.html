@@ -549,7 +549,12 @@ select.inp{cursor:pointer}
 
       <!-- TAB: NIÑOS -->
       <div id="tab-kids" class="tab-panel hidden">
-        <div class="admin-info">👦👧 Crea un perfil por cada hijo/a. Cada niño tiene sus propias pruebas y su progreso, solo en este dispositivo.</div>
+        <div class="admin-info">👦👧 Crea un perfil por cada hijo/a y comparte el link: su teléfono recibe las pruebas y te devuelve su progreso.</div>
+        <div class="card">
+          <h3>👨‍👩‍👦 Mi familia — sincronizar dispositivos</h3>
+          <p class="hint">Manda el link a tus hijos: su teléfono se une <b>solo</b>, sin escribir códigos. Las pruebas que creas les llegan, y su progreso vuelve a tu panel.</p>
+          <div id="familyBox"></div>
+        </div>
         <div class="card">
           <h3>👦 Niños</h3>
           <div id="kidsList"></div>
@@ -623,16 +628,30 @@ function subjIcon(s){ return ICONS[s] || '📘'; }
 const S = { student:'', quiz:[], meta:{}, idx:0, points:0, answers:[], lastPct:0, subject:'', genTest:null, genFile:null, manual:null, editKid:null };
 let _cache = [], _audio = null;
 
-// ---------- KIDS (multi-familia: cada familia crea sus niños; todo local en este dispositivo) ----------
+// ---------- NIÑOS (multi-familia; se sincroniza entre dispositivos) ----------
 function newId(pfx){ return (pfx||'x')+Date.now().toString(36)+Math.floor(Math.random()*46656).toString(36); }
-function getKids(){ try{ return JSON.parse(localStorage.getItem('kids')||'[]'); }catch(e){ return []; } }
+function nowTs(){ return Date.now(); }
+function getKidsRaw(){ try{ return JSON.parse(localStorage.getItem('kids')||'[]'); }catch(e){ return []; } }
 function saveKids(list){ localStorage.setItem('kids', JSON.stringify(list)); }
+function getKids(){ return getKidsRaw().filter(k=>k && !k.deleted && k.name); }
 function getKid(id){ return getKids().find(k=>k.id===id) || {id:id,name:'Alumno',emoji:'⭐',grade:'',accent:0}; }
 function kidPal(k){ return PALETTES[(k&&k.accent)||0] || PALETTES[0]; }
-function upsertKid(kid){ const l=getKids(); const i=l.findIndex(k=>k.id===kid.id); if(i>=0)l[i]=kid; else l.push(kid); saveKids(l); }
-function removeKid(id){ saveKids(getKids().filter(k=>k.id!==id)); localStorage.removeItem('prg_'+id); localStorage.removeItem('tests_'+id); }
+function upsertKid(kid){
+  kid.updatedAt=nowTs();
+  const l=getKidsRaw(); const i=l.findIndex(k=>k.id===kid.id);
+  if(i>=0) l[i]=kid; else l.push(kid);
+  saveKids(l); syncSoon();
+}
+function removeKid(id){
+  const l=getKidsRaw(); const i=l.findIndex(k=>k.id===id);
+  const tomb={id, deleted:true, updatedAt:nowTs()};
+  if(i>=0) l[i]=tomb; else l.push(tomb);
+  saveKids(l);
+  localStorage.removeItem('prg_'+id); localStorage.removeItem('tests_'+id);
+  syncSoon();
+}
 
-// ---------- PROGRESS (por niño) ----------
+// ---------- PROGRESO (por niño) ----------
 function getPrg(st){
   const d = {quizHistory:[],streak:0,lastStudyDate:null,totalCompleted:0,totalStars:0,bestScore:0};
   try{ const r=localStorage.getItem('prg_'+st); return r?{...d,...JSON.parse(r)}:d; }catch(e){ return d; }
@@ -646,34 +665,97 @@ function savePrg(st, meta, pct){
   p.quizHistory.push({quizId:meta.id,subject:meta.subject,title:meta.title,date:td,ts:Date.now(),score:pct,stars});
   p.totalCompleted++; p.totalStars+=stars; p.bestScore=Math.max(p.bestScore,pct);
   localStorage.setItem('prg_'+st, JSON.stringify(p));
+  syncSoon();
 }
 
-// ---------- TESTS (por niño, guardadas localmente) ----------
-function getTests(st){ try{ return JSON.parse(localStorage.getItem('tests_'+st)||'{}'); }catch(e){ return {}; } }
+// ---------- PRUEBAS (por niño) ----------
+function getTestsRaw(st){ try{ return JSON.parse(localStorage.getItem('tests_'+st)||'{}'); }catch(e){ return {}; } }
 function saveTestsObj(st,obj){ localStorage.setItem('tests_'+st, JSON.stringify(obj)); }
+function getTests(st){ // sin borradas ni materias vacías
+  const raw=getTestsRaw(st), out={};
+  for(const s of Object.keys(raw)){
+    const live=(raw[s]||[]).filter(t=>t && !t.deleted && t.title && Array.isArray(t.questions) && t.questions.length);
+    if(live.length) out[s]=live;
+  }
+  return out;
+}
 function allSubs(st){ return Object.keys(getTests(st)); }
 function allTests(st,s){ return (getTests(st)[s]||[]).slice(); }
 function saveTest(st, subject, test){
-  const all=getTests(st); all[subject]=all[subject]||[];
+  const all=getTestsRaw(st); all[subject]=all[subject]||[];
   if(!test.id) test.id=newId('t');
+  test.updatedAt=nowTs();
   const i=all[subject].findIndex(x=>x.id===test.id);
   if(i>=0) all[subject][i]=test; else all[subject].push(test);
-  saveTestsObj(st,all); return test;
+  saveTestsObj(st,all); syncSoon(); return test;
 }
 function removeTest(st, subject, testId){
-  const all=getTests(st); if(all[subject]){ all[subject]=all[subject].filter(x=>x.id!==testId); if(!all[subject].length) delete all[subject]; }
-  saveTestsObj(st,all);
+  const all=getTestsRaw(st); all[subject]=all[subject]||[];
+  const tomb={id:testId, deleted:true, updatedAt:nowTs()};
+  const i=all[subject].findIndex(x=>x.id===testId);
+  if(i>=0) all[subject][i]=tomb; else all[subject].push(tomb);
+  saveTestsObj(st,all); syncSoon();
 }
 function findTest(st, subject, testId){ return (getTests(st)[subject]||[]).find(x=>x.id===testId)||null; }
 function qid(st,s,tid){ return [st,s,tid].join('|'); }
 
 // ---------- SETTINGS ----------
-function getSettings(){ const d={theme:'light',sound:true,pin:'1234',aiUrl:''}; try{return {...d,...JSON.parse(localStorage.getItem('cfg')||'{}')};}catch(e){return d;} }
+function getSettings(){ const d={theme:'light',sound:true,pin:'1234',aiUrl:'',fam:''}; try{return {...d,...JSON.parse(localStorage.getItem('cfg')||'{}')};}catch(e){return d;} }
 function setSetting(k,v){ const s=getSettings(); s[k]=v; localStorage.setItem('cfg',JSON.stringify(s)); }
 // Servidor de IA (Gemini) por defecto: así, con solo compartir el link de la app,
 // la IA funciona para todos sin configurar nada. Se puede sobreescribir en Config.
 const DEFAULT_AI_URL = 'https://vera-ia.felipe-vera.workers.dev';
 function getAiUrl(){ const v=getSettings().aiUrl; return String((v===undefined||v==='')?DEFAULT_AI_URL:v).trim(); }
+
+// ---------- FAMILIA: sincronización entre los dispositivos de la casa ----------
+function getFam(){ return String(getSettings().fam||'').toUpperCase(); }
+function setFam(c){ setSetting('fam', String(c||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,12)); }
+function newFamCode(){ const A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; let s=''; for(let i=0;i<6;i++) s+=A[Math.floor(Math.random()*A.length)]; return s; }
+function shareLink(){ return location.origin+location.pathname+'#f='+getFam(); }
+function localState(){
+  const kids=getKidsRaw(), tests={}, progress={};
+  for(const k of kids){
+    if(!k || !k.id) continue;
+    const t=getTestsRaw(k.id); if(Object.keys(t).length) tests[k.id]=t;
+    const raw=localStorage.getItem('prg_'+k.id); if(raw){ try{ progress[k.id]=JSON.parse(raw); }catch(e){} }
+  }
+  return {kids, tests, progress};
+}
+function applyState(st){
+  if(!st) return;
+  if(Array.isArray(st.kids)) saveKids(st.kids);
+  for(const k of (st.kids||[])){
+    if(!k || !k.id) continue;
+    if(st.tests && st.tests[k.id]) saveTestsObj(k.id, st.tests[k.id]);
+    if(st.progress && st.progress[k.id]) localStorage.setItem('prg_'+k.id, JSON.stringify(st.progress[k.id]));
+  }
+}
+let _syncing=false, _lastSync=0;
+async function syncNow(opts){
+  const silent = !opts || opts.silent !== false;
+  const code=getFam(), url=getAiUrl();
+  if(!code){ if(!silent) toast('Primero activa la sincronización'); return {ok:false,reason:'nofam'}; }
+  if(!url || _syncing) return {ok:false,reason:'skip'};
+  _syncing=true;
+  try{
+    const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({mode:'sync', code, state:localState()})});
+    const d=await r.json().catch(()=>({}));
+    if(!r.ok || d.error) throw new Error(d.error || ('Error '+r.status));
+    applyState(d.state); _lastSync=Date.now();
+    if(!silent) toast('Sincronizado ✅');
+    return {ok:true};
+  }catch(e){
+    if(!silent) toast('No se pudo sincronizar: '+(e.message||e));
+    return {ok:false, error:String(e.message||e)};
+  }finally{ _syncing=false; }
+}
+// Tras un cambio local, sincroniza en segundo plano (agrupando cambios seguidos)
+function syncSoon(){
+  if(!getFam()) return;
+  clearTimeout(syncSoon._t);
+  syncSoon._t=setTimeout(()=>{ syncNow({silent:true}).then(r=>{ if(r.ok){ renderHome(); if(typeof adminOpen==='function' && adminOpen()) refreshAdmin(); } }); }, 600);
+}
 
 // ---------- UTILS ----------
 function today(){ return new Date().toISOString().slice(0,10); }
@@ -1067,7 +1149,7 @@ function openAdminContent(){
   document.getElementById('adminContent').classList.remove('hidden');
   const ai=document.getElementById('aiUrlInput'); if(ai) ai.value=getAiUrl();
   const aiSt=document.getElementById('aiUrlStatus'); if(aiSt) aiSt.textContent=getAiUrl()?'✅ Servidor de IA configurado':'Sin servidor: puedes crear pruebas manualmente.';
-  refreshGenStudents(); refreshSubjectList(); renderParent(); renderPublished(); renderKidsAdmin();
+  refreshGenStudents(); refreshSubjectList(); renderParent(); renderPublished(); renderKidsAdmin(); renderFamily();
 }
 function refreshSubjectList(){
   const set=new Set(['Matemáticas','Lenguaje','Ciencias','Historia','Inglés']);
@@ -1094,7 +1176,7 @@ function modal(html){
   return box;
 }
 function adminOpen(){ const a=document.getElementById('adminContent'); return a && !a.classList.contains('hidden'); }
-function refreshAdmin(){ if(adminOpen()){ renderKidsAdmin(); refreshGenStudents(); refreshSubjectList(); renderParent(); renderPublished(); } }
+function refreshAdmin(){ if(adminOpen()){ renderFamily(); renderKidsAdmin(); refreshGenStudents(); refreshSubjectList(); renderParent(); renderPublished(); } }
 
 // ---- Administrar pruebas (local por niño) ----
 function renderPublished(){
@@ -1116,6 +1198,52 @@ function renderPublished(){
     if(!confirm('¿Borrar esta prueba? No se puede deshacer.')) return;
     removeTest(kid,sub,tid); renderPublished(); refreshSubjectList(); renderParent(); toast('Prueba borrada');
   }));
+}
+
+// ---- Familia / sincronización ----
+function renderFamily(){
+  const el=document.getElementById('familyBox'); if(!el) return;
+  const code=getFam();
+  if(!code){
+    el.innerHTML=`<button id="famCreate" class="btn btn-primary">👨‍👩‍👦 Activar sincronización</button>
+      <p class="hint" style="margin:8px 0 0">Se creará el código de tu familia para compartir las pruebas con tus hijos.</p>`;
+    el.querySelector('#famCreate').addEventListener('click',async()=>{
+      setFam(newFamCode());
+      const r=await syncNow({silent:true});
+      renderFamily();
+      toast(r.ok?('¡Sincronización activada! Código '+getFam()):'Código creado: '+getFam());
+    });
+    return;
+  }
+  const link=shareLink();
+  el.innerHTML=`
+    <div style="text-align:center;background:var(--surface-2);border-radius:var(--r-sm);padding:14px;margin-bottom:12px">
+      <div style="font-size:.7rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.12em">Código de familia</div>
+      <div style="font-family:var(--ff-display);font-size:1.9rem;font-weight:800;letter-spacing:.16em;color:var(--primary)">${esc(code)}</div>
+    </div>
+    <div class="field"><label>Link para tus hijos</label><input id="famLink" class="inp" readonly value="${esc(link)}"/></div>
+    <button id="famCopy" class="btn btn-primary">📋 Copiar link para mis hijos</button>
+    <button id="famSync" class="btn btn-soft" style="margin-top:8px">🔄 Sincronizar ahora</button>
+    <p id="famStatus" class="hint" style="margin:10px 0 0"></p>
+    <details style="margin-top:10px"><summary style="font-size:.82rem;font-weight:800;color:var(--muted);cursor:pointer">Unirme a otra familia</summary>
+      <div class="field" style="margin-top:8px"><input id="famJoin" class="inp" placeholder="Código (ej: ABC123)"/></div>
+      <button id="famJoinBtn" class="btn btn-soft">Unirme</button>
+    </details>`;
+  el.querySelector('#famCopy').addEventListener('click',async()=>{
+    try{ await navigator.clipboard.writeText(link); toast('Link copiado 📋'); }
+    catch(e){ const i=el.querySelector('#famLink'); i.removeAttribute('readonly'); i.select(); try{document.execCommand('copy');}catch(_){ } i.setAttribute('readonly',''); toast('Link copiado 📋'); }
+  });
+  el.querySelector('#famSync').addEventListener('click',async()=>{
+    const st=el.querySelector('#famStatus'); st.textContent='Sincronizando…';
+    const r=await syncNow({silent:false});
+    st.textContent = r.ok? 'Última sincronización: recién' : ('No se pudo: '+(r.error||''));
+    renderHome(); refreshAdmin();
+  });
+  el.querySelector('#famJoinBtn').addEventListener('click',async()=>{
+    const v=el.querySelector('#famJoin').value.trim();
+    if(v.replace(/[^A-Za-z0-9]/g,'').length<4){ toast('Código muy corto'); return; }
+    setFam(v); await syncNow({silent:false}); renderHome(); refreshAdmin();
+  });
 }
 
 // ---- Gestión de niños ----
@@ -1216,7 +1344,7 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.add('hidden'));
   document.getElementById('tab-'+t.dataset.tab).classList.remove('hidden');
   if(t.dataset.tab==='ready') renderParent();
-  if(t.dataset.tab==='kids') renderKidsAdmin();
+  if(t.dataset.tab==='kids'){ renderKidsAdmin(); renderFamily(); }
   if(t.dataset.tab==='create'){ refreshGenStudents(); refreshSubjectList(); }
 }));
 // pin
@@ -1336,6 +1464,31 @@ document.getElementById('soundToggle').addEventListener('click',function(){ cons
 applyTheme();
 document.getElementById('soundToggle').textContent=getSettings().sound?'🔊 Sonido':'🔇 Silencio';
 renderHome();
+
+// ---- Familia: unirse por link (#f=CODIGO) y sincronizar ----
+(function(){
+  const m=(location.hash+' '+location.search).match(/f=([A-Za-z0-9]{4,12})/);
+  const incoming = m ? m[1].toUpperCase() : '';
+  const joining = incoming && incoming!==getFam();
+  if(incoming){
+    setFam(incoming);
+    try{ history.replaceState(null,'',location.pathname); }catch(e){}
+  }
+  if(getFam()){
+    const hint=document.getElementById('homeHint');
+    if(hint && joining) hint.textContent='Conectando con tu familia…';
+    syncNow({silent:true}).then(r=>{
+      renderHome();
+      if(joining) toast(r.ok?'¡Listo! Ya estás en la familia 👨‍👩‍👦':'No se pudo conectar. Revisa tu internet.');
+    });
+  }
+})();
+// Al volver a la app, buscar pruebas nuevas
+document.addEventListener('visibilitychange',()=>{
+  if(!document.hidden && getFam() && Date.now()-_lastSync>20000){
+    syncNow({silent:true}).then(r=>{ if(r.ok){ renderHome(); if(adminOpen()) refreshAdmin(); } });
+  }
+});
 
 // ============================================================
 // PWA: instalación + service worker (app instalable iPhone/Android)

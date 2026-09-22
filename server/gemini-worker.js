@@ -13,7 +13,9 @@
      - https://TU-WORKER.workers.dev/?diag=1     → qué modelo funciona + lista
    ============================================================ */
 
-const VERSION = 'v3-chain-diag';
+const VERSION = 'v4-sync';
+
+function kvOf(env) { return env.VERA_KV || env.KV || env.VERA || null; }
 
 // Cadena de modelos: se prueba en orden hasta que uno responda 200.
 // Los alias "*-latest" los mantiene Google disponibles para todos.
@@ -39,22 +41,25 @@ export default {
 
     const key = env.GEMINI_API_KEY;
     const forced = env.GEMINI_MODEL || '';
+    const store = kvOf(env);
 
     if (request.method === 'GET') {
       const u = new URL(request.url);
       if (u.searchParams.get('diag') === '1') {
-        if (!key) return json({ ok: false, error: 'Falta GEMINI_API_KEY en el servidor' }, 200, cors);
-        return json(await diagnose(forced, key), 200, cors);
+        const base = { version: VERSION, kv: !!store };
+        if (!key) return json({ ...base, ok: false, error: 'Falta GEMINI_API_KEY en el servidor' }, 200, cors);
+        return json({ ...base, ...(await diagnose(forced, key)) }, 200, cors);
       }
-      return json({ ok: true, service: 'vera-gemini', version: VERSION }, 200, cors);
+      return json({ ok: true, service: 'vera-gemini', version: VERSION, kv: !!store }, 200, cors);
     }
     if (request.method !== 'POST') return json({ error: 'Usa POST' }, 405, cors);
-    if (!key) return json({ error: 'Falta configurar GEMINI_API_KEY en el servidor' }, 500, cors);
 
     let body;
     try { body = await request.json(); } catch { return json({ error: 'JSON inválido' }, 400, cors); }
 
     try {
+      if (body.mode === 'sync') return json(await sync(body, store), 200, cors);
+      if (!key) return json({ error: 'Falta configurar GEMINI_API_KEY en el servidor' }, 500, cors);
       const out = body.mode === 'evaluate'
         ? await evaluate(body, forced, key)
         : await generate(body, forced, key);
@@ -67,6 +72,72 @@ export default {
 
 function json(obj, status, cors) {
   return new Response(JSON.stringify(obj), { status, headers: { 'Content-Type': 'application/json', ...cors } });
+}
+
+/* ===================== SINCRONIZACIÓN FAMILIAR ===================== */
+
+function cleanCode(c) { return String(c || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 12); }
+
+function mergeById(a, b) {
+  const m = new Map();
+  for (const x of [...(a || []), ...(b || [])]) {
+    if (!x || !x.id) continue;
+    const prev = m.get(x.id);
+    if (!prev || (x.updatedAt || 0) >= (prev.updatedAt || 0)) m.set(x.id, x);
+  }
+  return [...m.values()];
+}
+function mergeTests(a, b) {
+  a = a || {}; b = b || {};
+  const out = {};
+  for (const kid of new Set([...Object.keys(a), ...Object.keys(b)])) {
+    const subs = new Set([...Object.keys(a[kid] || {}), ...Object.keys(b[kid] || {})]);
+    out[kid] = {};
+    for (const s of subs) out[kid][s] = mergeById((a[kid] || {})[s], (b[kid] || {})[s]);
+  }
+  return out;
+}
+function mergeProgress(a, b) {
+  a = a || {}; b = b || {};
+  const out = {};
+  for (const id of new Set([...Object.keys(a), ...Object.keys(b)])) {
+    const pa = a[id] || {}, pb = b[id] || {};
+    const hist = new Map();
+    for (const h of [...(pa.quizHistory || []), ...(pb.quizHistory || [])]) {
+      if (h && h.ts) hist.set(h.ts + '|' + (h.quizId || ''), h);
+    }
+    const quizHistory = [...hist.values()].sort((x, y) => (x.ts || 0) - (y.ts || 0));
+    const last = quizHistory[quizHistory.length - 1];
+    out[id] = {
+      quizHistory,
+      totalCompleted: quizHistory.length,
+      totalStars: quizHistory.reduce((s, h) => s + (h.stars || 0), 0),
+      bestScore: quizHistory.reduce((s, h) => Math.max(s, h.score || 0), 0),
+      streak: Math.max(pa.streak || 0, pb.streak || 0),
+      lastStudyDate: last ? last.date : (pa.lastStudyDate || pb.lastStudyDate || null),
+    };
+  }
+  return out;
+}
+function mergeState(server, client) {
+  return {
+    kids: mergeById(server.kids, client.kids),
+    tests: mergeTests(server.tests, client.tests),
+    progress: mergeProgress(server.progress, client.progress),
+  };
+}
+async function sync(body, store) {
+  if (!store) throw new Error('El servidor no tiene almacenamiento. Falta agregar el binding KV llamado VERA_KV.');
+  const code = cleanCode(body.code);
+  if (code.length < 4) throw new Error('Código de familia inválido');
+  const raw = await store.get('fam:' + code);
+  const server = raw ? JSON.parse(raw) : { kids: [], tests: {}, progress: {} };
+  const merged = mergeState(server, body.state || {});
+  // Solo escribimos si algo cambió (cuida el límite gratuito de escrituras)
+  const before = JSON.stringify({ kids: server.kids || [], tests: server.tests || {}, progress: server.progress || {} });
+  const after = JSON.stringify(merged);
+  if (before !== after) await store.put('fam:' + code, JSON.stringify({ ...merged, updatedAt: Date.now() }));
+  return { state: merged, code, changed: before !== after };
 }
 
 async function listModels(key) {
@@ -209,3 +280,6 @@ async function evaluate(b, forced, key) {
     `recordar (1 frase con el concepto clave, simple y memorable).`;
   return await callGemini(forced, key, [{ text: prompt }], schema);
 }
+
+// Exportado solo para tests locales (el Worker usa el export default)
+export { mergeById, mergeTests, mergeProgress, mergeState, cleanCode };

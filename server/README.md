@@ -37,11 +37,27 @@ Todo se hace desde el navegador, sin instalar nada. ~10 minutos.
    - **Nombre:** `GEMINI_API_KEY`
    - **Valor:** tu clave `AIza...`
    - Márcala como **Secret / Encrypt**.
-3. (Opcional) Otra variable `GEMINI_MODEL` = `gemini-2.0-flash` (por defecto ya usa ese;
-   si tu cuenta no lo tuviera, prueba `gemini-1.5-flash`).
+3. (Opcional) Otra variable `GEMINI_MODEL` para forzar un modelo. Si no la pones,
+   el servidor prueba varios hasta encontrar uno disponible (recomendado).
 4. (Opcional, más seguro) `ALLOW_ORIGIN` = `https://felipevera-droid.github.io`
    para que solo tu app pueda usar el servidor.
 5. Guarda y vuelve a **Deploy** si te lo pide.
+
+---
+
+## Paso 3.5 — Almacenamiento para sincronizar dispositivos (KV)
+
+Esto es lo que permite que **las pruebas que creas lleguen al teléfono de tus hijos**
+y que su progreso vuelva a tu panel.
+
+1. En el menú lateral de Cloudflare: **Storage & databases → KV**.
+2. **Create instance / Create namespace** → nombre: `vera-familias` → **Add**.
+3. Vuelve a tu Worker `vera-ia` → pestaña **Bindings** → **Add binding** →
+   **KV namespace**:
+   - **Variable name:** `VERA_KV`   ← debe llamarse exactamente así
+   - **KV namespace:** `vera-familias`
+4. **Deploy**.
+5. Comprueba abriendo `https://TU-WORKER.workers.dev/` → debe decir `"kv":true`.
 
 ---
 
