@@ -549,10 +549,10 @@ select.inp{cursor:pointer}
 
       <!-- TAB: NIÑOS -->
       <div id="tab-kids" class="tab-panel hidden">
-        <div class="admin-info">👦👧 Crea un perfil por cada hijo/a y comparte el link: su teléfono recibe las pruebas y te devuelve su progreso.</div>
+        <div class="admin-info">👦👧 Crea un perfil por cada hijo/a. Tus hijos entran al <b>mismo link de siempre</b> desde sus teléfonos y ahí ven las pruebas que subas. Su progreso vuelve a tu panel.</div>
         <div class="card">
-          <h3>👨‍👩‍👦 Mi familia — sincronizar dispositivos</h3>
-          <p class="hint">Manda el link a tus hijos: su teléfono se une <b>solo</b>, sin escribir códigos. Las pruebas que creas les llegan, y su progreso vuelve a tu panel.</p>
+          <h3>👨‍👩‍👦 Mis dispositivos</h3>
+          <p class="hint">Todo lo que crees aquí se sincroniza solo con los teléfonos de tus hijos.</p>
           <div id="familyBox"></div>
         </div>
         <div class="card">
@@ -708,10 +708,14 @@ const DEFAULT_AI_URL = 'https://vera-ia.felipe-vera.workers.dev';
 function getAiUrl(){ const v=getSettings().aiUrl; return String((v===undefined||v==='')?DEFAULT_AI_URL:v).trim(); }
 
 // ---------- FAMILIA: sincronización entre los dispositivos de la casa ----------
-function getFam(){ return String(getSettings().fam||'').toUpperCase(); }
+// Por defecto TODOS los dispositivos comparten el mismo espacio: tú subes una prueba
+// y a tus hijos les aparece abriendo el mismo link. (Se puede usar un código privado.)
+const DEFAULT_FAM = 'CASAVERA';
+function getFam(){ const v=getSettings().fam; return String((v===undefined||v==='')?DEFAULT_FAM:v).toUpperCase(); }
+function isCustomFam(){ return String(getSettings().fam||'')!==''; }
 function setFam(c){ setSetting('fam', String(c||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,12)); }
 function newFamCode(){ const A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; let s=''; for(let i=0;i<6;i++) s+=A[Math.floor(Math.random()*A.length)]; return s; }
-function shareLink(){ return location.origin+location.pathname+'#f='+getFam(); }
+function shareLink(){ const base=location.origin+location.pathname; return isCustomFam()? base+'#f='+getFam() : base; }
 function localState(){
   const kids=getKidsRaw(), tests={}, progress={};
   for(const k of kids){
@@ -1203,31 +1207,22 @@ function renderPublished(){
 // ---- Familia / sincronización ----
 function renderFamily(){
   const el=document.getElementById('familyBox'); if(!el) return;
-  const code=getFam();
-  if(!code){
-    el.innerHTML=`<button id="famCreate" class="btn btn-primary">👨‍👩‍👦 Activar sincronización</button>
-      <p class="hint" style="margin:8px 0 0">Se creará el código de tu familia para compartir las pruebas con tus hijos.</p>`;
-    el.querySelector('#famCreate').addEventListener('click',async()=>{
-      setFam(newFamCode());
-      const r=await syncNow({silent:true});
-      renderFamily();
-      toast(r.ok?('¡Sincronización activada! Código '+getFam()):'Código creado: '+getFam());
-    });
-    return;
-  }
-  const link=shareLink();
+  const link=shareLink(), custom=isCustomFam();
   el.innerHTML=`
-    <div style="text-align:center;background:var(--surface-2);border-radius:var(--r-sm);padding:14px;margin-bottom:12px">
-      <div style="font-size:.7rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.12em">Código de familia</div>
-      <div style="font-family:var(--ff-display);font-size:1.9rem;font-weight:800;letter-spacing:.16em;color:var(--primary)">${esc(code)}</div>
+    <div style="display:flex;align-items:center;gap:11px;background:var(--success-soft);border-radius:var(--r-sm);padding:12px 14px;margin-bottom:12px">
+      <span style="font-size:1.5rem">✅</span>
+      <div><div style="font-weight:800;font-size:.92rem">Sincronización activada</div>
+      <div style="font-size:.8rem;color:var(--text-soft);font-weight:700">Lo que subas aquí les aparece a tus hijos al abrir la app.</div></div>
     </div>
     <div class="field"><label>Link para tus hijos</label><input id="famLink" class="inp" readonly value="${esc(link)}"/></div>
     <button id="famCopy" class="btn btn-primary">📋 Copiar link para mis hijos</button>
     <button id="famSync" class="btn btn-soft" style="margin-top:8px">🔄 Sincronizar ahora</button>
     <p id="famStatus" class="hint" style="margin:10px 0 0"></p>
-    <details style="margin-top:10px"><summary style="font-size:.82rem;font-weight:800;color:var(--muted);cursor:pointer">Unirme a otra familia</summary>
-      <div class="field" style="margin-top:8px"><input id="famJoin" class="inp" placeholder="Código (ej: ABC123)"/></div>
-      <button id="famJoinBtn" class="btn btn-soft">Unirme</button>
+    <details style="margin-top:10px"><summary style="font-size:.8rem;font-weight:800;color:var(--muted);cursor:pointer">Avanzado: usar un espacio privado</summary>
+      <p class="hint" style="margin-top:8px">Por defecto tus dispositivos comparten el mismo espacio (lo más simple). Si quieres uno privado, elige un código y úsalo en todos tus equipos.</p>
+      <div class="field"><input id="famJoin" class="inp" placeholder="Código privado (ej: VERA123)" value="${custom?esc(getFam()):''}"/></div>
+      <button id="famJoinBtn" class="btn btn-soft">Usar este código</button>
+      ${custom?'<button id="famReset" class="btn btn-ghost" style="width:100%;margin-top:8px">Volver al espacio compartido</button>':''}
     </details>`;
   el.querySelector('#famCopy').addEventListener('click',async()=>{
     try{ await navigator.clipboard.writeText(link); toast('Link copiado 📋'); }
@@ -1236,14 +1231,16 @@ function renderFamily(){
   el.querySelector('#famSync').addEventListener('click',async()=>{
     const st=el.querySelector('#famStatus'); st.textContent='Sincronizando…';
     const r=await syncNow({silent:false});
-    st.textContent = r.ok? 'Última sincronización: recién' : ('No se pudo: '+(r.error||''));
+    st.textContent = r.ok ? '✅ Al día' : ('⚠️ '+(r.error||'No se pudo sincronizar'));
     renderHome(); refreshAdmin();
   });
   el.querySelector('#famJoinBtn').addEventListener('click',async()=>{
     const v=el.querySelector('#famJoin').value.trim();
-    if(v.replace(/[^A-Za-z0-9]/g,'').length<4){ toast('Código muy corto'); return; }
+    if(v.replace(/[^A-Za-z0-9]/g,'').length<4){ toast('El código necesita al menos 4 letras/números'); return; }
     setFam(v); await syncNow({silent:false}); renderHome(); refreshAdmin();
   });
+  const rst=el.querySelector('#famReset');
+  if(rst) rst.addEventListener('click',async()=>{ setSetting('fam',''); await syncNow({silent:false}); renderHome(); refreshAdmin(); });
 }
 
 // ---- Gestión de niños ----
