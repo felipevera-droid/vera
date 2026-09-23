@@ -13,7 +13,7 @@
      - https://TU-WORKER.workers.dev/?diag=1     → qué modelo funciona + lista
    ============================================================ */
 
-const VERSION = 'v4-sync';
+const VERSION = 'v4-sync'; // primer despliegue vía GitHub Actions (Cloudflare Workers Builds)
 
 function kvOf(env) { return env.VERA_KV || env.KV || env.VERA || null; }
 
