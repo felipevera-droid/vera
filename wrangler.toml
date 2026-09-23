@@ -14,7 +14,7 @@ compatibility_date = "2026-09-01"
 # Storage & databases → KV → (tu namespace) → ID.
 [[kv_namespaces]]
 binding = "VERA_KV"
-id = "PEGAR_ID_DEL_NAMESPACE"
+id = "bea8a9848e564f948e9bc2aed13f9477"
 
 # Nota: GEMINI_API_KEY NO va aquí (es un secreto y vive solo en Cloudflare:
 # Settings → Variables and Secrets).
