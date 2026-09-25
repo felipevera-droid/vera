@@ -577,6 +577,12 @@ select.inp{cursor:pointer}
           <button id="pinSave" class="btn btn-soft">Cambiar PIN</button>
         </div>
         <div class="card">
+          <h3>🔄 Actualizar la app</h3>
+          <p class="hint">Si notas que la app se ve "vieja" o le faltan botones nuevos, toca esto. <b>No borra tus niños ni tus pruebas</b>, solo limpia la caché para bajar la última versión.</p>
+          <button id="forceUpdateBtn" class="btn btn-soft">🔄 Forzar actualización</button>
+          <p id="forceUpdateStatus" class="status-ok"></p>
+        </div>
+        <div class="card">
           <h3 style="color:var(--danger)">⚠️ Zona peligrosa</h3>
           <p class="hint">Borra el progreso (mantiene niños y pruebas), o borra absolutamente todo de este dispositivo.</p>
           <button id="resetBtn" class="btn btn-soft" style="margin-bottom:8px">🧹 Borrar solo el progreso</button>
@@ -1364,6 +1370,25 @@ bindClick('pinSave',()=>{
   setSetting('pin',v); document.getElementById('pinInput2').value=''; toast('PIN actualizado');
 });
 bindClick('manualBtn',()=>openManualEditor(null));
+// Fuerza a la app a bajar la última versión: quita SOLO la caché y el service
+// worker (nunca localStorage), para no borrar niños/pruebas/progreso.
+async function forceUpdate(){
+  const st=document.getElementById('forceUpdateStatus');
+  if(st){ st.textContent='Actualizando…'; st.className='status-ok'; }
+  try{
+    if('serviceWorker' in navigator){
+      const regs=await navigator.serviceWorker.getRegistrations();
+      for(const r of regs){ try{ await r.unregister(); }catch(e){} }
+    }
+    if(window.caches){
+      const keys=await caches.keys();
+      for(const k of keys){ try{ await caches.delete(k); }catch(e){} }
+    }
+  }catch(e){}
+  location.reload();
+}
+window.forceUpdate=forceUpdate; // permite forzarla también desde la barra de direcciones si hiciera falta
+bindClick('forceUpdateBtn',()=>{ forceUpdate(); });
 bindClick('resetBtn',()=>{
   if(!confirm('⚠️ ¿Borrar el PROGRESO de todos los niños en este dispositivo? (Los perfiles y las pruebas se conservan.)')) return;
   getKids().forEach(k=>localStorage.removeItem('prg_'+k.id));
@@ -1498,8 +1523,9 @@ document.addEventListener('visibilitychange',()=>{
 
   if('serviceWorker' in navigator){
     window.addEventListener('load',()=>{
-      navigator.serviceWorker.register('sw.js').then(reg=>{
-        // Revisa activamente si hay una versión nueva del service worker
+      // updateViaCache:'none' evita que el propio navegador use su caché HTTP
+      // para revisar sw.js, así detecta versiones nuevas sin demora.
+      navigator.serviceWorker.register('sw.js', {updateViaCache:'none'}).then(reg=>{
         reg.update().catch(()=>{});
         setInterval(()=>reg.update().catch(()=>{}), 60*1000);
       }).catch(()=>{});
