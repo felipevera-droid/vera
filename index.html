@@ -559,6 +559,16 @@ select.inp{cursor:pointer}
           <h3>👦 Niños</h3>
           <div id="kidsList"></div>
         </div>
+        <div id="orphanCard" class="card hidden" style="border:1.5px solid var(--warning)">
+          <h3>📦 Pruebas sin dueño</h3>
+          <p class="hint">Encontradas de un niño borrado o de una sincronización rara. Elige a quién asignárselas para recuperarlas.</p>
+          <div id="orphanList"></div>
+        </div>
+        <div id="deletedKidsCard" class="card hidden">
+          <h3>🗑️ Niños eliminados</h3>
+          <p class="hint">Se ocultaron, pero puedes restaurarlos junto con sus pruebas y progreso.</p>
+          <div id="deletedKidsList"></div>
+        </div>
       </div>
 
       <!-- TAB: SETTINGS -->
@@ -649,12 +659,20 @@ function upsertKid(kid){
   saveKids(l); syncSoon();
 }
 function removeKid(id){
+  // Borrado "suave": se oculta (no aparece más) pero se conserva su nombre,
+  // pruebas y progreso, por si fue un error y hay que Restaurar más tarde.
   const l=getKidsRaw(); const i=l.findIndex(k=>k.id===id);
-  const tomb={id, deleted:true, updatedAt:nowTs()};
+  const prevFull = i>=0 ? l[i] : {id};
+  const tomb={...prevFull, deleted:true, updatedAt:nowTs()};
   if(i>=0) l[i]=tomb; else l.push(tomb);
   saveKids(l);
-  localStorage.removeItem('prg_'+id); localStorage.removeItem('tests_'+id);
   syncSoon();
+}
+function getDeletedKids(){ return getKidsRaw().filter(k=>k && k.deleted); }
+function restoreKid(id){
+  const l=getKidsRaw(); const i=l.findIndex(k=>k.id===id); if(i<0) return;
+  l[i]={...l[i], deleted:false, updatedAt:nowTs()};
+  saveKids(l); syncSoon();
 }
 
 // ---------- PROGRESO (por niño) ----------
@@ -704,6 +722,40 @@ function removeTest(st, subject, testId){
 }
 function findTest(st, subject, testId){ return (getTests(st)[subject]||[]).find(x=>x.id===testId)||null; }
 function qid(st,s,tid){ return [st,s,tid].join('|'); }
+
+// ---------- RECUPERAR PRUEBAS HUÉRFANAS ----------
+// Si un niño se borró por error (u otra situación rara), sus pruebas quedan
+// guardadas en 'tests_<id>' aunque el perfil ya no aparezca. Esto las detecta
+// para poder reasignarlas a un niño existente.
+function findOrphanTests(){
+  const knownIds=new Set(getKids().map(k=>k.id)); // solo niños VISIBLES; un id borrado también cuenta como huérfano
+  const out=[];
+  for(const key of Object.keys(localStorage)){
+    const m=key.match(/^tests_(.+)$/); if(!m) continue;
+    const oid=m[1]; if(knownIds.has(oid)) continue; // pertenece a un niño visible: no es huérfana
+    let raw={}; try{ raw=JSON.parse(localStorage.getItem(key)||'{}'); }catch(e){ continue; }
+    let count=0; const subs=[];
+    for(const sub of Object.keys(raw)){
+      const live=(raw[sub]||[]).filter(t=>t&&!t.deleted&&t.title&&Array.isArray(t.questions)&&t.questions.length);
+      if(live.length){ count+=live.length; subs.push(sub+' ('+live.length+')'); }
+    }
+    if(count>0) out.push({oid, count, subs});
+  }
+  return out;
+}
+function recoverOrphanTests(oid, destKidId){
+  const raw=getTestsRaw(oid); let moved=0;
+  for(const sub of Object.keys(raw)){
+    for(const t of (raw[sub]||[])){
+      if(t && !t.deleted && t.title && Array.isArray(t.questions) && t.questions.length){
+        saveTest(destKidId, sub, {...t, id:newId('t')}); // id nuevo: evita chocar si ya existiera
+        moved++;
+      }
+    }
+  }
+  if(moved>0) localStorage.removeItem('tests_'+oid);
+  return moved;
+}
 
 // ---------- SETTINGS ----------
 function getSettings(){ const d={theme:'light',sound:true,pin:'1234',aiUrl:'',fam:''}; try{return {...d,...JSON.parse(localStorage.getItem('cfg')||'{}')};}catch(e){return d;} }
@@ -1260,6 +1312,38 @@ function renderKidsAdmin(){
     + `<button id="addKidAdmin" class="btn btn-primary" style="margin-top:10px">➕ Agregar niño/a</button>`;
   el.querySelectorAll('.del[data-edit]').forEach(b=>b.addEventListener('click',()=>openKidEditor(b.dataset.edit)));
   el.querySelector('#addKidAdmin').addEventListener('click',()=>openKidEditor(null));
+  renderDeletedKids(); renderOrphanTests();
+}
+function renderDeletedKids(){
+  const wrap=document.getElementById('deletedKidsCard'); const el=document.getElementById('deletedKidsList'); if(!el||!wrap) return;
+  const del=getDeletedKids();
+  if(!del.length){ wrap.classList.add('hidden'); return; }
+  wrap.classList.remove('hidden');
+  el.innerHTML=del.map(k=>`<div class="published-item"><span>${esc(k.emoji||'⭐')} <b>${esc(k.name||'(sin nombre)')}</b> <span style="color:var(--muted)">${esc(k.grade||'')}</span></span>
+    <button class="del" style="color:var(--primary)" data-restore="${k.id}">↩️ Restaurar</button></div>`).join('');
+  el.querySelectorAll('[data-restore]').forEach(b=>b.addEventListener('click',()=>{
+    restoreKid(b.dataset.restore); renderHome(); refreshAdmin(); toast('Niño/a restaurado ✅');
+  }));
+}
+function renderOrphanTests(){
+  const wrap=document.getElementById('orphanCard'); const el=document.getElementById('orphanList'); if(!el||!wrap) return;
+  const orphans=findOrphanTests();
+  if(!orphans.length){ wrap.classList.add('hidden'); return; }
+  wrap.classList.remove('hidden');
+  const kids=getKids();
+  el.innerHTML=orphans.map(o=>`<div class="published-item" style="flex-direction:column;align-items:stretch;gap:8px">
+    <span>📦 ${o.count} prueba(s) sin dueño: <span style="color:var(--muted)">${esc(o.subs.join(', '))}</span></span>
+    <div style="display:flex;gap:8px">
+      <select class="inp" data-target="${o.oid}" style="flex:1">${kids.length?kids.map(k=>`<option value="${k.id}">${esc(k.emoji)} ${esc(k.name)}</option>`).join(''):'<option value="">(crea un niño primero)</option>'}</select>
+      <button class="btn btn-primary" style="width:auto;padding:10px 16px" data-recover="${o.oid}">Recuperar</button>
+    </div></div>`).join('');
+  el.querySelectorAll('[data-recover]').forEach(b=>b.addEventListener('click',()=>{
+    const oid=b.dataset.recover; const sel=el.querySelector(`select[data-target="${oid}"]`); const dest=sel&&sel.value;
+    if(!dest){ toast('Crea o elige un niño primero'); return; }
+    const n=recoverOrphanTests(oid, dest);
+    refreshSubjectList(); renderPublished(); renderParent(); renderKidsAdmin(); syncSoon();
+    toast(n+' prueba(s) recuperada(s) ✅');
+  }));
 }
 function openKidEditor(id){
   const k = id? {...getKid(id)} : {id:newId('k'), name:'', emoji:EMOJIS[Math.floor(Math.random()*EMOJIS.length)], grade:'', accent:getKids().length%PALETTES.length};
@@ -1280,7 +1364,7 @@ function openKidEditor(id){
     k.name=name; k.grade=box.querySelector('#kGrade').value.trim();
     upsertKid(k); closeModal(); renderHome(); refreshAdmin(); toast(id?'Perfil actualizado':'¡Perfil creado!');
   });
-  if(id) box.querySelector('#kDel').addEventListener('click',()=>{ if(!confirm('¿Eliminar a '+k.name+' con todas sus pruebas y progreso? No se puede deshacer.')) return; removeKid(id); closeModal(); if(S.student===id)S.student=''; renderHome(); refreshAdmin(); toast('Niño/a eliminado'); });
+  if(id) box.querySelector('#kDel').addEventListener('click',()=>{ if(!confirm('¿Eliminar a '+k.name+'? Se oculta, pero puedes restaurarlo/a después en "Niños eliminados" si fue un error.')) return; removeKid(id); closeModal(); if(S.student===id)S.student=''; renderHome(); refreshAdmin(); toast('Niño/a eliminado — se puede restaurar'); });
   box.querySelector('#kCancel').addEventListener('click',closeModal);
   setTimeout(()=>box.querySelector('#kName').focus(),80);
 }
