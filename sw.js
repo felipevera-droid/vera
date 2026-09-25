@@ -3,7 +3,7 @@
    - App shell (index.html, manifest, iconos, fuentes): cache-first, se actualiza en segundo plano.
    - data.json (pruebas): network-first, con respaldo a la última copia en caché (offline).
    Sube CACHE_VERSION cuando cambie el shell para forzar actualización. */
-const CACHE_VERSION = 'vera-v1';
+const CACHE_VERSION = 'vera-v2';
 const SHELL = [
   './',
   './index.html',

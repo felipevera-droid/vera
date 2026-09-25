@@ -1497,7 +1497,19 @@ document.addEventListener('visibilitychange',()=>{
   let deferred = null;
 
   if('serviceWorker' in navigator){
-    window.addEventListener('load',()=>{ navigator.serviceWorker.register('sw.js').catch(()=>{}); });
+    window.addEventListener('load',()=>{
+      navigator.serviceWorker.register('sw.js').then(reg=>{
+        // Revisa activamente si hay una versión nueva del service worker
+        reg.update().catch(()=>{});
+        setInterval(()=>reg.update().catch(()=>{}), 60*1000);
+      }).catch(()=>{});
+    });
+    // Cuando el nuevo service worker toma el control, recarga UNA vez para
+    // que la app se refresque sola (evita quedar pegado en una versión vieja).
+    let _swRefreshing=false;
+    navigator.serviceWorker.addEventListener('controllerchange',()=>{
+      if(_swRefreshing) return; _swRefreshing=true; location.reload();
+    });
   }
 
   if(isStandalone){ if(btn) btn.classList.add('hidden'); }
